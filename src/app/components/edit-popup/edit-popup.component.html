@@ -1,0 +1,226 @@
+<p-dialog
+  [header]="header"
+  [(visible)]="display"
+  [modal]="true"
+  [closable]="false"
+  [style]="{ width: '55rem' }"
+>
+  <div class="flex flex-col gap-4 p-6" [formGroup]="freelancerForm">
+    <!-- freelancer name -->
+    <div class="flex items-center gap-2">
+      <label for="name" class="text-gray-700 font-medium w-1/5">Name:</label>
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Name Input"
+        type="text"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+
+    <!-- location -->
+    <div class="flex items-center gap-2">
+      <label for="location" class="text-gray-700 font-medium w-1/5"
+        >Location:</label
+      >
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Location Input"
+        type="text"
+        id="location"
+        formControlName="location"
+      />
+    </div>
+
+    <!-- hourly rate -->
+    <div class="flex items-center gap-2">
+      <label for="hourlyRate" class="text-gray-700 font-medium w-1/5"
+        >Hourly Rate:</label
+      >
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Hourly Rate Input"
+        type="text"
+        id="hourlyRate"
+        formControlName="hourlyRate"
+      />
+    </div>
+
+    <!-- profile picture -->
+    <div class="flex items-center gap-2">
+      <label for="profilePicture" class="text-gray-700 font-medium w-1/5"
+        >Profile Picture URL:</label
+      >
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Profile Picture URL Input"
+        type="text"
+        id="profilePicture"
+        formControlName="profilePicture"
+      />
+    </div>
+
+    <!-- bio -->
+    <div class="flex items-center gap-2">
+      <label for="bio" class="text-gray-700 font-medium w-1/5">Bio:</label>
+      <textarea
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Bio Input"
+        rows="3"
+        id="bio"
+        formControlName="bio"
+      ></textarea>
+    </div>
+
+    <!-- skills -->
+    <div class="flex items-center gap-2">
+      <label for="skills" class="text-gray-700 font-medium w-1/5"
+        >Skills:</label
+      >
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Skills Input"
+        type="text"
+        id="skills"
+        formControlName="skills"
+      />
+    </div>
+    <p class="text-xs text-end -mt-10">
+      Separate different items with a comma.
+    </p>
+
+    <!-- social links -->
+    <div class="flex items-center gap-2">
+      <label for="linkedin" class="text-gray-700 font-medium w-1/5"
+        >LinkedIn:</label
+      >
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer LinkedIn Profile URL Input"
+        type="text"
+        id="linkedin"
+        formControlName="linkedin"
+      />
+    </div>
+    <div class="flex items-center gap-2">
+      <label for="github" class="text-gray-700 font-medium w-1/5"
+        >GitHub:</label
+      >
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer GitHub Profile URL Input"
+        type="text"
+        id="github"
+        formControlName="github"
+      />
+    </div>
+
+    <!-- contact information -->
+    <div class="flex items-center gap-2">
+      <label for="email" class="text-gray-700 font-medium w-1/5">Email:</label>
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Email Input"
+        type="text"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="flex items-center gap-2">
+      <label for="phone" class="text-gray-700 font-medium w-1/5">Phone:</label>
+      <input
+        autocomplete="off"
+        class="border border-gray-300 rounded-lg p-2 w-full"
+        title="Freelancer Phone Number Input"
+        type="text"
+        id="phone"
+        formControlName="phone"
+      />
+    </div>
+
+    <!-- portfolio item(s)
+     make sure form is initialised -->
+    <div *ngIf="freelancerForm.get('portfolio')" formArrayName="portfolio">
+      <div class="flex justify-between items-center mb-2">
+        <span class="font-semibold mt-1 text-md">Portfolio</span>
+        <button
+          title="Add New Portfolio Item"
+          type="button"
+          pButton
+          icon="pi pi-plus"
+          label="Add Item"
+          iconPos="right"
+          (click)="addPortfolioItem()"
+          class="hover:bg-gray-200 rounded p-2"
+        ></button>
+      </div>
+
+      <div
+        *ngFor="let item of portfolioArray.controls; let i = index"
+        [formGroupName]="i"
+        class="flex py-1"
+      >
+        <label class="text-gray-700 mt-3 font-medium w-1/5"
+          >Item {{ i + 1 }}:</label
+        >
+        <span class="gap-4 w-full flex justify-between">
+          <input
+            class="border border-gray-300 rounded-lg p-2 w-1/2"
+            title="Portfolio Item Title Input"
+            type="text"
+            formControlName="title"
+            placeholder="Title"
+          />
+          <input
+            class="border border-gray-300 rounded-lg p-2 w-1/2"
+            title="Portfolio Item Link Input"
+            type="text"
+            formControlName="link"
+            placeholder="Link"
+          />
+        </span>
+        <button
+          type="button"
+          pButton
+          icon="pi pi-times"
+          (click)="removePortfolioItem(i)"
+          class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
+          title="Remove Portfolio Item"
+        ></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer with action buttons -->
+  <p-footer>
+    <div class="flex justify-end gap-2">
+      <button
+        title="Confirm Edits"
+        type="button"
+        pButton
+        icon="pi pi-check"
+        (click)="onConfirm()"
+        label="Confirm"
+        class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg disabled:opacity-50"
+        [class.disabled]="!freelancerForm.valid"
+      ></button>
+      <button
+        title="Discard Edits"
+        type="button"
+        pButton
+        icon="pi pi-times"
+        (click)="onCancel()"
+        label="Cancel"
+        class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
+      ></button>
+    </div>
+  </p-footer>
+</p-dialog>

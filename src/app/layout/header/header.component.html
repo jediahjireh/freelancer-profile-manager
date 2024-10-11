@@ -1,0 +1,25 @@
+<header
+  class="w-full h-24 border-b border-border-color p-8 box-border flex items-center justify-between"
+>
+  <div class="object-contain">
+    <img
+      src="/images/negishi-freelancing-logo.jpg"
+      alt="Logo image"
+      class="logo w-1/2"
+      height="h-auto"
+      width="w-full"
+    />
+  </div>
+
+  <div class="flex space-x-4">
+    <!-- '/' can be found in both links, hence the need for exact active options -->
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Admin</a
+    >
+    <!--
+    <a routerLink="/freelancer-profile" routerLinkActive="active">Freelancer Profile</a>
+  --></div>
+</header>

@@ -1,0 +1,49 @@
+<div class="flex flex-col gap-4" *ngIf="freelancers && freelancers.length > 0">
+  <!-- add freelancer button -->
+  <button
+    title="Add Freelancer Button"
+    type="button"
+    pButton
+    icon="pi pi-plus"
+    (click)="toggleAddPopup()"
+    label="Add Freelancer"
+    class="add-freelancer-button p-2 fixed bottom-5 right-5 z-10 bg-custom-green bg-opacity-25 shadow-lg transition-shadow hover:shadow-md"
+  ></button>
+
+  <!-- display freelancers -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 flex-grow-1"
+  >
+    <app-freelancer
+      class="flex-grow-1"
+      *ngFor="let freelancer of freelancers"
+      [freelancer]="freelancer"
+      (edit)="toggleEditPopup($event)"
+      (delete)="toggleDeletePopup($event)"
+    />
+  </div>
+
+  <!-- paginator -->
+  <p-paginator
+    [rows]="rows"
+    [totalRecords]="totalRecords"
+    [rowsPerPageOptions]="[10, 20, 30]"
+    (onPageChange)="onPageChange($event)"
+    #paginator
+  />
+
+  <!-- edit freelancer popup: initialise component to edit freelancer -->
+  <app-edit-popup
+    [freelancer]="selectedFreelancer"
+    [(display)]="displayEditPopup"
+    (confirm)="onConfirmEdit($event)"
+    header="Edit Freelancer"
+  />
+
+  <!-- add freelancer popup: initialise component to add freelancer -->
+  <app-edit-popup
+    [(display)]="displayAddPopup"
+    (confirm)="onConfirmAdd($event)"
+    header="Add Freelancer"
+  />
+</div>

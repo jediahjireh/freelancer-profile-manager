@@ -1,0 +1,143 @@
+<mat-card appearance="outlined" class="flex mt-6 justify-center">
+  <!-- action buttons -->
+  <mat-card-actions class="flex justify-end">
+    <button
+      title="Actions"
+      type="button"
+      pButton
+      icon="pi pi-ellipsis-h"
+      (click)="menu.toggle($event)"
+      class="p-button-sm w-8 h-8 hover:bg-gray-200 rounded"
+    ></button>
+
+    <!-- dropdown menu -->
+    <p-overlayPanel #menu>
+      <button
+        title="Edit Freelancer"
+        type="button"
+        pButton
+        icon="pi pi-pencil"
+        (click)="editFreelancer()"
+        class="p-button-sm w-full gap-1.5 h-8 mb-2 rounded hover:bg-gray-200"
+      >
+        Edit
+      </button>
+      <!-- target the delete button element -->
+      <button
+        #deleteButton
+        title="Delete Freelancer"
+        type="button"
+        pButton
+        icon="pi pi-trash"
+        (click)="confirmDelete()"
+        class="p-button-sm w-full h-8 rounded hover:bg-gray-200 gap-1.5"
+      >
+        Delete
+      </button>
+    </p-overlayPanel>
+  </mat-card-actions>
+
+  <!-- freelancer info container -->
+  <mat-card-header class="-mt-6">
+    <!-- freelancer image -->
+    <div class="image-container w-1/4 rounded-full p-1">
+      <img
+        [src]="freelancer.profilePicture"
+        alt="Freelancer Thumbnail"
+        class="aspect-square object-contain rounded-full"
+      />
+    </div>
+
+    <span class="place-content-center ml-2">
+      <!-- freelancer name -->
+      <mat-card-subtitle>
+        {{ freelancer.name | truncateName : 20 : "..." }}
+      </mat-card-subtitle>
+      <span class="text-sm location text-gray-500 font-thin -mt-1">
+        <ng-icon name="hugePinLocation02" />
+        {{ freelancer.location }}</span
+      >
+    </span>
+  </mat-card-header>
+
+  <!-- display freelancer details -->
+  <mat-card-content class="py-1">
+    <div class="py-1">
+      <div
+        class="mt-1 mb-1 rounded-sm text-gray-500 hourly-rate text-xs w-1/3 font-semibold"
+      >
+        <ng-icon name="hugeCoins01" />
+        {{ freelancer.hourlyRate | price }} p/h
+      </div>
+
+      <div class="mt-2 -mb-1">
+        <p class="bio">{{ freelancer.bio }}</p>
+      </div>
+
+      <!-- display portfolio links -->
+      <div class="portfolio">
+        <!-- <h3 class="font-semibold">Portfolio:</h3> -->
+        <ul class="list-disc list-inside">
+          <li *ngFor="let project of freelancer.portfolio" class="mr-2 text-sm">
+            <a
+              [href]="project.link"
+              target="_blank"
+              class="text-custom-purple hover:underline"
+              >{{ project.title }}</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- display skills -->
+      <div
+        class="skills py-2 mt-1.5 flex flex-wrap gap-1 text-center justify-center"
+      >
+        <span
+          *ngFor="let skill of freelancer.skills"
+          class="skill text-custom-purple bg-custom-purple bg-opacity-35 rounded-full px-2 py-1 text-sm"
+        >
+          {{ skill }}
+        </span>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-footer class="social-links text-center border-t-2 p-1">
+    <!-- social links -->
+    <a
+      [href]="freelancer.socialLinks.linkedin"
+      target="_blank"
+      class="hover:text-custom-blue text-custom-purple"
+    >
+      <ng-icon name="hugeLinkedin01" size="20" class="ml-1" />
+    </a>
+
+    <a
+      [href]="freelancer.socialLinks.github"
+      target="_blank"
+      class="hover:text-custom-blue text-custom-purple"
+    >
+      <ng-icon name="hugeGithub01" size="20" class="ml-1" />
+    </a>
+
+    <!-- contact information links -->
+    <a
+      [href]="freelancer.contact.phone"
+      target="_blank"
+      class="hover:text-custom-blue text-custom-purple"
+    >
+      <ng-icon name="hugeCall" size="20" class="ml-1" />
+    </a>
+
+    <a
+      [href]="freelancer.contact.email"
+      target="_blank"
+      class="hover:text-custom-blue text-custom-purple"
+    >
+      <ng-icon name="hugeMail01" size="20" class="ml-1" />
+    </a>
+  </mat-card-footer>
+</mat-card>
+
+<p-confirmPopup />

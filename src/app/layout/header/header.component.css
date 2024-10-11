@@ -1,0 +1,10 @@
+a {
+  text-align: end;
+  text-decoration: none;
+  font-weight: 300;
+  color: black;
+}
+
+a &.active {
+  font-weight: 600;
+}

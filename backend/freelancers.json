@@ -1,0 +1,611 @@
+{
+  "freelancers": [
+    {
+      "id": 1,
+      "profilePicture": "images/freelancers/image26.png",
+      "name": "John Doe",
+      "location": "Durban, Umhlanga",
+      "hourlyRate": 150,
+      "bio": "Experienced web developer specialising in Angular.",
+      "skills": ["Angular", "TypeScript", "CSS"],
+      "portfolio": [
+        { "title": "Project 1", "link": "url_to_project_1" },
+        { "title": "Project 2", "link": "url_to_project_2" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "john.doe@example.com", "phone": "123-456-7890" }
+    },
+    {
+      "id": 2,
+      "profilePicture": "images/freelancers/image2.png",
+      "name": "Sarah Smith",
+      "location": "Cape Town, City Bowl",
+      "hourlyRate": 145,
+      "bio": "Graphic designer with a passion for creative solutions.",
+      "skills": ["Photoshop", "Illustrator", "InDesign"],
+      "portfolio": [
+        { "title": "Branding Project", "link": "url_to_project_3" },
+        { "title": "Web Design", "link": "url_to_project_4" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "sarah.smith@example.com", "phone": "098-765-4321" }
+    },
+    {
+      "id": 3,
+      "profilePicture": "images/freelancers/image3.png",
+      "name": "Michaela Browne",
+      "location": "Johannesburg, Sandton",
+      "hourlyRate": 160,
+      "bio": "Full-stack developer with extensive backend experience.",
+      "skills": ["Node.js", "Express", "MongoDB"],
+      "portfolio": [
+        { "title": "E-commerce Site", "link": "url_to_project_5" },
+        { "title": "Blog Platform", "link": "url_to_project_6" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "michael.brown@example.com",
+        "phone": "555-0123-4568"
+      }
+    },
+    {
+      "id": 4,
+      "profilePicture": "images/freelancers/image4.png",
+      "name": "Linda Johnson",
+      "location": "Pretoria, Brooklyn",
+      "hourlyRate": 155,
+      "bio": "Frontend developer with a keen eye for design.",
+      "skills": ["React", "Vue.js", "CSS"],
+      "portfolio": [
+        { "title": "Personal Portfolio", "link": "url_to_project_7" },
+        { "title": "Landing Page", "link": "url_to_project_8" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "linda.johnson@example.com",
+        "phone": "321-654-9870"
+      }
+    },
+    {
+      "id": 5,
+      "profilePicture": "images/freelancers/image5.png",
+      "name": "Gillian Williams",
+      "location": "Durban, Umhlanga",
+      "hourlyRate": 140,
+      "bio": "Mobile app developer with a focus on user experience.",
+      "skills": ["Flutter", "React Native", "Java"],
+      "portfolio": [
+        { "title": "Travel App", "link": "url_to_project_9" },
+        { "title": "Fitness Tracker", "link": "url_to_project_10" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "james.williams@example.com",
+        "phone": "987-654-3210"
+      }
+    },
+    {
+      "id": 6,
+      "profilePicture": "images/freelancers/image6.png",
+      "name": "Patricia Taylor",
+      "location": "Cape Town, Waterfront",
+      "hourlyRate": 165,
+      "bio": "SEO expert helping businesses grow online.",
+      "skills": ["SEO", "Content Marketing", "Analytics"],
+      "portfolio": [
+        { "title": "SEO Case Study", "link": "url_to_project_11" },
+        { "title": "Content Strategy", "link": "url_to_project_12" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "patricia.taylor@example.com",
+        "phone": "456-789-0123"
+      }
+    },
+    {
+      "id": 7,
+      "profilePicture": "images/freelancers/image7.png",
+      "name": "Roberta Harris",
+      "location": "Johannesburg, Parktown",
+      "hourlyRate": 170,
+      "bio": "Data analyst with a knack for visualisation.",
+      "skills": ["Python", "SQL", "Tableau"],
+      "portfolio": [
+        { "title": "Sales Data Analysis", "link": "url_to_project_13" },
+        { "title": "Marketing Insights", "link": "url_to_project_14" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "robert.harris@example.com",
+        "phone": "678-901-2345"
+      }
+    },
+    {
+      "id": 8,
+      "profilePicture": "images/freelancers/image8.png",
+      "name": "Jennifer Moore",
+      "location": "Cape Town, Hout Bay",
+      "hourlyRate": 175,
+      "bio": "Copywriter specialising in marketing content.",
+      "skills": ["Copywriting", "Editing", "Content Strategy"],
+      "portfolio": [
+        { "title": "Ad Campaign", "link": "url_to_project_15" },
+        { "title": "Website Copy", "link": "url_to_project_16" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "jennifer.moore@example.com",
+        "phone": "789-012-3456"
+      }
+    },
+    {
+      "id": 9,
+      "profilePicture": "images/freelancers/image9.png",
+      "name": "Charlesie Martin",
+      "location": "Pretoria, Hatfield",
+      "hourlyRate": 180,
+      "bio": "Network engineer with experience in cybersecurity.",
+      "skills": ["Cisco", "Firewall", "Network Security"],
+      "portfolio": [
+        { "title": "Network Setup", "link": "url_to_project_17" },
+        { "title": "Security Audit", "link": "url_to_project_18" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "charles.martin@example.com",
+        "phone": "234-567-8901"
+      }
+    },
+    {
+      "id": 10,
+      "profilePicture": "images/freelancers/image10.png",
+      "name": "Elizabeth Garcia",
+      "location": "Johannesburg, Westcliff",
+      "hourlyRate": 155,
+      "bio": "Video editor with a flair for storytelling.",
+      "skills": ["Premiere Pro", "Final Cut", "After Effects"],
+      "portfolio": [
+        { "title": "Short Film", "link": "url_to_project_19" },
+        { "title": "Promo Video", "link": "url_to_project_20" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "elizabeth.garcia@example.com",
+        "phone": "321-098-7654"
+      }
+    },
+    {
+      "id": 11,
+      "profilePicture": "images/freelancers/image11.png",
+      "name": "Daniel Lee",
+      "location": "Durban, Glenwood",
+      "hourlyRate": 190,
+      "bio": "Blockchain developer with a focus on security.",
+      "skills": ["Solidity", "Ethereum", "Cryptography"],
+      "portfolio": [
+        { "title": "Smart Contract", "link": "url_to_project_21" },
+        { "title": "DApp Development", "link": "url_to_project_22" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "daniel.lee@example.com", "phone": "456-123-7890" }
+    },
+    {
+      "id": 12,
+      "profilePicture": "images/freelancers/image12.png",
+      "name": "Leonard White",
+      "location": "Cape Town, Claremont",
+      "hourlyRate": 165,
+      "bio": "UI/UX designer focusing on user-friendly interfaces.",
+      "skills": ["Figma", "Sketch", "User Testing"],
+      "portfolio": [
+        { "title": "App Redesign", "link": "url_to_project_23" },
+        { "title": "Website Wireframe", "link": "url_to_project_24" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "laura.white@example.com", "phone": "678-123-4567" }
+    },
+    {
+      "id": 13,
+      "profilePicture": "images/freelancers/image13.png",
+      "name": "Kevin Anderson",
+      "location": "Johannesburg, Bryanston",
+      "hourlyRate": 185,
+      "bio": "Cloud architect with expertise in AWS and Azure.",
+      "skills": ["AWS", "Azure", "DevOps"],
+      "portfolio": [
+        { "title": "Cloud Migration", "link": "url_to_project_25" },
+        { "title": "Infrastructure Design", "link": "url_to_project_26" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "kevin.anderson@example.com",
+        "phone": "321-456-7890"
+      }
+    },
+    {
+      "id": 14,
+      "profilePicture": "images/freelancers/image14.png",
+      "name": "Emma Scott",
+      "location": "Pretoria, Menlo Park",
+      "hourlyRate": 140,
+      "bio": "Data scientist with a focus on machine learning.",
+      "skills": ["R", "Python", "Machine Learning"],
+      "portfolio": [
+        { "title": "Predictive Model", "link": "url_to_project_27" },
+        { "title": "Data Visualisation", "link": "url_to_project_28" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "emma.scott@example.com", "phone": "654-321-0987" }
+    },
+    {
+      "id": 15,
+      "profilePicture": "images/freelancers/image15.png",
+      "name": "Brianna Thomas",
+      "location": "Durban, Umhlanga",
+      "hourlyRate": 175,
+      "bio": "Cybersecurity specialist with over 10 years of experience.",
+      "skills": [
+        "Network Security",
+        "Penetration Testing",
+        "Incident Response"
+      ],
+      "portfolio": [
+        { "title": "Security Audit", "link": "url_to_project_29" },
+        { "title": "Risk Assessment", "link": "url_to_project_30" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "brian.thomas@example.com",
+        "phone": "987-123-4560"
+      }
+    },
+    {
+      "id": 16,
+      "profilePicture": "images/freelancers/image16.png",
+      "name": "Sophia Miller",
+      "location": "Cape Town, Table View",
+      "hourlyRate": 160,
+      "bio": "E-commerce expert with a focus on Shopify.",
+      "skills": ["Shopify", "SEO", "Digital Marketing"],
+      "portfolio": [
+        { "title": "Shopify Store", "link": "url_to_project_31" },
+        { "title": "Marketing Campaign", "link": "url_to_project_32" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "sophia.miller@example.com",
+        "phone": "321-654-9870"
+      }
+    },
+    {
+      "id": 17,
+      "profilePicture": "images/freelancers/image17.png",
+      "name": "Danielle Carter",
+      "location": "Johannesburg, Randburg",
+      "hourlyRate": 150,
+      "bio": "DevOps engineer with a focus on CI/CD.",
+      "skills": ["Jenkins", "Docker", "Kubernetes"],
+      "portfolio": [
+        { "title": "CI/CD Pipeline", "link": "url_to_project_33" },
+        { "title": "Containerisation", "link": "url_to_project_34" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "daniel.carter@example.com",
+        "phone": "654-987-3210"
+      }
+    },
+    {
+      "id": 18,
+      "profilePicture": "images/freelancers/image18.png",
+      "name": "Oliver Nelson",
+      "location": "Durban, Musgrave",
+      "hourlyRate": 165,
+      "bio": "Social media manager with experience in brand strategy.",
+      "skills": ["Social Media", "Content Creation", "Analytics"],
+      "portfolio": [
+        { "title": "Social Campaign", "link": "url_to_project_35" },
+        { "title": "Brand Strategy", "link": "url_to_project_36" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "olivia.nelson@example.com",
+        "phone": "789-012-3456"
+      }
+    },
+    {
+      "id": 19,
+      "profilePicture": "images/freelancers/image19.png",
+      "name": "Olivia Wright",
+      "location": "Cape Town, Bellville",
+      "hourlyRate": 155,
+      "bio": "Game developer with a passion for immersive experiences.",
+      "skills": ["Unity", "C#", "Game Design"],
+      "portfolio": [
+        { "title": "3D Game", "link": "url_to_project_37" },
+        { "title": "VR Experience", "link": "url_to_project_38" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "jacob.wright@example.com",
+        "phone": "321-456-7890"
+      }
+    },
+    {
+      "id": 20,
+      "profilePicture": "images/freelancers/image20.png",
+      "name": "Mia Kingston",
+      "location": "Johannesburg, Fourways",
+      "hourlyRate": 170,
+      "bio": "Photographer with a keen eye for detail.",
+      "skills": ["Photography", "Photo Editing", "Portraits"],
+      "portfolio": [
+        { "title": "Wedding Photography", "link": "url_to_project_39" },
+        { "title": "Fashion Shoot", "link": "url_to_project_40" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "mia.king@example.com", "phone": "654-321-0987" }
+    },
+    {
+      "id": 21,
+      "profilePicture": "images/freelancers/image21.png",
+      "name": "William Moore",
+      "location": "Pretoria, Menlyn",
+      "hourlyRate": 140,
+      "bio": "IT support specialist with strong troubleshooting skills.",
+      "skills": ["Technical Support", "Networking", "Troubleshooting"],
+      "portfolio": [
+        { "title": "Network Setup", "link": "url_to_project_41" },
+        { "title": "User Training", "link": "url_to_project_42" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "william.moore@example.com",
+        "phone": "321-654-0987"
+      }
+    },
+    {
+      "id": 22,
+      "profilePicture": "images/freelancers/image22.png",
+      "name": "Grace Lewis",
+      "location": "Cape Town, Claremont",
+      "hourlyRate": 175,
+      "bio": "Content strategist with experience in content marketing.",
+      "skills": ["Content Strategy", "Blogging", "Social Media"],
+      "portfolio": [
+        { "title": "Content Plan", "link": "url_to_project_43" },
+        { "title": "Blog Series", "link": "url_to_project_44" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "grace.lewis@example.com", "phone": "456-789-0123" }
+    },
+    {
+      "id": 23,
+      "profilePicture": "images/freelancers/image23.png",
+      "name": "James Martinez",
+      "location": "Durban, Glenwood",
+      "hourlyRate": 180,
+      "bio": "SEO specialist focused on improving search rankings.",
+      "skills": ["SEO", "Keyword Research", "Analytics"],
+      "portfolio": [
+        { "title": "SEO Audit", "link": "url_to_project_45" },
+        { "title": "Content Optimisation", "link": "url_to_project_46" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "james.martinez@example.com",
+        "phone": "789-012-3456"
+      }
+    },
+    {
+      "id": 24,
+      "profilePicture": "images/freelancers/image24.png",
+      "name": "Avin Harris",
+      "location": "Cape Town, Rondebosch",
+      "hourlyRate": 170,
+      "bio": "Web developer specialising in front-end technologies.",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "portfolio": [
+        { "title": "Portfolio Website", "link": "url_to_project_47" },
+        { "title": "Landing Page", "link": "url_to_project_48" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "ava.harris@example.com", "phone": "321-654-0987" }
+    },
+    {
+      "id": 25,
+      "profilePicture": "images/freelancers/image25.png",
+      "name": "Lucas Turner",
+      "location": "Pretoria, Brooklyn",
+      "hourlyRate": 160,
+      "bio": "Digital marketer with expertise in PPC advertising.",
+      "skills": ["PPC", "Social Media", "Email Marketing"],
+      "portfolio": [
+        { "title": "Ad Campaign", "link": "url_to_project_49" },
+        { "title": "Marketing Strategy", "link": "url_to_project_50" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "lucas.turner@example.com",
+        "phone": "987-654-3210"
+      }
+    },
+    {
+      "id": 26,
+      "profilePicture": "images/freelancers/image1.png",
+      "name": "Sophia Green",
+      "location": "Johannesburg, Sandton",
+      "hourlyRate": 175,
+      "bio": "Software engineer with a passion for coding.",
+      "skills": ["Java", "C++", "Python"],
+      "portfolio": [
+        { "title": "Software Project", "link": "url_to_project_51" },
+        { "title": "App Development", "link": "url_to_project_52" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "sophia.green@example.com",
+        "phone": "654-321-9870"
+      }
+    },
+    {
+      "id": 27,
+      "profilePicture": "images/freelancers/image27.png",
+      "name": "Oliver Scott",
+      "location": "Cape Town, Kenilworth",
+      "hourlyRate": 165,
+      "bio": "Business analyst with strong analytical skills.",
+      "skills": ["Data Analysis", "SQL", "Reporting"],
+      "portfolio": [
+        { "title": "Business Report", "link": "url_to_project_53" },
+        { "title": "Market Research", "link": "url_to_project_54" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "oliver.scott@example.com",
+        "phone": "321-654-9870"
+      }
+    },
+    {
+      "id": 28,
+      "profilePicture": "images/freelancers/image28.png",
+      "name": "Amelia Roberts",
+      "location": "Johannesburg, Melville",
+      "hourlyRate": 180,
+      "bio": "Graphic designer specialising in branding.",
+      "skills": ["Adobe Illustrator", "Branding", "Typography"],
+      "portfolio": [
+        { "title": "Brand Identity", "link": "url_to_project_55" },
+        { "title": "Logo Design", "link": "url_to_project_56" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "amelia.roberts@example.com",
+        "phone": "987-654-3210"
+      }
+    },
+    {
+      "id": 29,
+      "profilePicture": "images/freelancers/image29.png",
+      "name": "Ethanielle Young",
+      "location": "Cape Town, Hout Bay",
+      "hourlyRate": 155,
+      "bio": "Mobile developer with experience in Android and iOS.",
+      "skills": ["Android", "iOS", "React Native"],
+      "portfolio": [
+        { "title": "Mobile App", "link": "url_to_project_57" },
+        { "title": "Game Development", "link": "url_to_project_58" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": { "email": "ethan.young@example.com", "phone": "654-321-0987" }
+    },
+    {
+      "id": 30,
+      "profilePicture": "images/freelancers/image30.png",
+      "name": "Chloe Martinez",
+      "location": "Durban, Berea",
+      "hourlyRate": 170,
+      "bio": "Legal consultant specialising in contract law.",
+      "skills": ["Contract Law", "Legal Research", "Negotiation"],
+      "portfolio": [
+        { "title": "Contract Review", "link": "url_to_project_59" },
+        { "title": "Legal Opinion", "link": "url_to_project_60" }
+      ],
+      "socialLinks": {
+        "linkedin": "url_to_linkedin",
+        "github": "url_to_github"
+      },
+      "contact": {
+        "email": "chloe.martinez@example.com",
+        "phone": "789-012-3456"
+      }
+    }
+  ]
+}

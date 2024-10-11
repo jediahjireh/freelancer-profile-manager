@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Freelancer Profile Manager Backend API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jediahjireh/profile-manager.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "jediahjireh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jediahjireh/profile-manager/issues"
+  },
+  "homepage": "https://github.com/jediahjireh/profile-manager#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "fs": "^0.0.1-security"
+  }
+}

@@ -10,15 +10,16 @@
 
 <div class="flex flex-col gap-4" *ngIf="freelancers && freelancers.length > 0">
   <!-- add freelancer button -->
-  <button
-    title="Add Freelancer Button"
-    type="button"
-    pButton
-    icon="pi pi-plus"
-    (click)="toggleAddPopup()"
-    label="Add Freelancer"
-    class="add-freelancer-button p-2 border-2 border-neutral-300 fixed bottom-5 right-5 z-10 bg-neutral-400 bg-opacity-25 shadow-lg transition-shadow hover:shadow-md"
-  ></button>
+  <div class="rounded-full">
+    <button
+      title="Add Freelancer Button"
+      type="button"
+      pButton
+      icon="pi pi-plus"
+      (click)="toggleAddPopup()"
+      class="add-freelancer-button text-2xl rounded-full p-2 fixed bottom-2.5 right-2.5 z-10 text-white bg-black shadow-md transition-shadow hover:shadow-md shadow-neutral-800"
+    ></button>
+  </div>
 
   <!-- display freelancers -->
   <div

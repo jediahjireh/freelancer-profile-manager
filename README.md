@@ -43,6 +43,9 @@ Here are some screenshots of the project in action:
 - **Freelancer Listings:**
   ![Freelancer Listings](./docs/screenshots/freelancer-listings.png)
 
+- **Freelancer Listings:**
+  ![Freelancer Listings](./docs/screenshots/pagination.png)
+
 - **Freelancer Profile Page:**
   ![Freelancer Profile](./docs/screenshots/freelancer-profile.png)
 
@@ -55,7 +58,7 @@ Here are some screenshots of the project in action:
 - **Deleted Freelancer:**
   ![Deleted Freelancer](./docs/screenshots/deleted-freelancer.png)
 
-- **Card Actions:**
+- **Card Actions & Accessibility:**
   ![Pagination](./docs/screenshots/card-actions.png)
 
 - **Popup Validation:**
@@ -174,6 +177,8 @@ Freelancer data is managed using the following JSON structure in [`freelancers.j
 
 Replace live website links with localhost endpoints in development.
 
+- Backend: [server.js](/backend/server.js) (replace link to frontend):
+
 ```javascript
 // cors configuration - allow requests from frontend (https://localhost:4200)
 const corsOptions = {
@@ -183,13 +188,11 @@ const corsOptions = {
 };
 ```
 
-- Backend: [server.js](/backend/server.js) (replace link to frontend)
+- Frontend: [freelancers.service.ts](/frontend/src/app/services/freelancers.service.ts) (replace link to backend API)
 
 ```typescript
 // base URL for the API
 private baseUrl: string = 'http://localhost:3000/freelancers';
 ```
-
-- Frontend: [freelancers.service.ts](/frontend/src/app/services/freelancers.service.ts) (replace links to backend API)
 
 ---

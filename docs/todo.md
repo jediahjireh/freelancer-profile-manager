@@ -17,7 +17,6 @@
 - [x] Notification service
 - [x] Clean card design
 - [x] Responsive design
-- [ ] Search freelancer profiles
 - [x] Form validation
 - [x] Profile Manager Component
 - [x] Add GET request to fetch a specific freelancer - backend
@@ -26,3 +25,4 @@
 - [x] Update routes to include freelancer profile page
 - [x] Add pipe for retrieving the current year for footer display
 - [x] Configure header for profile page
+- [x] Refine 'Add Freelancer' floating button

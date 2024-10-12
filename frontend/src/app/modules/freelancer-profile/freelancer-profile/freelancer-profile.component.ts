@@ -22,21 +22,19 @@ export class FreelancerProfileComponent implements OnInit {
 
   // fetch specific freelancer profile data by id from server
   fetchFreelancer(id: number) {
-    this.freelancersService
-      .getFreelancerById(`http://localhost:3000/freelancers/${id}`)
-      .subscribe({
-        next: (freelancer: Freelancer) => {
-          // assign fetched data
-          this.freelancer = freelancer;
-        },
-        error: (error) => {
-          this.notificationService.addMessage(
-            'error',
-            'Unsuccessful',
-            'Freelancer profile could not be fetched.'
-          );
-        },
-      });
+    this.freelancersService.getFreelancerById(id).subscribe({
+      next: (freelancer: Freelancer) => {
+        // assign fetched data
+        this.freelancer = freelancer;
+      },
+      error: (error) => {
+        this.notificationService.addMessage(
+          'error',
+          'Unsuccessful',
+          'Freelancer profile could not be fetched.'
+        );
+      },
+    });
   }
 
   // toggle displays
@@ -66,51 +64,47 @@ export class FreelancerProfileComponent implements OnInit {
 
   // edit and delete profile data functionality
   editFreelancer(freelancer: Freelancer, id: number) {
-    this.freelancersService
-      .editFreelancer(`http://localhost:3000/freelancers/${id}`, freelancer)
-      .subscribe({
-        next: (data) => {
-          this.notificationService.addMessage(
-            'success',
-            'Success',
-            'Freelancer profile successfully updated!'
-          );
-          // refresh page
-          window.location.reload();
-        },
-        error: (error) => {
-          // console.error(error);
-          this.notificationService.addMessage(
-            'error',
-            'Unsuccessful',
-            'Freelancer profile could not be updated! Please retry.'
-          );
-        },
-      });
+    this.freelancersService.editFreelancer(id, freelancer).subscribe({
+      next: (data) => {
+        this.notificationService.addMessage(
+          'success',
+          'Success',
+          'Freelancer profile successfully updated!'
+        );
+        // refresh page
+        window.location.reload();
+      },
+      error: (error) => {
+        // console.error(error);
+        this.notificationService.addMessage(
+          'error',
+          'Unsuccessful',
+          'Freelancer profile could not be updated! Please retry.'
+        );
+      },
+    });
   }
 
   deleteFreelancer(id: number) {
-    this.freelancersService
-      .deleteFreelancer(`http://localhost:3000/freelancers/${id}`)
-      .subscribe({
-        next: (data) => {
-          this.notificationService.addMessage(
-            'success',
-            'Success',
-            'Freelancer profile successfully removed!'
-          );
-          // refresh page
-          window.location.reload();
-        },
-        error: (error) => {
-          // console.error(error);
-          this.notificationService.addMessage(
-            'error',
-            'Unsuccessful',
-            'Freelancer profile could not be deleted! Please retry.'
-          );
-        },
-      });
+    this.freelancersService.deleteFreelancer(id).subscribe({
+      next: (data) => {
+        this.notificationService.addMessage(
+          'success',
+          'Success',
+          'Freelancer profile successfully removed!'
+        );
+        // refresh page
+        window.location.reload();
+      },
+      error: (error) => {
+        // console.error(error);
+        this.notificationService.addMessage(
+          'error',
+          'Unsuccessful',
+          'Freelancer profile could not be deleted! Please retry.'
+        );
+      },
+    });
   }
 
   ngOnInit(): void {

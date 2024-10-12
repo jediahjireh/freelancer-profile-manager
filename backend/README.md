@@ -1,10 +1,10 @@
-# Freelancer Profile Manager - Node.js Server
+# Freelancer Profile Manager - Node.js Server (Mock Backend Service)
 
 This server provides the backend functionality for the **Freelancer Profile Manager** (Angular frontend), allowing users to perform CRUD (Create, Read, Update, Delete) operations on freelancer profiles. The server is built using **Express.js** and interacts with a [JSON file](/freelancers.json) for data management.
 
 ## Table of Contents
 
-- [Freelancer Profile Manager - Node.js Server](#freelancer-profile-manager---nodejs-server)
+- [Freelancer Profile Manager - Node.js Server (Mock Backend Service)](#freelancer-profile-manager---nodejs-server-mock-backend-service)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Getting Started](#getting-started)
@@ -68,7 +68,7 @@ Here is the structure of the custom JSON file used for managing freelancer data:
   "freelancers": [
     {
       "id": 1,
-      "profilePicture": "images/freelancers/image26.png",
+      "profilePicture": "url_to_profile_picture",
       "name": "John Doe",
       "location": "Durban, Umhlanga",
       "hourlyRate": 150,
@@ -87,3 +87,5 @@ Here is the structure of the custom JSON file used for managing freelancer data:
   ]
 }
 ```
+
+---

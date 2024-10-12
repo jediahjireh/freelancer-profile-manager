@@ -22,7 +22,7 @@
         "linkedin": "https://linkedin.com/jediahjireh",
         "github": "https://github.com/jediahjireh"
       },
-      "contact": { "email": "jediahjireh@gmail.com", "phone": "082-636-3910" }
+      "contact": { "email": "jediahnaicker@gmail.com", "phone": "082-636-3910" }
     },
     {
       "id": 2,
@@ -131,19 +131,19 @@
       "profilePicture": "images/freelancers/image7.png",
       "name": "Roberta Harris",
       "location": "Johannesburg, Parktown",
-      "hourlyRate": "172",
+      "hourlyRate": 170,
       "bio": "Data analyst with a knack for visualisation.",
       "skills": ["Python", "SQL", "Tableau"],
       "portfolio": [
-        { "title": "Sales Data Analysis", "link": "url_to_project_13" },
-        { "title": "Marketing Insights", "link": "url_to_project_14" }
+        { "title": "Sales Data Analysis", "link": "https://project-13.com" },
+        { "title": "Marketing Insights", "link": "https://project-14.com" }
       ],
       "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+        "linkedin": "https://linkedin.com",
+        "github": "https://github.com"
       },
       "contact": {
-        "email": "robert.harris@example.com",
+        "email": "roberta.harris@example.com",
         "phone": "678-901-2345"
       }
     },

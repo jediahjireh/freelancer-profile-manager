@@ -9,37 +9,37 @@ import { ApiService } from './api.service';
 
 // encapsulate business logic
 export class FreelancersService {
+  // base URL for the API
+  private baseUrl: string = 'http://localhost:3000/freelancers';
+
   constructor(private apiService: ApiService) {}
 
   // get freelancers from the API
-  getFreelancers = (
-    url: string,
-    params: PaginationParams
-  ): Observable<Freelancers> => {
-    return this.apiService.get(url, {
+  getFreelancers = (params: PaginationParams): Observable<Freelancers> => {
+    return this.apiService.get<Freelancers>(this.baseUrl, {
       params,
       responseType: 'json',
     });
   };
 
   // add freelancer via the API
-  addFreelancer = (url: string, body: any): Observable<Freelancer> => {
-    return this.apiService.post(url, body, {});
+  addFreelancer = (body: Freelancer): Observable<Freelancer> => {
+    return this.apiService.post<Freelancer>(this.baseUrl, body, {});
   };
 
   // edit freelancer data via the API
-  editFreelancer = (url: string, body: any): Observable<Freelancer> => {
-    return this.apiService.put(url, body, {});
+  editFreelancer = (id: number, body: Freelancer): Observable<Freelancer> => {
+    return this.apiService.put<Freelancer>(`${this.baseUrl}/${id}`, body, {});
   };
 
   // remove freelancer via the API
-  deleteFreelancer = (url: string): Observable<Freelancer> => {
-    return this.apiService.delete(url, {});
+  deleteFreelancer = (id: number): Observable<Freelancer> => {
+    return this.apiService.delete<Freelancer>(`${this.baseUrl}/${id}`, {});
   };
 
   // fetch a specific freelancer by ID
-  getFreelancerById = (url: string): Observable<Freelancer> => {
-    return this.apiService.get(`${url}`, {
+  getFreelancerById = (id: number): Observable<Freelancer> => {
+    return this.apiService.get<Freelancer>(`${this.baseUrl}/${id}`, {
       responseType: 'json',
     });
   };

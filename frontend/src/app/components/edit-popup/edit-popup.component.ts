@@ -103,7 +103,8 @@ export class EditPopupComponent {
     control: AbstractControl
   ): { [key: string]: boolean } | null {
     const urlPattern =
-      /^(https?:\/\/)?(www\.)?([a-zA-Z0-9\-]+)\.[a-zA-Z]{2,}(\/[^\s]*)?$/;
+      // match standard and complex domains
+      /^(https?:\/\/)?(www\.)?([a-zA-Z0-9\-]+\.[a-zA-Z]{2,}|([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,})(\/[^\s]*)?$/;
     return urlPattern.test(control.value) ? null : { invalidUrl: true };
   }
 
@@ -228,19 +229,16 @@ export class EditPopupComponent {
   onConfirm() {
     // notify user of invalid fields
     this.submitted = true;
-    console.log('Form controls:', this.freelancerForm.controls);
-    for (const controlName in this.freelancerForm.controls) {
-      const control = this.freelancerForm.get(controlName);
-      console.log(`${controlName} status:`, control?.status);
-      console.log(`${controlName} errors:`, control?.errors);
-    }
+
     // check if input is valid
     if (this.freelancerForm.invalid || this.portfolioArray.invalid) {
+      /*
       this.notificationService.addMessage(
         'error',
         'Invalid',
         'Please fill in all required fields.'
       );
+      */
       return;
     }
 
@@ -283,11 +281,13 @@ export class EditPopupComponent {
     // close dialog
     this.display = false;
     this.displayChange.emit(this.display);
+    this.submitted = false;
   }
 
   // cancel edits
   onCancel() {
     this.display = false;
     this.displayChange.emit(this.display);
+    this.submitted = false;
   }
 }

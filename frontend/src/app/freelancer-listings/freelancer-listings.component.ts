@@ -112,11 +112,8 @@ export class FreelancerListingsComponent {
     perPage: number = this.rows
   ) {
     this.freelancersService
-      // fetch freelancers from backend
-      .getFreelancers('http://localhost:3000/freelancers', {
-        page,
-        perPage,
-      })
+      // fetch freelancers from backend (base url specified in service)
+      .getFreelancers({ page, perPage })
       .subscribe({
         // triggered when data is successfully received from the server
         next: (freelancers: Freelancers) => {
@@ -143,58 +140,55 @@ export class FreelancerListingsComponent {
 
   // CRUD functions
   editFreelancer(freelancer: Freelancer, id: number) {
-    this.freelancersService
-      .editFreelancer(`http://localhost:3000/freelancers/${id}`, freelancer)
-      .subscribe({
-        next: (data) => {
-          this.notificationService.addMessage(
-            'success',
-            'Success',
-            'Freelancer profile successfully updated!'
-          );
-          // refresh current page of freelancer display list
-          this.fetchFreelancers(this.currentPage, this.rows);
-        },
-        error: (error) => {
-          // console.error(error);
-          this.notificationService.addMessage(
-            'error',
-            'Unsuccessful',
-            'Freelancer profile could not be updated! Please retry.'
-          );
-        },
-      });
+    this.freelancersService.editFreelancer(id, freelancer).subscribe({
+      next: (data) => {
+        this.notificationService.addMessage(
+          'success',
+          'Success',
+          'Freelancer profile successfully updated!'
+        );
+        // refresh current page of freelancer display list
+        this.fetchFreelancers(this.currentPage, this.rows);
+      },
+      error: (error) => {
+        // console.error(error);
+        this.notificationService.addMessage(
+          'error',
+          'Unsuccessful',
+          'Freelancer profile could not be updated! Please retry.'
+        );
+      },
+    });
   }
 
   deleteFreelancer(id: number) {
-    this.freelancersService
-      .deleteFreelancer(`http://localhost:3000/freelancers/${id}`)
-      .subscribe({
-        next: (data) => {
-          this.notificationService.addMessage(
-            'success',
-            'Success',
-            'Freelancer profile successfully removed!'
-          );
-          // refresh data
-          this.fetchFreelancers(this.currentPage, this.rows);
-          // reset paginator
-          this.resetPaginator();
-        },
-        error: (error) => {
-          // console.error(error);
-          this.notificationService.addMessage(
-            'error',
-            'Unsuccessful',
-            'Freelancer profile could not be deleted! Please retry.'
-          );
-        },
-      });
+    this.freelancersService.deleteFreelancer(id).subscribe({
+      next: (data) => {
+        this.notificationService.addMessage(
+          'success',
+          'Success',
+          'Freelancer profile successfully removed!'
+        );
+        // refresh data
+        this.fetchFreelancers(this.currentPage, this.rows);
+        // reset paginator
+        this.resetPaginator();
+      },
+      error: (error) => {
+        // console.error(error);
+        this.notificationService.addMessage(
+          'error',
+          'Unsuccessful',
+          'Freelancer profile could not be deleted! Please retry.'
+        );
+      },
+    });
   }
 
   addFreelancer(freelancer: Freelancer) {
     this.freelancersService
-      .addFreelancer(`http://localhost:3000/freelancers`, freelancer)
+      // pass the object
+      .addFreelancer(freelancer)
       .subscribe({
         next: (data) => {
           this.notificationService.addMessage(

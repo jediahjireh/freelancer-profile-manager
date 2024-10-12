@@ -9,6 +9,23 @@
 />
 
 <div class="flex flex-col gap-4" *ngIf="freelancers && freelancers.length > 0">
+  <!-- search input field -->
+  <div class="flex justify-center mt-6">
+    <p-inputGroup class="w-[60%]">
+      <input
+        type="text"
+        title="Search Talent Search Bar"
+        placeholder="Search talent..."
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="filterFreelancers()"
+        class="search-input w-full font-thin p-2 border border-gray-400 rounded-lg"
+      />
+      <span class="p-inputgroup-addo -ml-8 mt-2.5 text-gray-400">
+        <i class="pi pi-search"></i>
+      </span>
+    </p-inputGroup>
+  </div>
+
   <!-- add freelancer button -->
   <div class="rounded-full">
     <button
@@ -27,7 +44,7 @@
   >
     <app-freelancer
       class="flex-grow-1"
-      *ngFor="let freelancer of freelancers"
+      *ngFor="let freelancer of filteredFreelancers"
       [freelancer]="freelancer"
       (edit)="toggleEditPopup($event)"
       (delete)="toggleDeletePopup($event)"

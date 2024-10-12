@@ -43,8 +43,11 @@ Here are some screenshots of the project in action:
 - **Freelancer Listings:**
   ![Freelancer Listings](./docs/screenshots/freelancer-listings.png)
 
-- **Freelancer Listings:**
-  ![Freelancer Listings](./docs/screenshots/pagination.png)
+- **Search Talent Search Bar:**
+  ![Search Bar](./docs/screenshots/freelancer-listings.png)
+
+- **Pagination:**
+  ![Pagination](./docs/screenshots/pagination.png)
 
 - **Freelancer Profile Page:**
   ![Freelancer Profile](./docs/screenshots/freelancer-profile.png)
@@ -53,7 +56,7 @@ Here are some screenshots of the project in action:
   ![Add Freelancer](./docs/screenshots/add-freelancer.png)
 
 - **Update Freelancer:**
-  ![Update Freelancer](./docs/screenshots/edit-freelancer.png)
+  ![Edit Freelancer](./docs/screenshots/edit-freelancer.png)
 
 - **Deleted Freelancer:**
   ![Deleted Freelancer](./docs/screenshots/deleted-freelancer.png)

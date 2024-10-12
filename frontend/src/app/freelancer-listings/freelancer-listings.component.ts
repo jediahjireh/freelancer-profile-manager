@@ -8,6 +8,8 @@ import { Freelancer, Freelancers } from '../types/types';
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
 import { MessagesModule } from 'primeng/messages';
 import { NotificationService } from '../services/notification.service';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @Component({
   selector: 'app-freelancer-listings',
@@ -19,6 +21,8 @@ import { NotificationService } from '../services/notification.service';
     EditPopupComponent,
     FreelancerComponent,
     MessagesModule,
+    InputGroupModule,
+    InputGroupAddonModule,
   ],
   templateUrl: './freelancer-listings.component.html',
   styleUrl: './freelancer-listings.component.css',
@@ -33,6 +37,9 @@ export class FreelancerListingsComponent {
   @ViewChild('paginator') paginator: Paginator | undefined;
 
   freelancers: Freelancer[] = [];
+  // search filter
+  filteredFreelancers: Freelancer[] = [];
+  searchQuery: string = '';
 
   // set item viewing quantities for display
   totalRecords: number = 0;
@@ -106,36 +113,51 @@ export class FreelancerListingsComponent {
     this.paginator?.changePage(0);
   }
 
-  // fetch data from server
+  // fetch data from server and filter the list based on search
   fetchFreelancers(
     page: number = this.currentPage,
     perPage: number = this.rows
   ) {
-    this.freelancersService
-      // fetch freelancers from backend (base url specified in service)
-      .getFreelancers({ page, perPage })
-      .subscribe({
-        // triggered when data is successfully received from the server
-        next: (freelancers: Freelancers) => {
-          // loop through freelancers array
-          this.freelancers = freelancers.freelancers;
-          this.totalRecords = freelancers.total;
-          // console.log('Freelancers fetched successfully.');
-        },
-        error: (error) => {
-          // console.error('Error fetching freelancers:', error);
-          this.notificationService.addMessage(
-            'error',
-            'Unsuccessful',
-            'Freelancer profiles could not be fetched.'
-          );
-        },
-        /*
-        complete: () => {
-          console.log('Fetch operation complete.');
-        },
-        */
-      });
+    this.freelancersService.getFreelancers({ page, perPage }).subscribe({
+      next: (freelancers: Freelancers) => {
+        this.freelancers = freelancers.freelancers;
+        this.totalRecords = freelancers.total;
+        // apply filter after fetching data
+        this.filterFreelancers();
+      },
+      error: (error) => {
+        this.notificationService.addMessage(
+          'error',
+          'Unsuccessful',
+          'Freelancer profiles could not be fetched.'
+        );
+      },
+    });
+  }
+
+  // filter freelancers based on search query
+  filterFreelancers() {
+    if (this.searchQuery.trim() === '') {
+      // display all freelancers if there is no search query
+      this.filteredFreelancers = this.freelancers;
+    } else {
+      this.filteredFreelancers = this.freelancers.filter(
+        (freelancer) =>
+          // filter by name, location, bio or skills array
+          freelancer.name
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase()) ||
+          freelancer.location
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase()) ||
+          freelancer.bio
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase()) ||
+          freelancer.skills.some((skill) =>
+            skill.toLowerCase().includes(this.searchQuery.toLowerCase())
+          )
+      );
+    }
   }
 
   // CRUD functions
@@ -217,5 +239,7 @@ export class FreelancerListingsComponent {
 
     // fetch data from server
     this.fetchFreelancers(this.currentPage, this.rows);
+    // filter results
+    this.filterFreelancers();
   }
 }

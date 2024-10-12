@@ -17,6 +17,7 @@
 - [x] Notification service
 - [x] Clean card design
 - [x] Responsive design
+- [x] Search freelancer profiles
 - [x] Form validation
 - [x] Profile Manager Component
 - [x] Add GET request to fetch a specific freelancer - backend

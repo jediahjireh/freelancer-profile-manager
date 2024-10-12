@@ -158,6 +158,7 @@ export class EditPopupComponent {
       // custom validator
       portfolio: this.formBuilder.array([], this.portfolioItemsValidator()),
     });
+
     this.loadPortfolioItems();
   }
 
@@ -168,6 +169,11 @@ export class EditPopupComponent {
 
   // load existing portfolio items
   loadPortfolioItems() {
+    // make sure freelancer is defined
+    if (!this.freelancer) {
+      return;
+    }
+
     const portfolioArray = this.portfolioArray;
     // clear existing items
     portfolioArray.clear();

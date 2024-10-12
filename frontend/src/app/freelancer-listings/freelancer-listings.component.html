@@ -17,7 +17,7 @@
     icon="pi pi-plus"
     (click)="toggleAddPopup()"
     label="Add Freelancer"
-    class="add-freelancer-button p-2 fixed bottom-5 right-5 z-10 bg-custom-green bg-opacity-25 shadow-lg transition-shadow hover:shadow-md"
+    class="add-freelancer-button p-2 border-2 border-neutral-300 fixed bottom-5 right-5 z-10 bg-neutral-400 bg-opacity-25 shadow-lg transition-shadow hover:shadow-md"
   ></button>
 
   <!-- display freelancers -->
@@ -47,13 +47,13 @@
     [freelancer]="selectedFreelancer"
     [(display)]="displayEditPopup"
     (confirm)="onConfirmEdit($event)"
-    header="Edit Freelancer"
+    header="Edit Freelancer Profile"
   />
 
   <!-- add freelancer popup: initialise component to add freelancer -->
   <app-edit-popup
     [(display)]="displayAddPopup"
     (confirm)="onConfirmAdd($event)"
-    header="Add Freelancer"
+    header="Add Freelancer Profile"
   />
 </div>

@@ -1,14 +1,25 @@
 <header
   class="w-full h-24 border-b border-border-color p-8 box-border flex items-center justify-between"
 >
-  <div class="object-contain">
-    <img
-      src="/images/negishi-freelancing-logo.jpg"
-      alt="Logo image"
-      class="logo w-1/2"
-      height="h-auto"
-      width="w-full"
-    />
+  <div class="flex items-center">
+    <div class="object-contain">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <img
+          src="/images/negishi-freelancing-logo.jpg"
+          alt="Logo image"
+          class="logo w-1/2"
+          height="h-auto"
+          width="w-full"
+        />
+      </a>
+    </div>
+    <div class="-ml-20 text-start">
+      <a routerLink="/">Freelancer Profiles</a>
+    </div>
   </div>
 
   <div class="flex space-x-4">
@@ -17,9 +28,9 @@
       routerLink="/"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Admin</a
+      >Manager</a
     >
-    <!--
-    <a routerLink="/freelancer-profile" routerLinkActive="active">Freelancer Profile</a>
-  --></div>
+
+    <a routerLink="/freelancer-profile" routerLinkActive="active">Page</a>
+  </div>
 </header>

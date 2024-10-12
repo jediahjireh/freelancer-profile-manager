@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Freelancers, PaginationParams } from '../types/types';
+import { Freelancer, Freelancers, PaginationParams } from '../types/types';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 
@@ -23,17 +23,24 @@ export class FreelancersService {
   };
 
   // add freelancer via the API
-  addFreelancer = (url: string, body: any): Observable<any> => {
+  addFreelancer = (url: string, body: any): Observable<Freelancer> => {
     return this.apiService.post(url, body, {});
   };
 
   // edit freelancer data via the API
-  editFreelancer = (url: string, body: any): Observable<any> => {
+  editFreelancer = (url: string, body: any): Observable<Freelancer> => {
     return this.apiService.put(url, body, {});
   };
 
   // remove freelancer via the API
-  deleteFreelancer = (url: string): Observable<any> => {
+  deleteFreelancer = (url: string): Observable<Freelancer> => {
     return this.apiService.delete(url, {});
+  };
+
+  // fetch a specific freelancer by ID
+  getFreelancerById = (url: string): Observable<Freelancer> => {
+    return this.apiService.get(`${url}`, {
+      responseType: 'json',
+    });
   };
 }

@@ -129,8 +129,8 @@ export class FreelancerListingsComponent {
           // console.error('Error fetching freelancers:', error);
           this.notificationService.addMessage(
             'error',
-            'Error',
-            'An error occurred while fetching freelancer profiles to display! Please retry.'
+            'Unsuccessful',
+            'Freelancer profiles could not be fetched.'
           );
         },
         /*
@@ -159,7 +159,7 @@ export class FreelancerListingsComponent {
           // console.error(error);
           this.notificationService.addMessage(
             'error',
-            'Failure',
+            'Unsuccessful',
             'Freelancer profile could not be updated! Please retry.'
           );
         },
@@ -185,7 +185,7 @@ export class FreelancerListingsComponent {
           // console.error(error);
           this.notificationService.addMessage(
             'error',
-            'Failure',
+            'Unsuccessful',
             'Freelancer profile could not be deleted! Please retry.'
           );
         },
@@ -210,7 +210,7 @@ export class FreelancerListingsComponent {
         error: (error) => {
           this.notificationService.addMessage(
             'error',
-            'Failure',
+            'Unsuccessful',
             'New freelancer profile could not be added! Please retry.'
           );
         },

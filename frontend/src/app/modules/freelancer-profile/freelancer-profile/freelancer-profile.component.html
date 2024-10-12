@@ -1,0 +1,27 @@
+<!-- notifications -->
+<p-messages
+  [value]="notificationService.getMessages()"
+  [showTransitionOptions]="'500ms'"
+  [hideTransitionOptions]="'500ms'"
+  class="fixed top-5 left-1/2 transform -translate-x-1/2 z-20 w-11/12 md:w-8/12 bg-opacity-100 lg:w-6/12"
+  [closable]="false"
+  [enableService]="true"
+/>
+
+<div class="flex flex-col gap-4" *ngIf="freelancer">
+  <!-- display freelancer profile data (card) -->
+  <app-freelancer
+    class="flex-grow-1"
+    [freelancer]="freelancer"
+    (edit)="toggleEditPopup(freelancer)"
+    (delete)="toggleDeletePopup(freelancer)"
+  />
+
+  <!-- edit freelancer popup -->
+  <app-edit-popup
+    [freelancer]="selectedFreelancer"
+    [(display)]="displayEditPopup"
+    (confirm)="onConfirmEdit($event)"
+    header="Edit Freelancer Profile"
+  />
+</div>

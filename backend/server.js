@@ -210,6 +210,34 @@ app.delete("/freelancers/:id", (req, res) => {
   });
 });
 
+// GET request - fetch a specific freelancer's data
+app.get("/freelancers/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+
+  fs.readFile("freelancers.json", "utf8", (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+
+    const jsonData = JSON.parse(data);
+
+    // find freelancer by id
+    const freelancer = jsonData.freelancers.find(
+      (freelancer) => freelancer.id === id
+    );
+
+    if (!freelancer) {
+      res.status(404).send("Freelancer not found");
+      return;
+    }
+
+    // send freelancer data
+    res.status(200).json(freelancer);
+  });
+});
+
 // start server
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);

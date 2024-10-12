@@ -5,6 +5,16 @@
   [closable]="false"
   [style]="{ width: '55rem' }"
 >
+  <!-- notifications -->
+  <p-messages
+    [value]="notificationService.getMessages()"
+    [showTransitionOptions]="'500ms'"
+    [hideTransitionOptions]="'500ms'"
+    class="fixed -top-4 left-1/2 transform -translate-x-1/2 z-20 w-11/12 md:w-8/12 bg-opacity-100 lg:w-6/12"
+    [closable]="false"
+    [enableService]="true"
+  />
+
   <div class="flex flex-col gap-4 p-6" [formGroup]="freelancerForm">
     <!-- freelancer name -->
     <div class="flex items-center gap-2">
@@ -17,6 +27,13 @@
         id="name"
         formControlName="name"
       />
+    </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('name')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("name") }}
     </div>
 
     <!-- location -->
@@ -33,6 +50,13 @@
         formControlName="location"
       />
     </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('location')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("location") }}
+    </div>
 
     <!-- hourly rate -->
     <div class="flex items-center gap-2">
@@ -43,13 +67,20 @@
         autocomplete="off"
         class="border border-gray-300 rounded-lg p-2 w-full"
         title="Freelancer Hourly Rate Input"
-        type="text"
+        type="number"
         id="hourlyRate"
         formControlName="hourlyRate"
       />
     </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('hourlyRate')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("hourlyRate") }}
+    </div>
 
-    <!-- profile picture -->
+    <!-- profile picture: default image set if one is not provided -->
     <div class="flex items-center gap-2">
       <label for="profilePicture" class="text-gray-700 font-medium w-1/5"
         >Profile Picture URL:</label
@@ -75,6 +106,13 @@
         formControlName="bio"
       ></textarea>
     </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('bio')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("bio") }}
+    </div>
 
     <!-- skills -->
     <div class="flex items-center gap-2">
@@ -90,9 +128,16 @@
         formControlName="skills"
       />
     </div>
-    <p class="text-xs text-end -mt-10">
-      Separate different items with a comma.
-    </p>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('skills')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("skills") }}
+    </div>
+    <div class="-mt-3">
+      <p class="text-xs text-end">Separate different skills with a comma.</p>
+    </div>
 
     <!-- social links -->
     <div class="flex items-center gap-2">
@@ -108,6 +153,13 @@
         formControlName="linkedin"
       />
     </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('linkedin')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("linkedin") }}
+    </div>
     <div class="flex items-center gap-2">
       <label for="github" class="text-gray-700 font-medium w-1/5"
         >GitHub:</label
@@ -121,6 +173,13 @@
         formControlName="github"
       />
     </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('github')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("github") }}
+    </div>
 
     <!-- contact information -->
     <div class="flex items-center gap-2">
@@ -129,11 +188,19 @@
         autocomplete="off"
         class="border border-gray-300 rounded-lg p-2 w-full"
         title="Freelancer Email Input"
-        type="text"
+        type="email"
         id="email"
         formControlName="email"
       />
     </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('email')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("email") }}
+    </div>
+
     <div class="flex items-center gap-2">
       <label for="phone" class="text-gray-700 font-medium w-1/5">Phone:</label>
       <input
@@ -144,6 +211,13 @@
         id="phone"
         formControlName="phone"
       />
+    </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('phone')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("phone") }}
     </div>
 
     <!-- portfolio item(s)
@@ -168,7 +242,7 @@
         [formGroupName]="i"
         class="flex py-1"
       >
-        <label class="text-gray-700 mt-3 font-medium w-1/5"
+        <label class="text-gray-700 mt-3 font-medium w-1/5 mr-4"
           >Item {{ i + 1 }}:</label
         >
         <span class="gap-4 w-full flex justify-between">
@@ -196,6 +270,13 @@
           title="Remove Portfolio Item"
         ></button>
       </div>
+    </div>
+    <!-- error message -->
+    <div
+      *ngIf="submitted && freelancerForm.get('portfolio')?.invalid"
+      class="text-red-600 text-xs text-end -mt-3"
+    >
+      {{ getErrorMessage("portfolio") }}
     </div>
   </div>
 

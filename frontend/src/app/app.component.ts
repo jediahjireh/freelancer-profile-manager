@@ -19,5 +19,5 @@ import { MessagesModule } from 'primeng/messages';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Freelancer Profile Page';
+  title = 'Freelancer Profile Manager';
 }

@@ -8,9 +8,13 @@ import {
   ReactiveFormsModule,
   FormGroup,
   FormArray,
+  AbstractControl,
+  ValidatorFn,
 } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { Freelancer, PortfolioItem } from '../../types/types';
+import { MessagesModule } from 'primeng/messages';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-edit-popup',
@@ -21,6 +25,7 @@ import { Freelancer, PortfolioItem } from '../../types/types';
     FormsModule,
     ButtonModule,
     ReactiveFormsModule,
+    MessagesModule,
   ],
   templateUrl: './edit-popup.component.html',
   styleUrl: './edit-popup.component.css',
@@ -28,12 +33,17 @@ import { Freelancer, PortfolioItem } from '../../types/types';
 export class EditPopupComponent {
   // will be assigned before it is used
   freelancerForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    public notificationService: NotificationService
+  ) {}
+
+  // track form submission
+  submitted: boolean = false;
 
   // display popup or not
   @Input() display: boolean = false;
   @Output() displayChange = new EventEmitter<boolean>();
-
   // header will ALWAYS have a value
   @Input() header!: string;
 
@@ -59,22 +69,94 @@ export class EditPopupComponent {
   // confirm edits
   @Output() confirm = new EventEmitter<Freelancer>();
 
-  // initialise form in ngOnInit
+  // custom validator functions
+  private portfolioItemsValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const portfolioItems = control.value;
+
+      // each portfolio item must have a title and link
+      const allItemsValid = portfolioItems.every(
+        (item: PortfolioItem) => item.title && item.link
+      );
+
+      return allItemsValid ? null : { portfolioItemsInvalid: true };
+    };
+  }
+
+  private phoneValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
+    // accept international and local formats with spaces, hyphens or parentheses as separators
+    const phonePattern =
+      /^(\+?\d{1,3}|\(?\d{1,4}\)?)([\s-]?(\(\d{1,4}\)|\d{1,4}))([\s-]?\d{1,4}){1,3}$/;
+    const phoneValue = control.value;
+
+    // invalid if less than 10 digits
+    if (phoneValue && phoneValue.replace(/\D/g, '').length < 10) {
+      return { invalidPhone: true };
+    }
+
+    return phonePattern.test(phoneValue) ? null : { invalidPhone: true };
+  }
+
+  private urlValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
+    const urlPattern =
+      /^(https?:\/\/)?(www\.)?([a-zA-Z0-9\-]+)\.[a-zA-Z]{2,}(\/[^\s]*)?$/;
+    return urlPattern.test(control.value) ? null : { invalidUrl: true };
+  }
+
+  // check for errors
+  public getErrorMessage(controlName: string): string | null {
+    const control = this.freelancerForm.get(controlName);
+
+    // validation status
+    if (control?.hasError('required')) {
+      const formattedName = controlName
+        // add space before each uppercase letter in variable
+        .replace(/([A-Z])/g, ' $1')
+        .trim()
+        .toLowerCase()
+        // capitalise first letter
+        .replace(/^./, (match) => match.toUpperCase());
+
+      return `${formattedName} is required.`;
+    }
+    if (controlName === 'email' && control?.hasError('email')) {
+      return 'Please enter a valid email address.';
+    }
+    if (controlName === 'phone' && control?.hasError('invalidPhone')) {
+      return 'Please enter a valid phone number.';
+    }
+    if (controlName === 'portfolio' && this.portfolioArray.invalid) {
+      return 'Each portfolio item must have a title and valid link.';
+    }
+    if (controlName === 'linkedin' && control?.hasError('invalidUrl')) {
+      return 'Please enter a valid LinkedIn URL.';
+    }
+    if (controlName === 'github' && control?.hasError('invalidUrl')) {
+      return 'Please enter a valid GitHub URL.';
+    }
+    return null;
+  }
+
+  // initialise form
   ngOnInit() {
     this.freelancerForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       profilePicture: [''],
       location: ['', [Validators.required]],
-      hourlyRate: ['', [Validators.required]],
+      hourlyRate: ['', [Validators.required, Validators.min(0)]],
       bio: ['', [Validators.required]],
       // make a string for input field then split into an array
       skills: ['', [Validators.required]],
-      linkedin: ['', [Validators.required]],
-      github: ['', [Validators.required]],
+      linkedin: ['', [Validators.required, this.urlValidator]],
+      github: ['', [Validators.required, this.urlValidator]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required]],
-      // initialise portfolio items as a FormArray
-      portfolio: this.formBuilder.array([]),
+      phone: ['', [Validators.required, this.phoneValidator]],
+      // custom validator
+      portfolio: this.formBuilder.array([], this.portfolioItemsValidator()),
     });
     this.loadPortfolioItems();
   }
@@ -98,7 +180,7 @@ export class EditPopupComponent {
   createPortfolioItem(item: PortfolioItem): FormGroup {
     return this.formBuilder.group({
       title: [item.title, [Validators.required]],
-      link: [item.link, [Validators.required]],
+      link: [item.link, [Validators.required, this.urlValidator]],
     });
   }
 
@@ -138,6 +220,24 @@ export class EditPopupComponent {
 
   // emit freelancer form values on confirm
   onConfirm() {
+    // notify user of invalid fields
+    this.submitted = true;
+    console.log('Form controls:', this.freelancerForm.controls);
+    for (const controlName in this.freelancerForm.controls) {
+      const control = this.freelancerForm.get(controlName);
+      console.log(`${controlName} status:`, control?.status);
+      console.log(`${controlName} errors:`, control?.errors);
+    }
+    // check if input is valid
+    if (this.freelancerForm.invalid || this.portfolioArray.invalid) {
+      this.notificationService.addMessage(
+        'error',
+        'Invalid',
+        'Please fill in all required fields.'
+      );
+      return;
+    }
+
     const {
       name,
       profilePicture,
@@ -156,7 +256,8 @@ export class EditPopupComponent {
     // emit the updated freelancer data
     this.confirm.emit({
       name: name || '',
-      profilePicture: profilePicture || '',
+      profilePicture:
+        profilePicture || '/images/freelancers/default-profile-picture.png',
       location: location || '',
       hourlyRate: hourlyRate || 0,
       bio: bio || '',
@@ -176,9 +277,6 @@ export class EditPopupComponent {
     // close dialog
     this.display = false;
     this.displayChange.emit(this.display);
-
-    // reload the page after confirmation
-    window.location.reload();
   }
 
   // cancel edits

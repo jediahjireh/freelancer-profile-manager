@@ -6,6 +6,8 @@ import { Paginator, PaginatorModule } from 'primeng/paginator';
 import { ButtonModule } from 'primeng/button';
 import { Freelancer, Freelancers } from '../types/types';
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
+import { MessagesModule } from 'primeng/messages';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-freelancer-listings',
@@ -16,12 +18,17 @@ import { EditPopupComponent } from '../components/edit-popup/edit-popup.componen
     ButtonModule,
     EditPopupComponent,
     FreelancerComponent,
+    MessagesModule,
   ],
   templateUrl: './freelancer-listings.component.html',
   styleUrl: './freelancer-listings.component.css',
 })
 export class FreelancerListingsComponent {
-  constructor(private freelancersService: FreelancersService) {}
+  // inject services
+  constructor(
+    private freelancersService: FreelancersService,
+    public notificationService: NotificationService
+  ) {}
 
   @ViewChild('paginator') paginator: Paginator | undefined;
 
@@ -30,6 +37,8 @@ export class FreelancerListingsComponent {
   // set item viewing quantities for display
   totalRecords: number = 0;
   rows: number = 8;
+  // track paginator state
+  currentPage: number = 0;
 
   // display popups
   displayEditPopup: boolean = false;
@@ -89,6 +98,7 @@ export class FreelancerListingsComponent {
   }
 
   onPageChange(event: any) {
+    this.currentPage = event.page;
     this.fetchFreelancers(event.page, event.rows);
   }
 
@@ -96,7 +106,11 @@ export class FreelancerListingsComponent {
     this.paginator?.changePage(0);
   }
 
-  fetchFreelancers(page: number, perPage: number) {
+  // fetch data from server
+  fetchFreelancers(
+    page: number = this.currentPage,
+    perPage: number = this.rows
+  ) {
     this.freelancersService
       // fetch freelancers from backend
       .getFreelancers('http://localhost:3000/freelancers', {
@@ -104,15 +118,26 @@ export class FreelancerListingsComponent {
         perPage,
       })
       .subscribe({
+        // triggered when data is successfully received from the server
         next: (freelancers: Freelancers) => {
-          // loop through array
+          // loop through freelancers array
           this.freelancers = freelancers.freelancers;
           this.totalRecords = freelancers.total;
-          console.log('Freelancers fetched:', freelancers);
+          // console.log('Freelancers fetched successfully.');
         },
         error: (error) => {
-          console.error('Error fetching freelancers:', error);
+          // console.error('Error fetching freelancers:', error);
+          this.notificationService.addMessage(
+            'error',
+            'Error',
+            'An error occurred while fetching freelancer profiles to display! Please retry.'
+          );
         },
+        /*
+        complete: () => {
+          console.log('Fetch operation complete.');
+        },
+        */
       });
   }
 
@@ -122,10 +147,21 @@ export class FreelancerListingsComponent {
       .editFreelancer(`http://localhost:3000/freelancers/${id}`, freelancer)
       .subscribe({
         next: (data) => {
-          console.log(data);
+          this.notificationService.addMessage(
+            'success',
+            'Success',
+            'Freelancer profile successfully updated!'
+          );
+          // refresh current page of freelancer display list
+          this.fetchFreelancers(this.currentPage, this.rows);
         },
         error: (error) => {
-          console.log(error);
+          // console.error(error);
+          this.notificationService.addMessage(
+            'error',
+            'Failure',
+            'Freelancer profile could not be updated! Please retry.'
+          );
         },
       });
   }
@@ -135,14 +171,23 @@ export class FreelancerListingsComponent {
       .deleteFreelancer(`http://localhost:3000/freelancers/${id}`)
       .subscribe({
         next: (data) => {
-          console.log(data);
-          // fetch data from server and update state
-          this.fetchFreelancers(0, this.rows);
+          this.notificationService.addMessage(
+            'success',
+            'Success',
+            'Freelancer profile successfully removed!'
+          );
+          // refresh data
+          this.fetchFreelancers(this.currentPage, this.rows);
           // reset paginator
           this.resetPaginator();
         },
         error: (error) => {
-          console.log(error);
+          // console.error(error);
+          this.notificationService.addMessage(
+            'error',
+            'Failure',
+            'Freelancer profile could not be deleted! Please retry.'
+          );
         },
       });
   }
@@ -152,14 +197,22 @@ export class FreelancerListingsComponent {
       .addFreelancer(`http://localhost:3000/freelancers`, freelancer)
       .subscribe({
         next: (data) => {
-          console.log(data);
-          // fetch data from server and update state
-          this.fetchFreelancers(0, this.rows);
+          this.notificationService.addMessage(
+            'success',
+            'Success',
+            'New freelancer profile successfully added!'
+          );
+          // refresh data
+          this.fetchFreelancers(this.currentPage, this.rows);
           // reset paginator
           this.resetPaginator();
         },
         error: (error) => {
-          console.log(error);
+          this.notificationService.addMessage(
+            'error',
+            'Failure',
+            'New freelancer profile could not be added! Please retry.'
+          );
         },
       });
   }
@@ -167,6 +220,8 @@ export class FreelancerListingsComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.fetchFreelancers(0, this.rows);
+
+    // fetch data from server
+    this.fetchFreelancers(this.currentPage, this.rows);
   }
 }

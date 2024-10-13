@@ -1,9 +1,9 @@
 <!-- progress spinner -->
 <div
   *ngIf="isLoading"
-  class="flex justify-center items-center h-screen w-screen place-content-evenly"
+  class="flex justify-center -mt-28 items-center h-screen place-content-center"
 >
-  <mat-progress-spinner mode="determinate" [diameter]="50" />
+  <mat-progress-spinner mode="indeterminate" [diameter]="50" />
 </div>
 
 <div *ngIf="!isLoading">

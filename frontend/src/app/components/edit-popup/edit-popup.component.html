@@ -15,6 +15,13 @@
     [enableService]="true"
   />
 
+  <!-- position header -->
+  <ng-template pTemplate="header" class="py-3">
+    <p-header class="text-start p-6 text-2xl w-full font-extrabold -mb-8">
+      {{ header }}
+    </p-header>
+  </ng-template>
+
   <div class="flex flex-col gap-4 p-6" [formGroup]="freelancerForm">
     <!-- freelancer name -->
     <div class="flex items-center gap-2">
@@ -282,26 +289,28 @@
 
   <!-- footer with action buttons -->
   <p-footer>
-    <div class="flex justify-end gap-2">
-      <button
-        title="Confirm Edits"
-        type="button"
-        pButton
-        icon="pi pi-check"
-        (click)="onConfirm()"
-        label="Confirm"
-        class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg disabled:opacity-50"
-        [class.disabled]="!freelancerForm.valid"
-      ></button>
-      <button
-        title="Discard Edits"
-        type="button"
-        pButton
-        icon="pi pi-times"
-        (click)="onCancel()"
-        label="Cancel"
-        class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
-      ></button>
+    <div class="flex justify-end">
+      <div class="pt-6">
+        <button
+          title="Confirm Edits"
+          type="button"
+          pButton
+          icon="pi pi-check"
+          (click)="onConfirm()"
+          label="Confirm"
+          class="bg-green-500 mr-1 hover:bg-green-600 text-white py-2 px-4 rounded-lg disabled:opacity-50"
+          [class.disabled]="!freelancerForm.valid"
+        ></button>
+        <button
+          title="Discard Edits"
+          type="button"
+          pButton
+          icon="pi pi-times"
+          (click)="onCancel()"
+          label="Cancel"
+          class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
+        ></button>
+      </div>
     </div>
   </p-footer>
 </p-dialog>

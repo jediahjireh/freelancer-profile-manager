@@ -28,3 +28,5 @@
 - [x] Configure header for profile page
 - [x] Refine 'Add Freelancer' floating button
 - [x] Handle loading states gracefully - Angular Material Progress Spinner
+- [x] Keep personal profile page card uniform so that freelancer is able to see what others see when coming across their profile
+- [ ] Update README.md screenshots

@@ -1,10 +1,15 @@
 # Freelancer Profile Manager - Full Stack Application
 
-**Freelancer Profile Manager** is a dynamic online application, featuring a **frontend** built with **Angular** and a **backend** powered by **Node.js** with **Express.js** layered on top. Users can perform full CRUD (Create, Read, Update, Delete) operations on freelancer profiles, showcasing various professionals and their talent and skills.
+The **Freelancer Profile Manager** application features a **frontend** built with **Angular** and a **backend** powered by **Node.js** with **Express.js** layered on top. Users can perform full CRUD (Create, Read, Update, Delete) operations on freelancer profiles, showcasing various professionals and their talent and skills.
+
+## Note
+
+To access the application's CRUD functionalities on your local machine, follow the instructions from [here](#frontend) below. Note that the Vercel deployment offers a read-only file system for serverless functions.
 
 ## Table of Contents
 
 - [Freelancer Profile Manager - Full Stack Application](#freelancer-profile-manager---full-stack-application)
+  - [Note](#note)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Features](#features)
@@ -178,7 +183,7 @@ Freelancer data is managed using the following JSON structure in [`freelancers.j
 
 ## Configuration
 
-Replace live website links with localhost endpoints in development.
+Replace the live website links with localhost endpoints to run this project locally.
 
 - Backend: [server.js](/backend/server.js) (replace link to frontend):
 

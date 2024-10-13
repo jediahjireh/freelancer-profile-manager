@@ -23,19 +23,21 @@
   >
     <!-- search input field -->
     <div class="flex justify-center mt-6">
-      <p-inputGroup class="w-[60%]">
+      <div class="relative lg:w-[65%] md:w-[75%] w-full">
         <input
           type="text"
           title="Search Talent Search Bar"
           placeholder="Search talent..."
           [(ngModel)]="searchQuery"
           (ngModelChange)="filterFreelancers()"
-          class="search-input w-full font-thin p-2 border border-gray-400 rounded-lg"
+          class="search-input w-full font-thin p-2 pr-8 border border-gray-400 rounded-lg"
         />
-        <span class="p-inputgroup-addo -ml-8 mt-2.5 text-gray-400">
+        <span
+          class="absolute inset-y-0 right-3 flex items-center text-gray-400"
+        >
           <i class="pi pi-search"></i>
         </span>
-      </p-inputGroup>
+      </div>
     </div>
 
     <!-- add freelancer button -->

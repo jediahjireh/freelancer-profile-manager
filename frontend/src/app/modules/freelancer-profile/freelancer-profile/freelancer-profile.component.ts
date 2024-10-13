@@ -13,6 +13,8 @@ export class FreelancerProfileComponent implements OnInit {
   selectedFreelancer!: Freelancer;
   // display popups
   displayEditPopup: boolean = false;
+  // track loading state
+  isLoading: boolean = false;
 
   // inject services
   constructor(
@@ -22,10 +24,13 @@ export class FreelancerProfileComponent implements OnInit {
 
   // fetch specific freelancer profile data by id from server
   fetchFreelancer(id: number) {
+    this.isLoading = true;
+
     this.freelancersService.getFreelancerById(id).subscribe({
       next: (freelancer: Freelancer) => {
         // assign fetched data
         this.freelancer = freelancer;
+        this.isLoading = false;
       },
       error: (error) => {
         this.notificationService.addMessage(
@@ -33,6 +38,7 @@ export class FreelancerProfileComponent implements OnInit {
           'Unsuccessful',
           'Freelancer profile could not be fetched.'
         );
+        this.isLoading = false;
       },
     });
   }
@@ -64,6 +70,8 @@ export class FreelancerProfileComponent implements OnInit {
 
   // edit and delete profile data functionality
   editFreelancer(freelancer: Freelancer, id: number) {
+    this.isLoading = true;
+
     this.freelancersService.editFreelancer(id, freelancer).subscribe({
       next: (data) => {
         this.notificationService.addMessage(
@@ -73,6 +81,7 @@ export class FreelancerProfileComponent implements OnInit {
         );
         // refresh page
         window.location.reload();
+        this.isLoading = false;
       },
       error: (error) => {
         // console.error(error);
@@ -81,11 +90,14 @@ export class FreelancerProfileComponent implements OnInit {
           'Unsuccessful',
           'Freelancer profile could not be updated! Please retry.'
         );
+        this.isLoading = false;
       },
     });
   }
 
   deleteFreelancer(id: number) {
+    this.isLoading = true;
+
     this.freelancersService.deleteFreelancer(id).subscribe({
       next: (data) => {
         this.notificationService.addMessage(
@@ -95,6 +107,7 @@ export class FreelancerProfileComponent implements OnInit {
         );
         // refresh page
         window.location.reload();
+        this.isLoading = false;
       },
       error: (error) => {
         // console.error(error);
@@ -103,6 +116,7 @@ export class FreelancerProfileComponent implements OnInit {
           'Unsuccessful',
           'Freelancer profile could not be deleted! Please retry.'
         );
+        this.isLoading = false;
       },
     });
   }

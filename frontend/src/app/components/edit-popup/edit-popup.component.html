@@ -30,7 +30,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('name')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('name')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("name") }}
@@ -52,7 +52,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('location')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('location')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("location") }}
@@ -74,7 +74,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('hourlyRate')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('hourlyRate')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("hourlyRate") }}
@@ -108,7 +108,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('bio')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('bio')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("bio") }}
@@ -130,7 +130,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('skills')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('skills')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("skills") }}
@@ -155,7 +155,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('linkedin')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('linkedin')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("linkedin") }}
@@ -175,7 +175,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('github')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('github')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("github") }}
@@ -195,7 +195,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('email')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('email')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("email") }}
@@ -214,7 +214,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('phone')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('phone')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("phone") }}
@@ -273,7 +273,7 @@
     </div>
     <!-- error message -->
     <div
-      *ngIf="submitted && freelancerForm.get('portfolio')?.invalid"
+      *ngIf="isSubmitted && freelancerForm.get('portfolio')?.invalid"
       class="text-red-600 text-xs text-end -mt-3"
     >
       {{ getErrorMessage("portfolio") }}

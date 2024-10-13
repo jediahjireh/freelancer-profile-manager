@@ -5,6 +5,7 @@ import { MessagesModule } from 'primeng/messages';
 import { EditPopupComponent } from '../../components/edit-popup/edit-popup.component';
 import { FreelancerProfileComponent } from './freelancer-profile/freelancer-profile.component';
 import { FreelancerComponent } from '../../components/freelancer/freelancer.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // declare routes
 @NgModule({
@@ -16,6 +17,7 @@ import { FreelancerComponent } from '../../components/freelancer/freelancer.comp
     MessagesModule,
     EditPopupComponent,
     FreelancerComponent,
+    MatProgressSpinnerModule,
   ],
   exports: [FreelancerProfileComponent],
 })

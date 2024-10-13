@@ -27,3 +27,4 @@
 - [x] Add pipe for retrieving the current year for footer display
 - [x] Configure header for profile page
 - [x] Refine 'Add Freelancer' floating button
+- [x] Handle loading states gracefully - Angular Material Progress Spinner

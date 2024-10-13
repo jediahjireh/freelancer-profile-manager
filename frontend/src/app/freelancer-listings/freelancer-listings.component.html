@@ -1,77 +1,90 @@
-<!-- notifications -->
-<p-messages
-  [value]="notificationService.getMessages()"
-  [showTransitionOptions]="'500ms'"
-  [hideTransitionOptions]="'500ms'"
-  class="fixed top-5 left-1/2 transform -translate-x-1/2 z-20 w-11/12 md:w-8/12 bg-opacity-100 lg:w-6/12"
-  [closable]="false"
-  [enableService]="true"
-/>
+<!-- progress spinner -->
+<div
+  *ngIf="isLoading"
+  class="flex justify-center items-center h-screen w-screen place-content-evenly"
+>
+  <mat-progress-spinner mode="determinate" [diameter]="50" />
+</div>
 
-<div class="flex flex-col gap-4" *ngIf="freelancers && freelancers.length > 0">
-  <!-- search input field -->
-  <div class="flex justify-center mt-6">
-    <p-inputGroup class="w-[60%]">
-      <input
-        type="text"
-        title="Search Talent Search Bar"
-        placeholder="Search talent..."
-        [(ngModel)]="searchQuery"
-        (ngModelChange)="filterFreelancers()"
-        class="search-input w-full font-thin p-2 border border-gray-400 rounded-lg"
-      />
-      <span class="p-inputgroup-addo -ml-8 mt-2.5 text-gray-400">
-        <i class="pi pi-search"></i>
-      </span>
-    </p-inputGroup>
-  </div>
+<div *ngIf="!isLoading">
+  <!-- notifications -->
+  <p-messages
+    [value]="notificationService.getMessages()"
+    [showTransitionOptions]="'500ms'"
+    [hideTransitionOptions]="'500ms'"
+    class="fixed top-5 left-1/2 transform -translate-x-1/2 z-20 w-11/12 md:w-8/12 bg-opacity-100 lg:w-6/12"
+    [closable]="false"
+    [enableService]="true"
+  />
 
-  <!-- add freelancer button -->
-  <div class="rounded-full">
-    <button
-      title="Add Freelancer Button"
-      type="button"
-      pButton
-      icon="pi pi-plus"
-      (click)="toggleAddPopup()"
-      class="add-freelancer-button text-2xl rounded-full p-2 fixed bottom-2.5 right-2.5 z-10 text-white bg-black shadow-md transition-shadow hover:shadow-md shadow-neutral-800"
-    ></button>
-  </div>
-
-  <!-- display freelancers -->
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 flex-grow-1"
+    class="flex flex-col gap-4"
+    *ngIf="freelancers && freelancers.length > 0"
   >
-    <app-freelancer
-      class="flex-grow-1"
-      *ngFor="let freelancer of filteredFreelancers"
-      [freelancer]="freelancer"
-      (edit)="toggleEditPopup($event)"
-      (delete)="toggleDeletePopup($event)"
+    <!-- search input field -->
+    <div class="flex justify-center mt-6">
+      <p-inputGroup class="w-[60%]">
+        <input
+          type="text"
+          title="Search Talent Search Bar"
+          placeholder="Search talent..."
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="filterFreelancers()"
+          class="search-input w-full font-thin p-2 border border-gray-400 rounded-lg"
+        />
+        <span class="p-inputgroup-addo -ml-8 mt-2.5 text-gray-400">
+          <i class="pi pi-search"></i>
+        </span>
+      </p-inputGroup>
+    </div>
+
+    <!-- add freelancer button -->
+    <div class="rounded-full">
+      <button
+        title="Add Freelancer Button"
+        type="button"
+        pButton
+        icon="pi pi-plus"
+        (click)="toggleAddPopup()"
+        class="add-freelancer-button text-2xl rounded-full p-2 fixed bottom-2.5 right-2.5 z-10 text-white bg-black shadow-md transition-shadow hover:shadow-md shadow-neutral-800"
+      ></button>
+    </div>
+
+    <!-- display freelancers -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 flex-grow-1"
+    >
+      <app-freelancer
+        class="flex-grow-1"
+        *ngFor="let freelancer of filteredFreelancers"
+        [freelancer]="freelancer"
+        (edit)="toggleEditPopup($event)"
+        (delete)="toggleDeletePopup($event)"
+      />
+    </div>
+
+    <!-- paginator -->
+    <p-paginator
+      [rows]="rows"
+      [totalRecords]="totalRecords"
+      [rowsPerPageOptions]="[10, 20, 30]"
+      (onPageChange)="onPageChange($event)"
+      #paginator
+    />
+
+    <!-- edit freelancer popup: initialise component to edit freelancer -->
+    <app-edit-popup
+      [freelancer]="selectedFreelancer"
+      [(display)]="displayEditPopup"
+      (confirm)="onConfirmEdit($event)"
+      header="Edit Freelancer Profile"
+    />
+
+    <!-- add freelancer popup: initialise component to add freelancer -->
+    <app-edit-popup
+      [(display)]="displayAddPopup"
+      (confirm)="onConfirmAdd($event)"
+      header="Add Freelancer Profile"
     />
   </div>
-
-  <!-- paginator -->
-  <p-paginator
-    [rows]="rows"
-    [totalRecords]="totalRecords"
-    [rowsPerPageOptions]="[10, 20, 30]"
-    (onPageChange)="onPageChange($event)"
-    #paginator
-  />
-
-  <!-- edit freelancer popup: initialise component to edit freelancer -->
-  <app-edit-popup
-    [freelancer]="selectedFreelancer"
-    [(display)]="displayEditPopup"
-    (confirm)="onConfirmEdit($event)"
-    header="Edit Freelancer Profile"
-  />
-
-  <!-- add freelancer popup: initialise component to add freelancer -->
-  <app-edit-popup
-    [(display)]="displayAddPopup"
-    (confirm)="onConfirmAdd($event)"
-    header="Add Freelancer Profile"
-  />
 </div>

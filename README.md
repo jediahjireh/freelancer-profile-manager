@@ -44,7 +44,7 @@ Here are some screenshots of the project in action:
   ![Freelancer Listings](./docs/screenshots/freelancer-listings.png)
 
 - **Search Talent Search Bar:**
-  ![Search Bar](./docs/screenshots/freelancer-listings.png)
+  ![Search Bar](./docs/screenshots/freelancer-search.png)
 
 - **Pagination:**
   ![Pagination](./docs/screenshots/pagination.png)

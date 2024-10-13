@@ -10,6 +10,7 @@ import { MessagesModule } from 'primeng/messages';
 import { NotificationService } from '../services/notification.service';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-freelancer-listings',
@@ -23,6 +24,7 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
     MessagesModule,
     InputGroupModule,
     InputGroupAddonModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './freelancer-listings.component.html',
   styleUrl: './freelancer-listings.component.css',
@@ -46,6 +48,8 @@ export class FreelancerListingsComponent {
   rows: number = 8;
   // track paginator state
   currentPage: number = 0;
+  // loading state
+  isLoading: boolean = false;
 
   // display popups
   displayEditPopup: boolean = false;
@@ -118,12 +122,15 @@ export class FreelancerListingsComponent {
     page: number = this.currentPage,
     perPage: number = this.rows
   ) {
+    this.isLoading = true;
+
     this.freelancersService.getFreelancers({ page, perPage }).subscribe({
       next: (freelancers: Freelancers) => {
         this.freelancers = freelancers.freelancers;
         this.totalRecords = freelancers.total;
         // apply filter after fetching data
         this.filterFreelancers();
+        this.isLoading = false;
       },
       error: (error) => {
         this.notificationService.addMessage(
@@ -131,6 +138,7 @@ export class FreelancerListingsComponent {
           'Unsuccessful',
           'Freelancer profiles could not be fetched.'
         );
+        this.isLoading = false;
       },
     });
   }
@@ -162,6 +170,8 @@ export class FreelancerListingsComponent {
 
   // CRUD functions
   editFreelancer(freelancer: Freelancer, id: number) {
+    this.isLoading = true;
+
     this.freelancersService.editFreelancer(id, freelancer).subscribe({
       next: (data) => {
         this.notificationService.addMessage(
@@ -171,6 +181,7 @@ export class FreelancerListingsComponent {
         );
         // refresh current page of freelancer display list
         this.fetchFreelancers(this.currentPage, this.rows);
+        this.isLoading = false;
       },
       error: (error) => {
         // console.error(error);
@@ -179,11 +190,14 @@ export class FreelancerListingsComponent {
           'Unsuccessful',
           'Freelancer profile could not be updated! Please retry.'
         );
+        this.isLoading = false;
       },
     });
   }
 
   deleteFreelancer(id: number) {
+    this.isLoading = true;
+
     this.freelancersService.deleteFreelancer(id).subscribe({
       next: (data) => {
         this.notificationService.addMessage(
@@ -195,6 +209,8 @@ export class FreelancerListingsComponent {
         this.fetchFreelancers(this.currentPage, this.rows);
         // reset paginator
         this.resetPaginator();
+        // change loading state
+        this.isLoading = false;
       },
       error: (error) => {
         // console.error(error);
@@ -203,11 +219,14 @@ export class FreelancerListingsComponent {
           'Unsuccessful',
           'Freelancer profile could not be deleted! Please retry.'
         );
+        this.isLoading = false;
       },
     });
   }
 
   addFreelancer(freelancer: Freelancer) {
+    this.isLoading = true;
+
     this.freelancersService
       // pass the object
       .addFreelancer(freelancer)
@@ -222,6 +241,8 @@ export class FreelancerListingsComponent {
           this.fetchFreelancers(this.currentPage, this.rows);
           // reset paginator
           this.resetPaginator();
+          // change state
+          this.isLoading = false;
         },
         error: (error) => {
           this.notificationService.addMessage(
@@ -229,6 +250,7 @@ export class FreelancerListingsComponent {
             'Unsuccessful',
             'New freelancer profile could not be added! Please retry.'
           );
+          this.isLoading = false;
         },
       });
   }

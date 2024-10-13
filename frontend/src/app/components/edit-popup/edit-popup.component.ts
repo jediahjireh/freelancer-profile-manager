@@ -39,7 +39,7 @@ export class EditPopupComponent {
   ) {}
 
   // track form submission
-  submitted: boolean = false;
+  isSubmitted: boolean = false;
 
   // display popup or not
   @Input() display: boolean = false;
@@ -228,7 +228,7 @@ export class EditPopupComponent {
   // emit freelancer form values on confirm
   onConfirm() {
     // notify user of invalid fields
-    this.submitted = true;
+    this.isSubmitted = true;
 
     // check if input is valid
     if (this.freelancerForm.invalid || this.portfolioArray.invalid) {
@@ -281,13 +281,13 @@ export class EditPopupComponent {
     // close dialog
     this.display = false;
     this.displayChange.emit(this.display);
-    this.submitted = false;
+    this.isSubmitted = false;
   }
 
   // cancel edits
   onCancel() {
     this.display = false;
     this.displayChange.emit(this.display);
-    this.submitted = false;
+    this.isSubmitted = false;
   }
 }

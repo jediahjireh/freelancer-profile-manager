@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Freelancer } from '../../../types/types';
 import { FreelancersService } from '../../../services/freelancers.service';
 import { NotificationService } from '../../../services/notification.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-freelancer-profile',
@@ -19,7 +20,8 @@ export class FreelancerProfileComponent implements OnInit {
   // inject services
   constructor(
     private freelancersService: FreelancersService,
-    public notificationService: NotificationService
+    public notificationService: NotificationService,
+    private route: ActivatedRoute
   ) {}
 
   // fetch specific freelancer profile data by id from server
@@ -122,7 +124,11 @@ export class FreelancerProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // fetch the freelancer id from the route and use it to fetch the profile
+    const freelancerId = Number(this.route.snapshot.paramMap.get('id'));
+    this.fetchFreelancer(freelancerId);
+
     // fetch freelancer data when component loads
-    this.fetchFreelancer(1);
+    // this.fetchFreelancer(1);
   }
 }

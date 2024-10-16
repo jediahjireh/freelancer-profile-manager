@@ -1,6 +1,8 @@
 # Frontend
 
-## Checklist
+## Checklist form of process followed
+
+### Task 1
 
 - [x] Generate freelancer-listings component
 - [x] Set up Node.js server as a mock backend service
@@ -29,4 +31,22 @@
 - [x] Refine 'Add Freelancer' floating button
 - [x] Handle loading states gracefully - Angular Material Progress Spinner
 - [x] Keep personal profile page card uniform so that freelancer is able to see what others see when coming across their profile
+- [x] Use semantic HTML and maintain accessibility standards.
+
+#### Design choices
+
+- My design choice for a clean but visually appealing interface reflects a focus on usability and aesthetics.
+- A simple, uncluttered design ensures users can navigate the platform easily, while still enjoying a polished visual experience.
+- Keeping the user profile page identical to the freelancer profile listing (but enlarged) allows for consistency, while ensuring that users see their profiles exactly as others do. This fosters transparency and allows users to both see and understand how they are represented to potential clients.
+- Ultimately, the goal behind each element within the design was to create a cohesive experience, reinforcing trust and familiarity by sticking to interfaces and displays users may be accustomed to, while still throwing in personal effects and preferences throughout so that there is still a warmth that shines through (in an effort to showcase a little "personality").
+
+### Task 2
+
+- [x] Adapt the UI to display the selected freelancer on its own page using freelancer-profile
+- [ ] Set a default profile to be displayed and selected in the header tab for user data editing
+- [ ] Update the backend and UI to use the attributes found in the [freelancerProfile.json](/docs/freelancerProfile.json) file
+- [ ] Separate the different parts of the profile into its own components (display the different parts as cards)
+- [ ] Allow the user to edit the data
+- [ ] Add a carousel animation for the portfolio
+- [ ] Create a component for skill and display the skill with stars or some other indicator you choose to show the skill level (1 = beginner, 2 = intermediate, 3 = expert)
 - [ ] Update README.md screenshots

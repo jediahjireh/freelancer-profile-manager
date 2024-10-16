@@ -11,6 +11,7 @@ import { NotificationService } from '../services/notification.service';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-freelancer-listings',
@@ -33,7 +34,8 @@ export class FreelancerListingsComponent {
   // inject services
   constructor(
     private freelancersService: FreelancersService,
-    public notificationService: NotificationService
+    public notificationService: NotificationService,
+    private router: Router
   ) {}
 
   @ViewChild('paginator') paginator: Paginator | undefined;
@@ -57,8 +59,18 @@ export class FreelancerListingsComponent {
 
   // toggle displays
   toggleEditPopup(freelancer: Freelancer) {
-    this.selectedFreelancer = freelancer;
-    this.displayEditPopup = true;
+    // ensure freelancer profile exists
+    if (freelancer.id !== undefined) {
+      this.selectedFreelancer = freelancer;
+      this.displayEditPopup = true;
+    } else {
+      // if id is undefined
+      this.notificationService.addMessage(
+        'error',
+        'Error',
+        'Freelancer profile not found.'
+      );
+    }
   }
 
   toggleAddPopup() {
@@ -66,11 +78,16 @@ export class FreelancerListingsComponent {
   }
 
   toggleDeletePopup(freelancer: Freelancer) {
-    if (!freelancer.id) {
-      return;
+    if (freelancer.id !== undefined) {
+      this.deleteFreelancer(freelancer.id);
+    } else {
+      // if id is undefined
+      this.notificationService.addMessage(
+        'error',
+        'Error',
+        'Freelancer profile not found.'
+      );
     }
-
-    this.deleteFreelancer(freelancer.id);
   }
 
   selectedFreelancer: Freelancer = {
@@ -253,6 +270,20 @@ export class FreelancerListingsComponent {
           this.isLoading = false;
         },
       });
+  }
+
+  // navigate to selected freelancer profile page
+  viewFreelancerProfile(id: number | undefined) {
+    // ensure freelancer profile exists
+    if (id !== undefined) {
+      this.router.navigate(['/freelancer-profile', id]);
+    } else {
+      this.notificationService.addMessage(
+        'error',
+        'Error',
+        'Freelancer profile not found.'
+      );
+    }
   }
 
   ngOnInit(): void {

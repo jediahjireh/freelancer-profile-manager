@@ -60,6 +60,7 @@
         class="flex-grow-1"
         *ngFor="let freelancer of filteredFreelancers"
         [freelancer]="freelancer"
+        (click)="viewFreelancerProfile(freelancer.id)"
         (edit)="toggleEditPopup($event)"
         (delete)="toggleDeletePopup($event)"
       />

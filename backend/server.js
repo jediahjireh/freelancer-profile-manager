@@ -8,9 +8,9 @@ import cors from "cors";
 const app = express();
 const port = 3000;
 
-// cors configuration - allow requests from frontend (http://localhost:4200)
+// cors configuration - allow requests from frontend (http://localhost:4200) | https://freelancer-profile-manager.vercel.app
 const corsOptions = {
-  origin: "https://freelancer-profile-manager.vercel.app",
+  origin: "http://localhost:4200",
   optionsSuccessStatus: 204,
   methods: "GET, POST, PUT, DELETE",
 };

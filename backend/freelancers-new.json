@@ -1,0 +1,640 @@
+{
+  "freelancers": [
+    {
+      "id": 1,
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "jane.doe@example.com",
+      "username": "janedoe_dev",
+      "role": "freelancer",
+      "is_active": true,
+      "profile": {
+        "id": 1,
+        "user_id": 1,
+        "picture": "images/freelancers/image1.png",
+        "job_title": "Full Stack Developer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourly_rate": 75.0,
+        "bio": "I'm a passionate developer with 5 years of experience in building scalable web applications.",
+        "availability": "Part-time",
+        "city": "San Francisco",
+        "state": "California",
+        "country": "United States",
+        "skills": [
+          {
+            "id": 1,
+            "name": "React",
+            "level": "Expert"
+          },
+          {
+            "id": 2,
+            "name": "Django",
+            "level": "Expert"
+          },
+          {
+            "id": 3,
+            "name": "PostgreSQL",
+            "level": "Intermediate"
+          }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Innovators Inc.",
+            "position": "Senior Developer",
+            "start_date": "2018-03-01",
+            "end_date": "2023-05-31",
+            "description": "Led a team of developers in creating a cloud-based project management tool."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of California, Berkeley",
+            "degree": "Bachelor of Science",
+            "field_of_study": "Computer Science",
+            "start_date": "2010-09-01",
+            "end_date": "2014-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Developer - Associate",
+            "issuing_organization": "Amazon Web Services",
+            "issue_date": "2022-01-15",
+            "expiration_date": "2025-01-15"
+          }
+        ],
+        "portfolio_items": [
+          {
+            "id": 1,
+            "title": "E-commerce Platform",
+            "description": "Developed a fully functional e-commerce platform using React and Django",
+            "url": "https://github.com/janedoe/ecommerce-platform"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "client_id": 5,
+            "rating": 5,
+            "comment": "Jane is an excellent developer. She delivered the project on time and exceeded our expectations.",
+            "created_at": "2023-04-15T14:30:00Z"
+          }
+        ],
+        "social_links": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/janedoe"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/janedoe"
+          }
+        ],
+        "created_at": "2023-01-01T00:00:00Z",
+        "updated_at": "2023-06-15T12:30:00Z"
+      },
+      "subscription": {
+        "id": 1,
+        "plan": "Professional",
+        "start_date": "2023-01-01",
+        "end_date": "2024-01-01",
+        "is_active": true
+      }
+    },
+    {
+      "id": 2,
+      "first_name": "David",
+      "last_name": "Wilson",
+      "email": "david.wilson@example.com",
+      "username": "davidwilson_dev",
+      "role": "freelancer",
+      "is_active": true,
+      "profile": {
+        "id": 2,
+        "user_id": 2,
+        "picture": "images/freelancers/image2.png",
+        "job_title": "DevOps Engineer",
+        "description": "Expert in CI/CD and cloud infrastructure.",
+        "hourly_rate": 75.0,
+        "bio": "I have over 6 years of experience in DevOps and cloud technologies.",
+        "availability": "Full-time",
+        "city": "New York",
+        "state": "New York",
+        "country": "United States",
+        "skills": [
+          {
+            "id": 1,
+            "name": "Docker",
+            "level": "Expert"
+          },
+          {
+            "id": 2,
+            "name": "Kubernetes",
+            "level": "Expert"
+          },
+          {
+            "id": 3,
+            "name": "AWS",
+            "level": "Intermediate"
+          }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Cloud Solutions",
+            "position": "DevOps Engineer",
+            "start_date": "2017-01-01",
+            "end_date": "2023-10-01",
+            "description": "Managed cloud infrastructure and CI/CD pipelines."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Columbia University",
+            "degree": "Master of Science",
+            "field_of_study": "Computer Science",
+            "start_date": "2015-09-01",
+            "end_date": "2017-05-15"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Solutions Architect",
+            "issuing_organization": "Amazon Web Services",
+            "issue_date": "2022-05-20",
+            "expiration_date": "2025-05-20"
+          }
+        ],
+        "portfolio_items": [
+          {
+            "id": 1,
+            "title": "CI/CD Pipeline Setup",
+            "description": "Designed a CI/CD pipeline for a web application.",
+            "url": "https://github.com/davidwilson/cicd-pipeline"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "client_id": 10,
+            "rating": 4,
+            "comment": "David is skilled but communication can improve.",
+            "created_at": "2023-07-01T10:30:00Z"
+          }
+        ],
+        "social_links": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/davidwilson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/davidwilson"
+          }
+        ],
+        "created_at": "2023-04-01T00:00:00Z",
+        "updated_at": "2023-09-15T14:00:00Z"
+      },
+      "subscription": {
+        "id": 2,
+        "plan": "Professional",
+        "start_date": "2023-04-01",
+        "end_date": "2024-04-01",
+        "is_active": true
+      }
+    },
+    {
+      "id": 3,
+      "first_name": "Sophia",
+      "last_name": "Martinez",
+      "email": "sophia.martinez@example.com",
+      "username": "sophiamartinez_dev",
+      "role": "freelancer",
+      "is_active": true,
+      "profile": {
+        "id": 3,
+        "user_id": 3,
+        "picture": "images/freelancers/image3.png",
+        "job_title": "UX/UI Designer",
+        "description": "Creating user-friendly designs.",
+        "hourly_rate": 65.0,
+        "bio": "I design intuitive and engaging interfaces.",
+        "availability": "Part-time",
+        "city": "Chicago",
+        "state": "Illinois",
+        "country": "United States",
+        "skills": [
+          {
+            "id": 1,
+            "name": "Figma",
+            "level": "Expert"
+          },
+          {
+            "id": 2,
+            "name": "Adobe XD",
+            "level": "Expert"
+          },
+          {
+            "id": 3,
+            "name": "Sketch",
+            "level": "Intermediate"
+          }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Design Studio",
+            "position": "Lead Designer",
+            "start_date": "2018-02-01",
+            "end_date": "2023-08-31",
+            "description": "Led design projects for various clients."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Rhode Island School of Design",
+            "degree": "Bachelor of Fine Arts",
+            "field_of_study": "Graphic Design",
+            "start_date": "2014-09-01",
+            "end_date": "2018-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified UX Designer",
+            "issuing_organization": "UX Design Institute",
+            "issue_date": "2023-01-15",
+            "expiration_date": "2026-01-15"
+          }
+        ],
+        "portfolio_items": [
+          {
+            "id": 1,
+            "title": "Portfolio Website",
+            "description": "Showcase of my design projects.",
+            "url": "https://sophiamartinez.com"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "client_id": 15,
+            "rating": 5,
+            "comment": "Sophia delivered outstanding designs and met all deadlines.",
+            "created_at": "2023-03-10T09:30:00Z"
+          }
+        ],
+        "social_links": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/sophiamartinez"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/sophiamartinez"
+          }
+        ],
+        "created_at": "2023-06-01T00:00:00Z",
+        "updated_at": "2023-09-10T10:00:00Z"
+      },
+      "subscription": {
+        "id": 3,
+        "plan": "Basic",
+        "start_date": "2023-06-01",
+        "end_date": "2024-06-01",
+        "is_active": true
+      }
+    },
+    {
+      "id": 4,
+      "first_name": "James",
+      "last_name": "Garcia",
+      "email": "james.garcia@example.com",
+      "username": "jamesgarcia_dev",
+      "role": "freelancer",
+      "is_active": true,
+      "profile": {
+        "id": 4,
+        "user_id": 4,
+        "picture": "images/freelancers/image4.png",
+        "job_title": "SEO Specialist",
+        "description": "Specializes in search engine optimization.",
+        "hourly_rate": 60.0,
+        "bio": "I have 4 years of experience improving website visibility.",
+        "availability": "Full-time",
+        "city": "Boston",
+        "state": "Massachusetts",
+        "country": "United States",
+        "skills": [
+          {
+            "id": 1,
+            "name": "SEO",
+            "level": "Expert"
+          },
+          {
+            "id": 2,
+            "name": "Google Analytics",
+            "level": "Expert"
+          },
+          {
+            "id": 3,
+            "name": "Content Marketing",
+            "level": "Intermediate"
+          }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Marketing Agency",
+            "position": "SEO Analyst",
+            "start_date": "2019-01-15",
+            "end_date": "2023-01-15",
+            "description": "Worked on SEO strategies for clients."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Northeastern University",
+            "degree": "Bachelor of Arts",
+            "field_of_study": "Marketing",
+            "start_date": "2015-09-01",
+            "end_date": "2019-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Google Analytics Certified",
+            "issuing_organization": "Google",
+            "issue_date": "2022-02-20",
+            "expiration_date": "2025-02-20"
+          }
+        ],
+        "portfolio_items": [
+          {
+            "id": 1,
+            "title": "SEO Audit",
+            "description": "Conducted a comprehensive SEO audit for a major brand.",
+            "url": "https://github.com/jamesgarcia/seo-audit"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "client_id": 20,
+            "rating": 4,
+            "comment": "James provided valuable insights but could improve response time.",
+            "created_at": "2023-02-25T12:00:00Z"
+          }
+        ],
+        "social_links": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/jamesgarcia"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/jamesgarcia"
+          }
+        ],
+        "created_at": "2023-03-01T00:00:00Z",
+        "updated_at": "2023-09-05T09:00:00Z"
+      },
+      "subscription": {
+        "id": 4,
+        "plan": "Basic",
+        "start_date": "2023-03-01",
+        "end_date": "2024-03-01",
+        "is_active": true
+      }
+    },
+    {
+      "id": 5,
+      "first_name": "Emily",
+      "last_name": "Johnson",
+      "email": "emily.johnson@example.com",
+      "username": "emilyjohnson_dev",
+      "role": "freelancer",
+      "is_active": true,
+      "profile": {
+        "id": 5,
+        "user_id": 5,
+        "picture": "images/freelancers/image5.png",
+        "job_title": "Mobile App Developer",
+        "description": "Expert in iOS and Android app development.",
+        "hourly_rate": 80.0,
+        "bio": "I create intuitive mobile applications for various industries.",
+        "availability": "Full-time",
+        "city": "Austin",
+        "state": "Texas",
+        "country": "United States",
+        "skills": [
+          {
+            "id": 1,
+            "name": "Swift",
+            "level": "Expert"
+          },
+          {
+            "id": 2,
+            "name": "Kotlin",
+            "level": "Expert"
+          },
+          {
+            "id": 3,
+            "name": "React Native",
+            "level": "Intermediate"
+          }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "App Creators",
+            "position": "Lead Developer",
+            "start_date": "2020-06-01",
+            "end_date": "2023-09-01",
+            "description": "Led a team to develop high-quality mobile applications."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Texas at Austin",
+            "degree": "Bachelor of Science",
+            "field_of_study": "Computer Science",
+            "start_date": "2016-09-01",
+            "end_date": "2020-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Scrum Master",
+            "issuing_organization": "Scrum Alliance",
+            "issue_date": "2021-03-10",
+            "expiration_date": "2024-03-10"
+          }
+        ],
+        "portfolio_items": [
+          {
+            "id": 1,
+            "title": "Fitness Tracker App",
+            "description": "Developed an iOS and Android fitness tracking application.",
+            "url": "https://github.com/emilyjohnson/fitness-tracker"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "client_id": 25,
+            "rating": 5,
+            "comment": "Emily exceeded our expectations with the app's functionality.",
+            "created_at": "2023-08-10T10:15:00Z"
+          }
+        ],
+        "social_links": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/emilyjohnson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/emilyjohnson"
+          }
+        ],
+        "created_at": "2023-07-01T00:00:00Z",
+        "updated_at": "2023-09-10T12:00:00Z"
+      },
+      "subscription": {
+        "id": 5,
+        "plan": "Professional",
+        "start_date": "2023-07-01",
+        "end_date": "2024-07-01",
+        "is_active": true
+      }
+    },
+    {
+      "id": 6,
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "email": "michael.brown@example.com",
+      "username": "michaelbrown_dev",
+      "role": "freelancer",
+      "is_active": true,
+      "profile": {
+        "id": 6,
+        "user_id": 6,
+        "picture": "images/freelancers/image6.png",
+        "job_title": "Data Scientist",
+        "description": "Specializes in data analysis and machine learning.",
+        "hourly_rate": 90.0,
+        "bio": "I analyse data to drive business insights.",
+        "availability": "Part-time",
+        "city": "Seattle",
+        "state": "Washington",
+        "country": "United States",
+        "skills": [
+          {
+            "id": 1,
+            "name": "Python",
+            "level": "Expert"
+          },
+          {
+            "id": 2,
+            "name": "R",
+            "level": "Expert"
+          },
+          {
+            "id": 3,
+            "name": "SQL",
+            "level": "Intermediate"
+          }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Solutions",
+            "position": "Junior Data Scientist",
+            "start_date": "2021-01-10",
+            "end_date": "2022-12-10",
+            "description": "Assisted in data analysis and model building."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Washington",
+            "degree": "Master of Science",
+            "field_of_study": "Computer Science",
+            "start_date": "2019-09-01",
+            "end_date": "2021-06-30"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Data Analyst",
+            "issuing_organization": "Data Science Association",
+            "issue_date": "2021-05-15",
+            "expiration_date": "2024-05-15"
+          }
+        ],
+        "portfolio_items": [
+          {
+            "id": 1,
+            "title": "Data Analysis Project",
+            "description": "Developed a data analysis project using Python.",
+            "url": "https://github.com/michaelbrown/data-analysis"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "client_id": 30,
+            "rating": 5,
+            "comment": "Michael's insights were invaluable for our project.",
+            "created_at": "2023-09-15T08:45:00Z"
+          }
+        ],
+        "social_links": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/michaelbrown"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/michaelbrown"
+          }
+        ],
+        "created_at": "2023-09-01T00:00:00Z",
+        "updated_at": "2023-09-15T12:00:00Z"
+      },
+      "subscription": {
+        "id": 6,
+        "plan": "Standard",
+        "start_date": "2023-09-01",
+        "end_date": "2024-09-01",
+        "is_active": true
+      }
+    }
+  ]
+}

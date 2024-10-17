@@ -1,0 +1,31 @@
+<mat-card-actions class="flex justify-end">
+  <button
+    title="Freelancer Profile Information"
+    type="button"
+    pButton
+    icon="pi pi-ellipsis-h"
+    (click)="menu.toggle($event)"
+    class="p-button-sm w-8 h-8 hover:bg-gray-200 rounded"
+  ></button>
+
+  <!-- freelancer information -->
+  <p-overlayPanel #menu>
+    <div class="flex flex-col gap-1.5 p-2 text-sm">
+      <span
+        ><strong>Date joined:</strong>
+        {{ freelancer.profile.createdAt | date : "longDate" }}</span
+      >
+
+      <span
+        ><strong>Last updated:</strong>
+        {{ freelancer.profile.updatedAt | date : "longDate" }}</span
+      >
+
+      <span
+        ><strong>Subscription:</strong> {{ freelancer.subscription.plan }}</span
+      >
+    </div>
+  </p-overlayPanel>
+</mat-card-actions>
+
+<p-confirmPopup />

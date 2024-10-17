@@ -1,0 +1,53 @@
+<!-- display freelancer details -->
+<mat-card-content>
+  <div class="py-2 -mt-4">
+    <span class="text-xs location text-gray-500 font-thin">
+      <ng-icon name="hugePinLocation02" />
+      {{ freelancer.profile.country }}
+    </span>
+    <!-- {{ freelancer.profile.city }}, {{ freelancer.profile.state }} -->
+    <div class="flex mt-1">
+      <div
+        class="mb-1 rounded-sm text-gray-500 hourly-rate text-xs w-[1.5/3] font-semibold"
+      >
+        {{ freelancer.profile.jobTitle }} |
+        {{ freelancer.profile.availability }}
+      </div>
+    </div>
+
+    <div class="flex">
+      <div
+        class="mb-1 rounded-sm text-gray-500 hourly-rate text-xs w-[1.5/3] font-semibold"
+      >
+        <div>
+          <ng-icon name="hugeCoins01" />
+          {{ freelancer.profile.hourlyRate | price }}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-2 -mb-1">
+      <p class="description">{{ freelancer.profile.description }}</p>
+    </div>
+    <div class="text-gray-500">
+      <app-skills [freelancer]="freelancer" />
+    </div>
+
+    <!-- display portfolio links with carousel effect -->
+    <div class="portfolio mt-4">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let project of freelancer.profile.portfolioItems">
+          <ng-template carouselSlide>
+            <ul class="m-1">
+              <li
+                class="skill hover:text-custom-teal text-center hover:bg-custom-teal hover:bg-opacity-35 text-custom-purple bg-custom-purple bg-opacity-35 rounded-full py-1 text-sm"
+              >
+                <a [href]="project.url" target="_blank">{{ project.title }}</a>
+              </li>
+            </ul>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</mat-card-content>

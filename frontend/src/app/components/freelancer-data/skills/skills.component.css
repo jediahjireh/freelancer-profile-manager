@@ -1,0 +1,11 @@
+:host ::ng-deep .p-rating-icon {
+  @apply text-custom-purple !important;
+  width: 12px;
+  height: 12px;
+  /* remove text size to only show the icon */
+  font-size: 0;
+}
+
+:host ::ng-deep .skills-rating .p-rating-icon {
+  margin-top: -5px;
+}

@@ -2,615 +2,1551 @@
   "freelancers": [
     {
       "id": 1,
-      "profilePicture": "images/freelancers/image3.png",
-      "name": "Jediah Jireh",
-      "location": "Durban, Umhlanga",
-      "hourlyRate": 200,
-      "bio": "Experienced web developer specialising in Angular.",
-      "skills": ["Angular", "TypeScript", "CSS"],
-      "portfolio": [
-        {
-          "title": "Portfolio Website",
-          "link": "https://jediahjireh.vercel.app"
-        },
-        {
-          "title": "Product Manager",
-          "link": "https://github.com/jediahjireh/product-management-system.git"
-        }
-      ],
-      "socialLinks": {
-        "linkedin": "https://linkedin.com/jediahjireh",
-        "github": "https://github.com/jediahjireh"
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jane.doe@example.com",
+      "username": "janedoe_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 1,
+        "userId": 1,
+        "picture": "images/freelancers/image1.png",
+        "jobTitle": "Full Stack Developer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 75.0,
+        "bio": "I'm a passionate developer with 5 years of experience in building scalable web applications.",
+        "availability": "Part-time",
+        "city": "San Francisco",
+        "state": "California",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "React", "level": "Expert" },
+          { "id": 2, "name": "Django", "level": "Expert" },
+          { "id": 3, "name": "PostgreSQL", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Innovators Inc.",
+            "position": "Senior Developer",
+            "startDate": "2018-03-01",
+            "endDate": "2023-05-31",
+            "description": "Led a team of developers in creating a cloud-based project management tool."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of California, Berkeley",
+            "degree": "Bachelor of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2010-09-01",
+            "endDate": "2014-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Developer - Associate",
+            "issuingOrganization": "Amazon Web Services",
+            "issueDate": "2022-01-15",
+            "expirationDate": "2025-01-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "E-commerce",
+            "description": "Developed a fully functional e-commerce platform using React and Django",
+            "url": "https://github.com/janedoe/ecommerce-platform"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Storefront",
+            "description": "Developed a fully functional storefront using Angular",
+            "url": "https://github.com/storefront"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 5,
+            "rating": 5,
+            "comment": "Jane is an excellent developer. She delivered the project on time and exceeded our expectations.",
+            "createdAt": "2023-04-15T14:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/janedoe"
+          },
+          { "id": 2, "platform": "GitHub", "url": "https://github.com/janedoe" }
+        ],
+        "createdAt": "2023-01-01T00:00:00Z",
+        "updatedAt": "2023-06-15T12:30:00Z"
       },
-      "contact": { "email": "jediahnaicker@gmail.com", "phone": "082-636-3910" }
-    },
-    {
-      "id": 2,
-      "profilePicture": "images/freelancers/image2.png",
-      "name": "Sarah Smith",
-      "location": "Cape Town, City Bowl",
-      "hourlyRate": "145",
-      "bio": "Graphic designer with a passion for creative solutions.",
-      "skills": ["Photoshop", "Illustrator", "InDesign"],
-      "portfolio": [
-        { "title": "Branding Project", "link": "url_to_project_3" },
-        { "title": "Web Design", "link": "url_to_project_4" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": { "email": "sarah.smith@example.com", "phone": "098-765-4321" }
-    },
-    {
-      "id": 3,
-      "profilePicture": "images/freelancers/image26.png",
-      "name": "Michael Browne",
-      "location": "Johannesburg, Sandton",
-      "hourlyRate": "180",
-      "bio": "Full-stack developer with extensive backend experience.",
-      "skills": ["Node.js", "Express", "MongoDB"],
-      "portfolio": [
-        { "title": "E-commerce Site", "link": "url_to_project_5" },
-        { "title": "Blog Platform", "link": "url_to_project_6" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "michael.brown@example.com",
-        "phone": "555-0123-4568"
+      "subscription": {
+        "id": 1,
+        "plan": "Professional",
+        "startDate": "2023-01-01",
+        "endDate": "2024-01-01",
+        "isActive": true
       }
     },
     {
-      "id": 4,
-      "profilePicture": "images/freelancers/image4.png",
-      "name": "Linda Johnson",
-      "location": "Pretoria, Brooklyn",
-      "hourlyRate": 155,
-      "bio": "Frontend developer with a keen eye for design.",
-      "skills": ["React", "Vue.js", "CSS"],
-      "portfolio": [
-        { "title": "Personal Portfolio", "link": "url_to_project_7" },
-        { "title": "Landing Page", "link": "url_to_project_8" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "id": 2,
+      "firstName": "Dayna",
+      "lastName": "Wilson",
+      "email": "dayna.wilson@example.com",
+      "username": "davidwilson_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 2,
+        "userId": 2,
+        "picture": "images/freelancers/image2.png",
+        "jobTitle": "DevOps Engineer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 85,
+        "bio": "I have over 6 years of experience in DevOps and cloud technologies.",
+        "availability": "Full-time",
+        "city": "Albany",
+        "state": "New York",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Docker", "level": "Intermediate" },
+          { "id": 2, "name": "Kubernetes", "level": "Intermediate" },
+          { "id": 3, "name": "AWS", "level": "Beginner" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Cloud Solutions",
+            "position": "DevOps Engineer",
+            "startDate": "2017-01-01",
+            "endDate": "2023-10-01",
+            "description": "Managed cloud infrastructure and CI/CD pipelines."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Columbia University",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2015-09-01",
+            "endDate": "2017-05-15"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Solutions Architect",
+            "issuingOrganization": "Amazon Web Services",
+            "issueDate": "2022-05-20",
+            "expirationDate": "2025-05-20"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Pipeline Setup",
+            "description": "Designed a CI/CD pipeline for a web application.",
+            "url": "https://github.com/davidwilson/cicd-pipeline"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 10,
+            "rating": 4,
+            "comment": "David is skilled but communication can improve.",
+            "createdAt": "2023-07-01T10:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/davidwilson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/davidwilson"
+          },
+          {
+            "id": 3,
+            "platform": "Portfolio",
+            "url": "https://portfolio.com/davidwilson"
+          }
+        ],
+        "createdAt": "2023-04-01T00:00:00Z",
+        "updatedAt": "2023-09-15T14:00:00Z"
       },
-      "contact": {
-        "email": "linda.johnson@example.com",
-        "phone": "321-654-9870"
+      "subscription": {
+        "id": 2,
+        "plan": "Professional",
+        "startDate": "2023-04-01",
+        "endDate": "2024-04-01",
+        "isActive": true
+      }
+    },
+    {
+      "id": 3,
+      "firstName": "Sophia",
+      "lastName": "Martinez",
+      "email": "sophia.martinez@example.com",
+      "username": "sophiamartinez_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 3,
+        "userId": 3,
+        "picture": "images/freelancers/image3.png",
+        "jobTitle": "UX/UI Designer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 65,
+        "bio": "I design intuitive and engaging interfaces.",
+        "availability": "Part-time",
+        "city": "Chicago",
+        "state": "Illinois",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Figma", "level": "Beginner" },
+          { "id": 2, "name": "Adobe XD", "level": "Expert" },
+          { "id": 3, "name": "Sketch", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Design Studio",
+            "position": "Lead Designer",
+            "startDate": "2018-02-01",
+            "endDate": "2023-08-31",
+            "description": "Led design projects for various clients."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Rhode Island School of Design",
+            "degree": "Bachelor of Fine Arts",
+            "fieldOfStudy": "Graphic Design",
+            "startDate": "2014-09-01",
+            "endDate": "2018-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified UX Designer",
+            "issuingOrganization": "UX Design Institute",
+            "issueDate": "2023-01-15",
+            "expirationDate": "2026-01-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Portfolio Website",
+            "description": "Showcase of my design projects.",
+            "url": "https://sophiamartinez.com"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 15,
+            "rating": 5,
+            "comment": "Sophia delivered outstanding designs and met all deadlines.",
+            "createdAt": "2023-03-10T09:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/sophiamartinez"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/sophiamartinez"
+          },
+          {
+            "id": 3,
+            "platform": "Instagram",
+            "url": "https://instagram.com/sophiamartinez"
+          }
+        ],
+        "createdAt": "2023-06-01T00:00:00Z",
+        "updatedAt": "2023-09-10T10:00:00Z"
+      },
+      "subscription": {
+        "id": 3,
+        "plan": "Basic",
+        "startDate": "2023-06-01",
+        "endDate": "2024-06-01",
+        "isActive": true
       }
     },
     {
       "id": 5,
-      "profilePicture": "images/freelancers/image5.png",
-      "name": "Gillian Williams",
-      "location": "Durban, Umhlanga",
-      "hourlyRate": "145",
-      "bio": "Mobile app developer with a focus on user experience.",
-      "skills": ["Flutter", "React Native", "Java"],
-      "portfolio": [
-        { "title": "Travel Application", "link": "url_to_project_9" },
-        { "title": "Fitness Tracker", "link": "url_to_project_10" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Emily",
+      "lastName": "Johnson",
+      "email": "emily.johnson@example.com",
+      "username": "emilyjohnson_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 5,
+        "userId": 5,
+        "picture": "images/freelancers/image5.png",
+        "jobTitle": "Mobile App Developer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 80.5,
+        "bio": "I create intuitive mobile applications for various industries.",
+        "availability": "Full-time",
+        "city": "Austin",
+        "state": "Texas",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Swift", "level": "Expert" },
+          { "id": 2, "name": "Kotlin", "level": "Expert" },
+          { "id": 3, "name": "React Native", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "App Creators",
+            "position": "Lead Developer",
+            "startDate": "2020-06-01",
+            "endDate": "2023-09-01",
+            "description": "Led a team to develop high-quality mobile applications."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Texas at Austin",
+            "degree": "Bachelor of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2016-09-01",
+            "endDate": "2020-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Scrum Master",
+            "issuingOrganization": "Scrum Alliance",
+            "issueDate": "2021-03-10",
+            "expirationDate": "2024-03-10"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Fitness Tracker",
+            "description": "Developed an iOS and Android fitness tracking application.",
+            "url": "https://github.com/emilyjohnson/fitness-tracker"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 25,
+            "rating": 5,
+            "comment": "Emily exceeded our expectations with the app's functionality.",
+            "createdAt": "2023-08-10T10:15:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/emilyjohnson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/emilyjohnson"
+          },
+          {
+            "id": 3,
+            "platform": "Facebook",
+            "url": "https://facebook.com/emilyjohnson"
+          }
+        ],
+        "createdAt": "2023-07-01T00:00:00Z",
+        "updatedAt": "2023-09-10T12:00:00Z"
       },
-      "contact": {
-        "email": "james.williams@example.com",
-        "phone": "987-654-3210"
+      "subscription": {
+        "id": 5,
+        "plan": "Professional",
+        "startDate": "2023-07-01",
+        "endDate": "2024-07-01",
+        "isActive": true
       }
     },
     {
       "id": 6,
-      "profilePicture": "images/freelancers/image6.png",
-      "name": "Patricia Taylor",
-      "location": "Cape Town, Waterfront",
-      "hourlyRate": "165",
-      "bio": "SEO expert helping businesses grow online.",
-      "skills": ["SEO", "Content Marketing", "Analytics"],
-      "portfolio": [
-        { "title": "SEO Case Study", "link": "url_to_project_11" },
-        { "title": "Content Strategy", "link": "url_to_project_12" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Madison",
+      "lastName": "Freeman",
+      "email": "michael.brown@example.com",
+      "username": "maddyfreeman_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 6,
+        "userId": 6,
+        "picture": "images/freelancers/image6.png",
+        "jobTitle": "Data Scientist",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 90,
+        "bio": "I analyse data to drive business insights.",
+        "availability": "Part-time",
+        "city": "Seattle",
+        "state": "Washington",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Python", "level": "Expert" },
+          { "id": 2, "name": "R", "level": "Expert" },
+          { "id": 3, "name": "SQL", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Solutions",
+            "position": "Junior Data Scientist",
+            "startDate": "2021-01-10",
+            "endDate": "2022-12-10",
+            "description": "Assisted in data analysis and model building."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Washington",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2019-09-01",
+            "endDate": "2021-06-30"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Data Analyst",
+            "issuingOrganization": "Data Science Association",
+            "issueDate": "2021-05-15",
+            "expirationDate": "2024-05-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Analysis Project",
+            "description": "Developed a data analysis project using Python.",
+            "url": "https://github.com/michaelbrown/data-analysis"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 30,
+            "rating": 5,
+            "comment": "Michael's insights were invaluable for our project.",
+            "createdAt": "2023-09-15T08:45:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/michaelbrown"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/michaelbrown"
+          },
+          {
+            "id": 3,
+            "platform": "WhatsApp",
+            "url": "https://wa.me/01234567890"
+          }
+        ],
+        "createdAt": "2023-09-01T00:00:00Z",
+        "updatedAt": "2023-09-15T12:00:00Z"
       },
-      "contact": {
-        "email": "patricia.taylor@example.com",
-        "phone": "456-789-0123"
+      "subscription": {
+        "id": 6,
+        "plan": "Standard",
+        "startDate": "2023-09-01",
+        "endDate": "2024-09-01",
+        "isActive": true
       }
     },
     {
       "id": 7,
-      "profilePicture": "images/freelancers/image7.png",
-      "name": "Roberta Harris",
-      "location": "Johannesburg, Parktown",
-      "hourlyRate": 170,
-      "bio": "Data analyst with a knack for visualisation.",
-      "skills": ["Python", "SQL", "Tableau"],
-      "portfolio": [
-        { "title": "Sales Data Analysis", "link": "https://project-13.com" },
-        { "title": "Marketing Insights", "link": "https://project-14.com" }
-      ],
-      "socialLinks": {
-        "linkedin": "https://linkedin.com",
-        "github": "https://github.com"
+      "firstName": "Michaela",
+      "lastName": "Browne",
+      "email": "michaela.browne@example.com",
+      "username": "michaelbrown_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 7,
+        "userId": 7,
+        "picture": "images/freelancers/image7.png",
+        "jobTitle": "Data Scientist",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 90,
+        "bio": "I analyse data to drive business insights.",
+        "availability": "Part-time",
+        "city": "Seattle",
+        "state": "Washington",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Python", "level": "Expert" },
+          { "id": 2, "name": "Django", "level": "Beginner" },
+          { "id": 3, "name": "MySQL", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Solutions",
+            "position": "Junior Data Scientist",
+            "startDate": "2021-01-10",
+            "endDate": "2022-12-10",
+            "description": "Assisted in data analysis and model building."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Washington",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2019-09-01",
+            "endDate": "2021-06-30"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Data Analyst",
+            "issuingOrganization": "Data Science Association",
+            "issueDate": "2021-05-15",
+            "expirationDate": "2024-05-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Analysis Project",
+            "description": "Developed a data analysis project using Python.",
+            "url": "https://github.com/michaelbrown/data-analysis"
+          },
+          {
+            "id": 2,
+            "title": "Data Project",
+            "description": "Developed another data analysis project using Python.",
+            "url": "https://github.com/michaelbrown/data-analysis2"
+          },
+          {
+            "id": 3,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 4,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 30,
+            "rating": 5,
+            "comment": "Michael's insights were invaluable for our project.",
+            "createdAt": "2023-09-15T08:45:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/michaelbrown"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/michaelbrown"
+          },
+          {
+            "id": 3,
+            "platform": "YouTube",
+            "url": "https://youtube.com/michaelbrown"
+          }
+        ],
+        "createdAt": "2023-09-01T00:00:00Z",
+        "updatedAt": "2023-09-15T12:00:00Z"
       },
-      "contact": {
-        "email": "roberta.harris@example.com",
-        "phone": "678-901-2345"
+      "subscription": {
+        "id": 7,
+        "plan": "Standard",
+        "startDate": "2023-09-01",
+        "endDate": "2024-09-01",
+        "isActive": true
       }
     },
     {
       "id": 8,
-      "profilePicture": "images/freelancers/image8.png",
-      "name": "Jennifer Moore",
-      "location": "Cape Town, Hout Bay",
-      "hourlyRate": 175,
-      "bio": "Copywriter specialising in marketing content.",
-      "skills": ["Copywriting", "Editing", "Content Strategy"],
-      "portfolio": [
-        { "title": "Ad Campaign", "link": "url_to_project_15" },
-        { "title": "Website Copy", "link": "url_to_project_16" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Janice",
+      "lastName": "Daylan",
+      "email": "david.wilson@example.com",
+      "username": "janicedaylan_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 8,
+        "userId": 8,
+        "picture": "images/freelancers/image8.png",
+        "jobTitle": "DevOps Engineer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 75,
+        "bio": "I have over 6 years of experience in DevOps and cloud technologies.",
+        "availability": "Part-time",
+        "city": "Buffalo",
+        "state": "New York",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Docker", "level": "Intermediate" },
+          { "id": 2, "name": "Kubernetes", "level": "Intermediate" },
+          { "id": 3, "name": "AWS", "level": "Beginner" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Cloud Solutions",
+            "position": "DevOps Engineer",
+            "startDate": "2017-01-01",
+            "endDate": "2023-10-01",
+            "description": "Managed cloud infrastructure and CI/CD pipelines."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Columbia University",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2015-09-01",
+            "endDate": "2017-05-15"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Solutions Architect",
+            "issuingOrganization": "Amazon Web Services",
+            "issueDate": "2022-05-20",
+            "expirationDate": "2025-05-20"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Pipeline Setup",
+            "description": "Designed a CI/CD pipeline for a web application.",
+            "url": "https://github.com/davidwilson/cicd-pipeline"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 10,
+            "rating": 4,
+            "comment": "David is skilled but communication can improve.",
+            "createdAt": "2023-07-01T10:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/davidwilson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/davidwilson"
+          },
+          {
+            "id": 3,
+            "platform": "Portfolio",
+            "url": "https://portfolio.com/davidwilson"
+          }
+        ],
+        "createdAt": "2023-04-01T00:00:00Z",
+        "updatedAt": "2023-09-15T14:00:00Z"
       },
-      "contact": {
-        "email": "jennifer.moore@example.com",
-        "phone": "789-012-3456"
+      "subscription": {
+        "id": 2,
+        "plan": "Professional",
+        "startDate": "2023-04-01",
+        "endDate": "2024-04-01",
+        "isActive": true
       }
     },
+
     {
       "id": 9,
-      "profilePicture": "images/freelancers/image9.png",
-      "name": "Charlesie Martin",
-      "location": "Pretoria, Hatfield",
-      "hourlyRate": 180,
-      "bio": "Network engineer with experience in cybersecurity.",
-      "skills": ["Cisco", "Firewall", "Network Security"],
-      "portfolio": [
-        { "title": "Network Setup", "link": "url_to_project_17" },
-        { "title": "Security Audit", "link": "url_to_project_18" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jane.doe@example.com",
+      "username": "janedoe_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 9,
+        "userId": 9,
+        "picture": "images/freelancers/image9.png",
+        "jobTitle": "Full Stack Developer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 75.0,
+        "bio": "I'm a passionate developer with 5 years of experience in building scalable web applications.",
+        "availability": "Part-time",
+        "city": "San Francisco",
+        "state": "California",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "React", "level": "Expert" },
+          { "id": 2, "name": "Django", "level": "Expert" },
+          { "id": 3, "name": "PostgreSQL", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Innovators Inc.",
+            "position": "Senior Developer",
+            "startDate": "2018-03-01",
+            "endDate": "2023-05-31",
+            "description": "Led a team of developers in creating a cloud-based project management tool."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of California, Berkeley",
+            "degree": "Bachelor of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2010-09-01",
+            "endDate": "2014-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Developer - Associate",
+            "issuingOrganization": "Amazon Web Services",
+            "issueDate": "2022-01-15",
+            "expirationDate": "2025-01-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "E-commerce",
+            "description": "Developed a fully functional e-commerce platform using React and Django",
+            "url": "https://github.com/janedoe/ecommerce-platform"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Storefront",
+            "description": "Developed a fully functional storefront using Angular",
+            "url": "https://github.com/storefront"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 5,
+            "rating": 5,
+            "comment": "Jane is an excellent developer. She delivered the project on time and exceeded our expectations.",
+            "createdAt": "2023-04-15T14:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/janedoe"
+          },
+          { "id": 2, "platform": "GitHub", "url": "https://github.com/janedoe" }
+        ],
+        "createdAt": "2023-01-01T00:00:00Z",
+        "updatedAt": "2023-06-15T12:30:00Z"
       },
-      "contact": {
-        "email": "charles.martin@example.com",
-        "phone": "234-567-8901"
+      "subscription": {
+        "id": 1,
+        "plan": "Professional",
+        "startDate": "2023-01-01",
+        "endDate": "2024-01-01",
+        "isActive": true
       }
     },
     {
       "id": 10,
-      "profilePicture": "images/freelancers/image10.png",
-      "name": "Elizabeth Garcia",
-      "location": "Johannesburg, Westcliff",
-      "hourlyRate": "135",
-      "bio": "Video editor with a flair for storytelling.",
-      "skills": ["Premiere Pro", "Final Cut", "After Effects"],
-      "portfolio": [
-        { "title": "Short Film", "link": "url_to_project_19" },
-        { "title": "Promo Video", "link": "url_to_project_20" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Dayna",
+      "lastName": "Wilson",
+      "email": "dayna.wilson@example.com",
+      "username": "davidwilson_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 10,
+        "userId": 10,
+        "picture": "images/freelancers/image10.png",
+        "jobTitle": "DevOps Engineer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 85,
+        "bio": "I have over 6 years of experience in DevOps and cloud technologies.",
+        "availability": "Full-time",
+        "city": "Albany",
+        "state": "New York",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Docker", "level": "Intermediate" },
+          { "id": 2, "name": "Kubernetes", "level": "Intermediate" },
+          { "id": 3, "name": "AWS", "level": "Beginner" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Cloud Solutions",
+            "position": "DevOps Engineer",
+            "startDate": "2017-01-01",
+            "endDate": "2023-10-01",
+            "description": "Managed cloud infrastructure and CI/CD pipelines."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Columbia University",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2015-09-01",
+            "endDate": "2017-05-15"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Solutions Architect",
+            "issuingOrganization": "Amazon Web Services",
+            "issueDate": "2022-05-20",
+            "expirationDate": "2025-05-20"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Pipeline Setup",
+            "description": "Designed a CI/CD pipeline for a web application.",
+            "url": "https://github.com/davidwilson/cicd-pipeline"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 10,
+            "rating": 4,
+            "comment": "David is skilled but communication can improve.",
+            "createdAt": "2023-07-01T10:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/davidwilson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/davidwilson"
+          },
+          {
+            "id": 3,
+            "platform": "Portfolio",
+            "url": "https://portfolio.com/davidwilson"
+          }
+        ],
+        "createdAt": "2023-04-01T00:00:00Z",
+        "updatedAt": "2023-09-15T14:00:00Z"
       },
-      "contact": {
-        "email": "elizabeth.garcia@example.com",
-        "phone": "321-098-7654"
+      "subscription": {
+        "id": 2,
+        "plan": "Professional",
+        "startDate": "2023-04-01",
+        "endDate": "2024-04-01",
+        "isActive": true
       }
     },
     {
       "id": 11,
-      "profilePicture": "images/freelancers/image11.png",
-      "name": "Daniel Lee",
-      "location": "Durban, Glenwood",
-      "hourlyRate": 190,
-      "bio": "Blockchain developer with a focus on security.",
-      "skills": ["Solidity", "Ethereum", "Cryptography"],
-      "portfolio": [
-        { "title": "Smart Contract", "link": "url_to_project_21" },
-        { "title": "DApp Development", "link": "url_to_project_22" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Sophia",
+      "lastName": "Martinez",
+      "email": "sophia.martinez@example.com",
+      "username": "sophiamartinez_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 11,
+        "userId": 11,
+        "picture": "images/freelancers/image11.png",
+        "jobTitle": "UX/UI Designer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 65,
+        "bio": "I design intuitive and engaging interfaces.",
+        "availability": "Part-time",
+        "city": "Chicago",
+        "state": "Illinois",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Figma", "level": "Beginner" },
+          { "id": 2, "name": "Adobe XD", "level": "Expert" },
+          { "id": 3, "name": "Sketch", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Design Studio",
+            "position": "Lead Designer",
+            "startDate": "2018-02-01",
+            "endDate": "2023-08-31",
+            "description": "Led design projects for various clients."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Rhode Island School of Design",
+            "degree": "Bachelor of Fine Arts",
+            "fieldOfStudy": "Graphic Design",
+            "startDate": "2014-09-01",
+            "endDate": "2018-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified UX Designer",
+            "issuingOrganization": "UX Design Institute",
+            "issueDate": "2023-01-15",
+            "expirationDate": "2026-01-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Portfolio Website",
+            "description": "Showcase of my design projects.",
+            "url": "https://sophiamartinez.com"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 15,
+            "rating": 5,
+            "comment": "Sophia delivered outstanding designs and met all deadlines.",
+            "createdAt": "2023-03-10T09:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/sophiamartinez"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/sophiamartinez"
+          },
+          {
+            "id": 3,
+            "platform": "Instagram",
+            "url": "https://instagram.com/sophiamartinez"
+          }
+        ],
+        "createdAt": "2023-06-01T00:00:00Z",
+        "updatedAt": "2023-09-10T10:00:00Z"
       },
-      "contact": { "email": "daniel.lee@example.com", "phone": "456-123-7890" }
+      "subscription": {
+        "id": 3,
+        "plan": "Basic",
+        "startDate": "2023-06-01",
+        "endDate": "2024-06-01",
+        "isActive": true
+      }
     },
     {
       "id": 12,
-      "profilePicture": "images/freelancers/image12.png",
-      "name": "Leonard White",
-      "location": "Cape Town, Claremont",
-      "hourlyRate": 165,
-      "bio": "UI/UX designer focusing on user-friendly interfaces.",
-      "skills": ["Figma", "Sketch", "User Testing"],
-      "portfolio": [
-        { "title": "App Redesign", "link": "url_to_project_23" },
-        { "title": "Website Wireframe", "link": "url_to_project_24" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Emily",
+      "lastName": "Johnson",
+      "email": "emily.johnson@example.com",
+      "username": "emilyjohnson_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 12,
+        "userId": 12,
+        "picture": "images/freelancers/image12.png",
+        "jobTitle": "Mobile App Developer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 80.5,
+        "bio": "I create intuitive mobile applications for various industries.",
+        "availability": "Full-time",
+        "city": "Austin",
+        "state": "Texas",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Swift", "level": "Expert" },
+          { "id": 2, "name": "Kotlin", "level": "Expert" },
+          { "id": 3, "name": "React Native", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "App Creators",
+            "position": "Lead Developer",
+            "startDate": "2020-06-01",
+            "endDate": "2023-09-01",
+            "description": "Led a team to develop high-quality mobile applications."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Texas at Austin",
+            "degree": "Bachelor of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2016-09-01",
+            "endDate": "2020-05-31"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Scrum Master",
+            "issuingOrganization": "Scrum Alliance",
+            "issueDate": "2021-03-10",
+            "expirationDate": "2024-03-10"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Fitness Tracker",
+            "description": "Developed an iOS and Android fitness tracking application.",
+            "url": "https://github.com/emilyjohnson/fitness-tracker"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 25,
+            "rating": 5,
+            "comment": "Emily exceeded our expectations with the app's functionality.",
+            "createdAt": "2023-08-10T10:15:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/emilyjohnson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/emilyjohnson"
+          },
+          {
+            "id": 3,
+            "platform": "Facebook",
+            "url": "https://facebook.com/emilyjohnson"
+          }
+        ],
+        "createdAt": "2023-07-01T00:00:00Z",
+        "updatedAt": "2023-09-10T12:00:00Z"
       },
-      "contact": { "email": "laura.white@example.com", "phone": "678-123-4567" }
+      "subscription": {
+        "id": 5,
+        "plan": "Professional",
+        "startDate": "2023-07-01",
+        "endDate": "2024-07-01",
+        "isActive": true
+      }
+    },
+    {
+      "id": 12,
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "email": "michael.brown@example.com",
+      "username": "michaelbrown_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 12,
+        "userId": 12,
+        "picture": "images/freelancers/image12.png",
+        "jobTitle": "Data Scientist",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 90,
+        "bio": "I analyse data to drive business insights.",
+        "availability": "Part-time",
+        "city": "Seattle",
+        "state": "Washington",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Python", "level": "Expert" },
+          { "id": 2, "name": "R", "level": "Expert" },
+          { "id": 3, "name": "SQL", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Solutions",
+            "position": "Junior Data Scientist",
+            "startDate": "2021-01-10",
+            "endDate": "2022-12-10",
+            "description": "Assisted in data analysis and model building."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Washington",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2019-09-01",
+            "endDate": "2021-06-30"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Data Analyst",
+            "issuingOrganization": "Data Science Association",
+            "issueDate": "2021-05-15",
+            "expirationDate": "2024-05-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Analysis Project",
+            "description": "Developed a data analysis project using Python.",
+            "url": "https://github.com/michaelbrown/data-analysis"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 30,
+            "rating": 5,
+            "comment": "Michael's insights were invaluable for our project.",
+            "createdAt": "2023-09-15T08:45:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/michaelbrown"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/michaelbrown"
+          },
+          {
+            "id": 3,
+            "platform": "WhatsApp",
+            "url": "https://wa.me/01234567890"
+          }
+        ],
+        "createdAt": "2023-09-01T00:00:00Z",
+        "updatedAt": "2023-09-15T12:00:00Z"
+      },
+      "subscription": {
+        "id": 6,
+        "plan": "Standard",
+        "startDate": "2023-09-01",
+        "endDate": "2024-09-01",
+        "isActive": true
+      }
     },
     {
       "id": 13,
-      "profilePicture": "images/freelancers/image13.png",
-      "name": "Kevin Anderson",
-      "location": "Johannesburg, Bryanston",
-      "hourlyRate": 185,
-      "bio": "Cloud architect with expertise in AWS and Azure.",
-      "skills": ["AWS", "Azure", "DevOps"],
-      "portfolio": [
-        { "title": "Cloud Migration", "link": "url_to_project_25" },
-        { "title": "Infrastructure Design", "link": "url_to_project_26" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Michaela",
+      "lastName": "Browne",
+      "email": "michaela.browne@example.com",
+      "username": "michaelbrown_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 13,
+        "userId": 13,
+        "picture": "images/freelancers/image13.png",
+        "jobTitle": "Data Scientist",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 90,
+        "bio": "I analyse data to drive business insights.",
+        "availability": "Part-time",
+        "city": "Seattle",
+        "state": "Washington",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Python", "level": "Expert" },
+          { "id": 2, "name": "Django", "level": "Beginner" },
+          { "id": 3, "name": "MySQL", "level": "Intermediate" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Tech Solutions",
+            "position": "Junior Data Scientist",
+            "startDate": "2021-01-10",
+            "endDate": "2022-12-10",
+            "description": "Assisted in data analysis and model building."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "University of Washington",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2019-09-01",
+            "endDate": "2021-06-30"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "Certified Data Analyst",
+            "issuingOrganization": "Data Science Association",
+            "issueDate": "2021-05-15",
+            "expirationDate": "2024-05-15"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Analysis Project",
+            "description": "Developed a data analysis project using Python.",
+            "url": "https://github.com/michaelbrown/data-analysis"
+          },
+          {
+            "id": 2,
+            "title": "Data Project",
+            "description": "Developed another data analysis project using Python.",
+            "url": "https://github.com/michaelbrown/data-analysis2"
+          },
+          {
+            "id": 3,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 4,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 30,
+            "rating": 5,
+            "comment": "Michael's insights were invaluable for our project.",
+            "createdAt": "2023-09-15T08:45:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/michaelbrown"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/michaelbrown"
+          },
+          {
+            "id": 3,
+            "platform": "YouTube",
+            "url": "https://youtube.com/michaelbrown"
+          }
+        ],
+        "createdAt": "2023-09-01T00:00:00Z",
+        "updatedAt": "2023-09-15T12:00:00Z"
       },
-      "contact": {
-        "email": "kevin.anderson@example.com",
-        "phone": "321-456-7890"
+      "subscription": {
+        "id": 7,
+        "plan": "Standard",
+        "startDate": "2023-09-01",
+        "endDate": "2024-09-01",
+        "isActive": true
       }
     },
     {
       "id": 14,
-      "profilePicture": "images/freelancers/image14.png",
-      "name": "Emma Scott",
-      "location": "Pretoria, Menlo Park",
-      "hourlyRate": 140,
-      "bio": "Data scientist with a focus on machine learning.",
-      "skills": ["R", "Python", "Machine Learning"],
-      "portfolio": [
-        { "title": "Predictive Model", "link": "url_to_project_27" },
-        { "title": "Data Visualisation", "link": "url_to_project_28" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+      "firstName": "Janice",
+      "lastName": "Daylan",
+      "email": "david.wilson@example.com",
+      "username": "janicedaylan_dev",
+      "role": "freelancer",
+      "isActive": true,
+      "profile": {
+        "id": 14,
+        "userId": 14,
+        "picture": "images/freelancers/image14.png",
+        "jobTitle": "DevOps Engineer",
+        "description": "Experienced full stack developer specializing in React and Django",
+        "hourlyRate": 75,
+        "bio": "I have over 6 years of experience in DevOps and cloud technologies.",
+        "availability": "Part-time",
+        "city": "Buffalo",
+        "state": "New York",
+        "country": "United States",
+        "skills": [
+          { "id": 1, "name": "Docker", "level": "Intermediate" },
+          { "id": 2, "name": "Kubernetes", "level": "Intermediate" },
+          { "id": 3, "name": "AWS", "level": "Beginner" }
+        ],
+        "experiences": [
+          {
+            "id": 1,
+            "company": "Cloud Solutions",
+            "position": "DevOps Engineer",
+            "startDate": "2017-01-01",
+            "endDate": "2023-10-01",
+            "description": "Managed cloud infrastructure and CI/CD pipelines."
+          }
+        ],
+        "education": [
+          {
+            "id": 1,
+            "institution": "Columbia University",
+            "degree": "Master of Science",
+            "fieldOfStudy": "Computer Science",
+            "startDate": "2015-09-01",
+            "endDate": "2017-05-15"
+          }
+        ],
+        "certifications": [
+          {
+            "id": 1,
+            "name": "AWS Certified Solutions Architect",
+            "issuingOrganization": "Amazon Web Services",
+            "issueDate": "2022-05-20",
+            "expirationDate": "2025-05-20"
+          }
+        ],
+        "portfolioItems": [
+          {
+            "id": 1,
+            "title": "Pipeline Setup",
+            "description": "Designed a CI/CD pipeline for a web application.",
+            "url": "https://github.com/davidwilson/cicd-pipeline"
+          },
+          {
+            "id": 2,
+            "title": "Online Store",
+            "description": "Developed a fully functional online store using React and Django",
+            "url": "https://github.com/onlinestore"
+          },
+          {
+            "id": 3,
+            "title": "Tic Tac Toe",
+            "description": "Developed a fully functional tic tac toe game using React",
+            "url": "https://github.com/tictactoe"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "clientId": 10,
+            "rating": 4,
+            "comment": "David is skilled but communication can improve.",
+            "createdAt": "2023-07-01T10:30:00Z"
+          }
+        ],
+        "socialLinks": [
+          {
+            "id": 1,
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/davidwilson"
+          },
+          {
+            "id": 2,
+            "platform": "GitHub",
+            "url": "https://github.com/davidwilson"
+          },
+          {
+            "id": 3,
+            "platform": "Portfolio",
+            "url": "https://portfolio.com/davidwilson"
+          }
+        ],
+        "createdAt": "2023-04-01T00:00:00Z",
+        "updatedAt": "2023-09-15T14:00:00Z"
       },
-      "contact": { "email": "emma.scott@example.com", "phone": "654-321-0987" }
-    },
-    {
-      "id": 15,
-      "profilePicture": "images/freelancers/image15.png",
-      "name": "Brianna Thomas",
-      "location": "Durban, Umhlanga",
-      "hourlyRate": 175,
-      "bio": "Cybersecurity specialist with over 10 years of experience.",
-      "skills": [
-        "Network Security",
-        "Penetration Testing",
-        "Incident Response"
-      ],
-      "portfolio": [
-        { "title": "Security Audit", "link": "url_to_project_29" },
-        { "title": "Risk Assessment", "link": "url_to_project_30" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "brian.thomas@example.com",
-        "phone": "987-123-4560"
-      }
-    },
-    {
-      "id": 16,
-      "profilePicture": "images/freelancers/image16.png",
-      "name": "Sophia Miller",
-      "location": "Cape Town, Table View",
-      "hourlyRate": 160,
-      "bio": "E-commerce expert with a focus on Shopify.",
-      "skills": ["Shopify", "SEO", "Digital Marketing"],
-      "portfolio": [
-        { "title": "Shopify Store", "link": "url_to_project_31" },
-        { "title": "Marketing Campaign", "link": "url_to_project_32" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "sophia.miller@example.com",
-        "phone": "321-654-9870"
-      }
-    },
-    {
-      "id": 17,
-      "profilePicture": "images/freelancers/image17.png",
-      "name": "Danielle Carter",
-      "location": "Johannesburg, Randburg",
-      "hourlyRate": 150,
-      "bio": "DevOps engineer with a focus on CI/CD.",
-      "skills": ["Jenkins", "Docker", "Kubernetes"],
-      "portfolio": [
-        { "title": "CI/CD Pipeline", "link": "url_to_project_33" },
-        { "title": "Containerisation", "link": "url_to_project_34" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "daniel.carter@example.com",
-        "phone": "654-987-3210"
-      }
-    },
-    {
-      "id": 18,
-      "profilePicture": "images/freelancers/image18.png",
-      "name": "Oliver Nelson",
-      "location": "Durban, Musgrave",
-      "hourlyRate": 165,
-      "bio": "Social media manager with experience in brand strategy.",
-      "skills": ["Social Media", "Content Creation", "Analytics"],
-      "portfolio": [
-        { "title": "Social Campaign", "link": "url_to_project_35" },
-        { "title": "Brand Strategy", "link": "url_to_project_36" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "olivia.nelson@example.com",
-        "phone": "789-012-3456"
-      }
-    },
-    {
-      "id": 19,
-      "profilePicture": "images/freelancers/image19.png",
-      "name": "Olivia Wright",
-      "location": "Cape Town, Bellville",
-      "hourlyRate": 155,
-      "bio": "Game developer with a passion for immersive experiences.",
-      "skills": ["Unity", "C#", "Game Design"],
-      "portfolio": [
-        { "title": "3D Game", "link": "url_to_project_37" },
-        { "title": "VR Experience", "link": "url_to_project_38" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "jacob.wright@example.com",
-        "phone": "321-456-7890"
-      }
-    },
-    {
-      "id": 20,
-      "profilePicture": "images/freelancers/image20.png",
-      "name": "Mia Kingston",
-      "location": "Johannesburg, Fourways",
-      "hourlyRate": 170,
-      "bio": "Photographer with a keen eye for detail.",
-      "skills": ["Photography", "Photo Editing", "Portraits"],
-      "portfolio": [
-        { "title": "Wedding Photography", "link": "url_to_project_39" },
-        { "title": "Fashion Shoot", "link": "url_to_project_40" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": { "email": "mia.king@example.com", "phone": "654-321-0987" }
-    },
-    {
-      "id": 21,
-      "profilePicture": "images/freelancers/image21.png",
-      "name": "William Moore",
-      "location": "Pretoria, Menlyn",
-      "hourlyRate": 140,
-      "bio": "IT support specialist with strong troubleshooting skills.",
-      "skills": ["Technical Support", "Networking", "Troubleshooting"],
-      "portfolio": [
-        { "title": "Network Setup", "link": "url_to_project_41" },
-        { "title": "User Training", "link": "url_to_project_42" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "william.moore@example.com",
-        "phone": "321-654-0987"
-      }
-    },
-    {
-      "id": 22,
-      "profilePicture": "images/freelancers/image22.png",
-      "name": "Grace Lewis",
-      "location": "Cape Town, Claremont",
-      "hourlyRate": 175,
-      "bio": "Content strategist with experience in content marketing.",
-      "skills": ["Content Strategy", "Blogging", "Social Media"],
-      "portfolio": [
-        { "title": "Content Plan", "link": "url_to_project_43" },
-        { "title": "Blog Series", "link": "url_to_project_44" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": { "email": "grace.lewis@example.com", "phone": "456-789-0123" }
-    },
-    {
-      "id": 23,
-      "profilePicture": "images/freelancers/image23.png",
-      "name": "James Martinez",
-      "location": "Durban, Glenwood",
-      "hourlyRate": 180,
-      "bio": "SEO specialist focused on improving search rankings.",
-      "skills": ["SEO", "Keyword Research", "Analytics"],
-      "portfolio": [
-        { "title": "SEO Audit", "link": "url_to_project_45" },
-        { "title": "Content Optimisation", "link": "url_to_project_46" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "james.martinez@example.com",
-        "phone": "789-012-3456"
-      }
-    },
-    {
-      "id": 24,
-      "profilePicture": "images/freelancers/image24.png",
-      "name": "Avin Harris",
-      "location": "Cape Town, Rondebosch",
-      "hourlyRate": 170,
-      "bio": "Web developer specialising in front-end technologies.",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "portfolio": [
-        { "title": "Portfolio Website", "link": "url_to_project_47" },
-        { "title": "Landing Page", "link": "url_to_project_48" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": { "email": "ava.harris@example.com", "phone": "321-654-0987" }
-    },
-    {
-      "id": 25,
-      "profilePicture": "images/freelancers/image25.png",
-      "name": "Lucas Turner",
-      "location": "Pretoria, Brooklyn",
-      "hourlyRate": 160,
-      "bio": "Digital marketer with expertise in PPC advertising.",
-      "skills": ["PPC", "Social Media", "Email Marketing"],
-      "portfolio": [
-        { "title": "Ad Campaign", "link": "url_to_project_49" },
-        { "title": "Marketing Strategy", "link": "url_to_project_50" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "lucas.turner@example.com",
-        "phone": "987-654-3210"
-      }
-    },
-    {
-      "id": 26,
-      "profilePicture": "images/freelancers/image1.png",
-      "name": "Sophia Green",
-      "location": "Johannesburg, Sandton",
-      "hourlyRate": 175,
-      "bio": "Software engineer with a passion for coding.",
-      "skills": ["Java", "C++", "Python"],
-      "portfolio": [
-        { "title": "Software Project", "link": "url_to_project_51" },
-        { "title": "App Development", "link": "url_to_project_52" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "sophia.green@example.com",
-        "phone": "654-321-9870"
-      }
-    },
-    {
-      "id": 27,
-      "profilePicture": "images/freelancers/image27.png",
-      "name": "Oliver Scott",
-      "location": "Cape Town, Kenilworth",
-      "hourlyRate": 165,
-      "bio": "Business analyst with strong analytical skills.",
-      "skills": ["Data Analysis", "SQL", "Reporting"],
-      "portfolio": [
-        { "title": "Business Report", "link": "url_to_project_53" },
-        { "title": "Market Research", "link": "url_to_project_54" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "oliver.scott@example.com",
-        "phone": "321-654-9870"
-      }
-    },
-    {
-      "id": 28,
-      "profilePicture": "images/freelancers/image28.png",
-      "name": "Amelia Roberts",
-      "location": "Johannesburg, Melville",
-      "hourlyRate": 180,
-      "bio": "Graphic designer specialising in branding.",
-      "skills": ["Adobe Illustrator", "Branding", "Typography"],
-      "portfolio": [
-        { "title": "Brand Identity", "link": "url_to_project_55" },
-        { "title": "Logo Design", "link": "url_to_project_56" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "amelia.roberts@example.com",
-        "phone": "987-654-3210"
-      }
-    },
-    {
-      "id": 29,
-      "profilePicture": "images/freelancers/image29.png",
-      "name": "Ethanielle Young",
-      "location": "Cape Town, Hout Bay",
-      "hourlyRate": 155,
-      "bio": "Mobile developer with experience in Android and iOS.",
-      "skills": ["Android", "iOS", "React Native"],
-      "portfolio": [
-        { "title": "Mobile App", "link": "url_to_project_57" },
-        { "title": "Game Development", "link": "url_to_project_58" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": { "email": "ethan.young@example.com", "phone": "654-321-0987" }
-    },
-    {
-      "id": 30,
-      "profilePicture": "images/freelancers/image30.png",
-      "name": "Chloe Martinez",
-      "location": "Durban, Berea",
-      "hourlyRate": "170",
-      "bio": "Legal consultant specialising in contract law.",
-      "skills": ["Contract Law", "Legal Research", "Negotiation"],
-      "portfolio": [
-        { "title": "Contract Review", "link": "url_to_project_59" },
-        { "title": "Legal Opinion", "link": "url_to_project_60" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
-      },
-      "contact": {
-        "email": "chloe.martinez@example.com",
-        "phone": "789-012-3456"
+      "subscription": {
+        "id": 2,
+        "plan": "Professional",
+        "startDate": "2023-04-01",
+        "endDate": "2024-04-01",
+        "isActive": true
       }
     }
   ]

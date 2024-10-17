@@ -1,0 +1,18 @@
+<mat-card-header class="-mt-6">
+  <div class="image-container w-1/4 rounded-full p-0">
+    <img
+      [src]="freelancer.profile.picture"
+      alt="Freelancer Thumbnail"
+      class="aspect-square object-contain rounded-full"
+    />
+  </div>
+  <span class="place-content-center ml-2">
+    <mat-card-subtitle class="-mt-2">
+      {{ freelancer.firstName }}
+      {{ freelancer.lastName | truncateName : 20 : "..." }}
+    </mat-card-subtitle>
+    <div class="text-xs text-neutral-500">
+      &commat;{{ freelancer.username }}
+    </div>
+  </span>
+</mat-card-header>

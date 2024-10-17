@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { FreelancersService } from '../services/freelancers.service';
-import { FreelancerComponent } from '../components/freelancer/freelancer.component';
+import { FreelancerComponent } from '../components/freelancer-listing-card/freelancer/freelancer.component';
 import { CommonModule } from '@angular/common';
 import { Paginator, PaginatorModule } from 'primeng/paginator';
 import { ButtonModule } from 'primeng/button';
@@ -12,7 +12,7 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
-
+import { FreelancerActionsComponent } from '../components/freelancer-actions/freelancer-actions.component';
 @Component({
   selector: 'app-freelancer-listings',
   standalone: true,
@@ -26,6 +26,7 @@ import { Router } from '@angular/router';
     InputGroupModule,
     InputGroupAddonModule,
     MatProgressSpinnerModule,
+    FreelancerActionsComponent,
   ],
   templateUrl: './freelancer-listings.component.html',
   styleUrl: './freelancer-listings.component.css',
@@ -35,11 +36,12 @@ export class FreelancerListingsComponent {
   constructor(
     private freelancersService: FreelancersService,
     public notificationService: NotificationService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   @ViewChild('paginator') paginator: Paginator | undefined;
-
+  freelancer!: Freelancer;
   freelancers: Freelancer[] = [];
   // search filter
   filteredFreelancers: Freelancer[] = [];
@@ -63,6 +65,7 @@ export class FreelancerListingsComponent {
     if (freelancer.id !== undefined) {
       this.selectedFreelancer = freelancer;
       this.displayEditPopup = true;
+      this.cdr.detectChanges();
     } else {
       // if id is undefined
       this.notificationService.addMessage(
@@ -75,11 +78,13 @@ export class FreelancerListingsComponent {
 
   toggleAddPopup() {
     this.displayAddPopup = true;
+    this.cdr.detectChanges();
   }
 
   toggleDeletePopup(freelancer: Freelancer) {
     if (freelancer.id !== undefined) {
       this.deleteFreelancer(freelancer.id);
+      this.cdr.detectChanges();
     } else {
       // if id is undefined
       this.notificationService.addMessage(
@@ -92,20 +97,40 @@ export class FreelancerListingsComponent {
 
   selectedFreelancer: Freelancer = {
     id: 0,
-    profilePicture: '',
-    name: '',
-    location: '',
-    hourlyRate: 0,
-    bio: '',
-    skills: [],
-    portfolio: [],
-    socialLinks: {
-      linkedin: '',
-      github: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    username: '',
+    role: '',
+    isActive: false,
+    profile: {
+      id: 0,
+      userId: 0,
+      picture: '',
+      jobTitle: '',
+      description: '',
+      hourlyRate: 0.0,
+      bio: '',
+      availability: '',
+      city: '',
+      state: '',
+      country: '',
+      skills: [],
+      experiences: [],
+      education: [],
+      certifications: [],
+      portfolioItems: [],
+      reviews: [],
+      socialLinks: [],
+      createdAt: '',
+      updatedAt: '',
     },
-    contact: {
-      email: '',
-      phone: '',
+    subscription: {
+      id: 0,
+      plan: '',
+      startDate: '',
+      endDate: '',
+      isActive: false,
     },
   };
 
@@ -143,6 +168,7 @@ export class FreelancerListingsComponent {
 
     this.freelancersService.getFreelancers({ page, perPage }).subscribe({
       next: (freelancers: Freelancers) => {
+        console.log(freelancers);
         this.freelancers = freelancers.freelancers;
         this.totalRecords = freelancers.total;
         // apply filter after fetching data
@@ -150,6 +176,7 @@ export class FreelancerListingsComponent {
         this.isLoading = false;
       },
       error: (error) => {
+        console.log(error);
         this.notificationService.addMessage(
           'error',
           'Unsuccessful',
@@ -163,24 +190,38 @@ export class FreelancerListingsComponent {
   // filter freelancers based on search query
   filterFreelancers() {
     if (this.searchQuery.trim() === '') {
-      // display all freelancers if there is no search query
-      this.filteredFreelancers = this.freelancers;
+      // display all active freelancer profiles if there is no search query
+      this.filteredFreelancers = this.freelancers.filter(
+        (freelancer) => freelancer.isActive && freelancer.role === 'freelancer'
+      );
     } else {
       this.filteredFreelancers = this.freelancers.filter(
         (freelancer) =>
-          // filter by name, location, bio or skills array
-          freelancer.name
+          // only display if freelancer account is active
+          freelancer.isActive &&
+          // role check
+          freelancer.role === 'freelancer' &&
+          (freelancer.firstName
             .toLowerCase()
             .includes(this.searchQuery.toLowerCase()) ||
-          freelancer.location
-            .toLowerCase()
-            .includes(this.searchQuery.toLowerCase()) ||
-          freelancer.bio
-            .toLowerCase()
-            .includes(this.searchQuery.toLowerCase()) ||
-          freelancer.skills.some((skill) =>
-            skill.toLowerCase().includes(this.searchQuery.toLowerCase())
-          )
+            freelancer.profile.city
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase()) ||
+            freelancer.username
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase()) ||
+            freelancer.profile.description
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase()) ||
+            freelancer.profile.bio
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase()) ||
+            freelancer.profile.skills.some((skill) =>
+              skill.level.toLowerCase().includes(this.searchQuery.toLowerCase())
+            ) ||
+            freelancer.profile.skills.some((skill) =>
+              skill.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            ))
       );
     }
   }

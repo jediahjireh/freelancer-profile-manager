@@ -19,11 +19,11 @@
 
   <div
     class="flex flex-col gap-4 place-content-center place-items-center justify-center"
-    *ngIf="freelancer"
   >
     <!-- display freelancer profile data (card) -->
     <div class="md:w-[70%] sm:w-[80%] lg:w-[60%]">
       <app-freelancer
+        *ngIf="freelancer"
         class="flex-grow-0.5"
         [freelancer]="freelancer"
         (edit)="toggleEditPopup(freelancer)"
@@ -35,8 +35,11 @@
     <app-edit-popup
       [freelancer]="selectedFreelancer"
       [(display)]="displayEditPopup"
-      (confirm)="onConfirmEdit($event)"
+      (confirm)="onConfirmEdit(freelancer)"
       header="Edit Freelancer Profile"
     />
+
+    <!-- display nested data -->
+    <app-profile-elements [freelancer]="freelancer" />
   </div>
 </div>

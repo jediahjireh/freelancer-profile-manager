@@ -4,8 +4,9 @@ import { FreelancerProfileRoutingModule } from './freelancer-profile-routing.mod
 import { MessagesModule } from 'primeng/messages';
 import { EditPopupComponent } from '../../components/edit-popup/edit-popup.component';
 import { FreelancerProfileComponent } from './freelancer-profile/freelancer-profile.component';
-import { FreelancerComponent } from '../../components/freelancer/freelancer.component';
+import { FreelancerComponent } from '../../components/freelancer-listing-card/freelancer/freelancer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProfileElementsComponent } from '../../components/freelancer-data/profile-elements/profile-elements.component';
 
 // declare routes
 @NgModule({
@@ -18,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     EditPopupComponent,
     FreelancerComponent,
     MatProgressSpinnerModule,
+    ProfileElementsComponent,
   ],
   exports: [FreelancerProfileComponent],
 })

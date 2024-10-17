@@ -1,0 +1,20 @@
+<!-- display portfolio links -->
+<div class="portfolio">
+  <p class="font-bold mb-4 text-lg">Portfolio</p>
+  <ul class="space-y-3">
+    <li
+      *ngFor="let project of freelancer.profile.portfolioItems"
+      class="flex flex-col md:flex-row items-start md:items-center bg-custom-purple bg-opacity-10 rounded-lg p-4"
+    >
+      <a
+        [href]="project.url"
+        target="_blank"
+        class="text-custom-purple font-semibold hover:text-custom-green"
+        >{{ project.title }}</a
+      >
+      <span class="ml-2 mt-1 md:mt-0 text-gray-700">{{
+        project.description
+      }}</span>
+    </li>
+  </ul>
+</div>

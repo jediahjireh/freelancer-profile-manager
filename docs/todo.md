@@ -43,10 +43,110 @@
 ### Task 2
 
 - [x] Adapt the UI to display the selected freelancer on its own page using freelancer-profile
+- [ ] Separate the different parts of the profile into its own components (display the different parts as cards) - rendering and styling of elements still in progress
+- [x] Update the backend and UI to use the attributes found in the [freelancerProfile.json](/docs/freelancerProfile.json) file
+- [x] Add a carousel animation for the portfolio
+- [x] Create a component for skill and display the skill with stars or some other indicator you choose to show the skill level (1 = beginner, 2 = intermediate, 3 = expert) - use p-rating
 - [ ] Set a default profile to be displayed and selected in the header tab for user data editing
-- [ ] Update the backend and UI to use the attributes found in the [freelancerProfile.json](/docs/freelancerProfile.json) file
-- [ ] Separate the different parts of the profile into its own components (display the different parts as cards)
 - [ ] Allow the user to edit the data
-- [ ] Add a carousel animation for the portfolio
-- [ ] Create a component for skill and display the skill with stars or some other indicator you choose to show the skill level (1 = beginner, 2 = intermediate, 3 = expert)
+- [ ] Check to make sure username does not exist before allowing user to add or edit username for their profile
+- [ ] Remove white spaces from inputted data - .trim()
 - [ ] Update README.md screenshots
+
+### Components to Separate
+
+- [ ] Freelancer
+
+  - [ ] id
+  - [x] firstName
+  - [x] lastName
+  - [x] email
+  - [x] username
+  - [x] role - freelancer-listings checks role before display
+  - [x] isActive - freelancer profile only displayed if account is active
+  - [ ] profile
+  - [ ] subscription
+
+- [ ] Profile
+
+  - [ ] id
+  - [ ] userId
+  - [x] picture
+  - [x] jobTitle
+  - [x] description
+  - [x] hourlyRate
+  - [ ] bio
+  - [x] availability
+  - [ ] city
+  - [ ] state
+  - [x] country - South African freelancing platform
+  - [x] skills
+  - [x] experiences
+  - [x] education
+  - [x] certifications
+  - [x] portfolioItems
+  - [x] reviews
+  - [x] socialLinks
+  - [x] createdAt
+  - [x] updatedAt
+
+- [x] Skill
+
+  - [ ] id
+  - [x] name
+  - [x] level
+
+- [x] Experience
+
+  - [ ] id
+  - [x] company
+  - [x] position
+  - [x] startDate
+  - [x] endDate
+  - [x] description
+
+- [x] Education
+
+  - [ ] id
+  - [x] institution
+  - [x] degree
+  - [x] fieldOfStudy
+  - [x] startDate
+  - [x] endDate
+
+- [x] Certification
+
+  - [ ] id
+  - [ ] name
+  - [ ] issuingOrganization
+  - [ ] issueDate
+  - [ ] expirationDate
+
+- [x] PortfolioItem
+
+  - [ ] id
+  - [x] title
+  - [x] description
+  - [x] url
+
+- [x] Review
+
+  - [ ] id
+  - [x] clientId
+  - [x] rating
+  - [x] comment
+  - [x] createdAt
+
+- [x] SocialLink
+
+  - [ ] id
+  - [x] platform
+  - [x] url
+
+- [ ] Subscription
+
+  - [ ] id
+  - [x] plan
+  - [ ] startDate
+  - [ ] endDate
+  - [ ] isActive

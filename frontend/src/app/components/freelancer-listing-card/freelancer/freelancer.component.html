@@ -1,0 +1,15 @@
+<mat-card appearance="outlined" class="flex mt-6 justify-center">
+  <!-- actions component -->
+  <app-profile-information [freelancer]="freelancer" />
+
+  <div (click)="onHeaderClick()" class="cursor-pointer">
+    <!-- header component -->
+    <app-freelancer-header [freelancer]="freelancer" />
+  </div>
+
+  <!-- content component -->
+  <app-freelancer-content [freelancer]="freelancer" />
+
+  <!-- footer component -->
+  <app-freelancer-footer [freelancer]="freelancer" />
+</mat-card>

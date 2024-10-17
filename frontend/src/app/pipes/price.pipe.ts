@@ -7,6 +7,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PricePipe implements PipeTransform {
   transform(value: unknown, ...args: unknown[]): unknown {
     // prepend a Rand currency sign
-    return `R ${value}`;
+    return `R ${value} p/h`;
   }
 }

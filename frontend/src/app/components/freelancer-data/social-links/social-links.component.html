@@ -1,0 +1,18 @@
+<div class="social-links">
+  <a
+    *ngFor="let social of freelancer.profile.socialLinks"
+    [href]="social.url"
+    target="_blank"
+    class="hover:text-custom-blue text-custom-purple"
+  >
+    <ng-icon [name]="getSocialIcon(social.platform)" size="20" class="ml-1" />
+  </a>
+
+  <a
+    [href]="'mailto:' + freelancer.email"
+    target="_blank"
+    class="hover:text-custom-blue text-custom-purple"
+  >
+    <ng-icon name="hugeMail01" size="20" class="ml-1" />
+  </a>
+</div>

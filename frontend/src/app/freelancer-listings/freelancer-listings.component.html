@@ -52,19 +52,26 @@
       ></button>
     </div>
 
-    <!-- display freelancers -->
+    <!-- display freelancers
+     (edit)="toggleEditPopup($event)"
+        (delete)="toggleDeletePopup($event)"
+         -->
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 flex-grow-1"
+      *ngIf="filteredFreelancers.length > 0; else noFreelancers"
     >
       <app-freelancer
-        class="flex-grow-1"
         *ngFor="let freelancer of filteredFreelancers"
         [freelancer]="freelancer"
-        (click)="viewFreelancerProfile(freelancer.id)"
-        (edit)="toggleEditPopup($event)"
-        (delete)="toggleDeletePopup($event)"
+        (edit)="toggleEditPopup(freelancer)"
+        (delete)="toggleDeletePopup(freelancer)"
+        (headerClick)="viewFreelancerProfile(freelancer.id)"
       />
     </div>
+    <!-- conditionally rendered -->
+    <ng-template #noFreelancers>
+      <p>No freelancers found.</p>
+    </ng-template>
 
     <!-- paginator -->
     <p-paginator
@@ -79,14 +86,14 @@
     <app-edit-popup
       [freelancer]="selectedFreelancer"
       [(display)]="displayEditPopup"
-      (confirm)="onConfirmEdit($event)"
+      (confirm)="onConfirmEdit(freelancer)"
       header="Edit Freelancer Profile"
     />
 
     <!-- add freelancer popup: initialise component to add freelancer -->
     <app-edit-popup
       [(display)]="displayAddPopup"
-      (confirm)="onConfirmAdd($event)"
+      (confirm)="onConfirmAdd(freelancer)"
       header="Add Freelancer Profile"
     />
   </div>

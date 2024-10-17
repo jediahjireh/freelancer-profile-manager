@@ -1,0 +1,18 @@
+<!-- display skills -->
+<div
+  class="skills flex flex-wrap border-b border-gray-200"
+  *ngFor="let skill of freelancer.profile.skills"
+>
+  <div class="skill py-0.5 text-sm flex justify-between w-full">
+    {{ skill.name }}
+    <span class="ml-2 text-xs align-top">
+      <p-rating
+        [ngModel]="getSkillRating(skill.level)"
+        [readonly]="true"
+        iconCancelClass="hidden"
+        class="skills-rating"
+        stars="3"
+      />
+    </span>
+  </div>
+</div>

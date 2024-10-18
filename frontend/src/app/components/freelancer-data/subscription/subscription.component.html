@@ -1,0 +1,27 @@
+<!-- display subscription items -->
+<div *ngIf="[freelancer]">
+  <mat-card class="subscription p-4" appearance="outlined">
+    <p class="font-bold mb-4 text-xl">Subscription</p>
+    <hr />
+    <div class="space-y-3 pt-2">
+      <span *ngIf="[freelancer]">
+        <div class="flex flex-col md:flex-row md:items-center w-full">
+          <mat-card-subtitle class="font-semibold">
+            {{ freelancer.subscription.plan }} Plan</mat-card-subtitle
+          >
+        </div>
+        <div class="mt-0 text-gray-500 text-xs font-semibold">
+          <!-- built-in date pipe -->
+          {{ freelancer.subscription.startDate | date : "MMM y" }} -
+          {{
+            freelancer.subscription.endDate
+              ? (freelancer.subscription.endDate | date : "MMM y")
+              : "Present"
+          }}
+          ∙
+          {{ freelancer.subscription.isActive ? "Active" : "Inactive" }}
+        </div>
+      </span>
+    </div>
+  </mat-card>
+</div>

@@ -62,7 +62,7 @@ In conjunction to prior reasoning, LinkedIn's display for showcasing user profil
 
 ### Components to Separate
 
-- [ ] Freelancer
+- [x] Freelancer
 
   - [ ] id
   - [x] firstName
@@ -72,7 +72,7 @@ In conjunction to prior reasoning, LinkedIn's display for showcasing user profil
   - [x] role - freelancer-listings checks role before display
   - [x] isActive - freelancer profile only displayed if account is active
   - [x] profile
-  - [ ] subscription
+  - [x] subscription
 
 - [x] Profile
 
@@ -150,20 +150,21 @@ In conjunction to prior reasoning, LinkedIn's display for showcasing user profil
   - [x] platform
   - [x] url
 
-- [ ] Subscription
+- [x] Subscription
 
   - [ ] id
   - [x] plan
-  - [ ] startDate
-  - [ ] endDate
-  - [ ] isActive
+  - [x] startDate
+  - [x] endDate
+  - [x] isActive
 
-Reminders for add, edit and delete freelancer data implementation:
+### Reminders for add, edit and delete freelancer data implementation:
 
-- [ ] Set a default profile to be displayed and selected in the header tab for user data editing
+- [x] Set a default profile to be displayed and selected in the header tab for user data editing
 - [ ] Allow the user to edit the data
 - [ ] Check to make sure username does not exist before allowing user to add or edit username for their profile
 - [ ] Remove white spaces from inputted data - .trim()
 - [ ] Note that leaving the end date blank indicates that the time period is ongoing
-- [ ] Display subscription details - plan, active status, start-and-end dates
+- [x] Display subscription details - plan, active status, start-and-end dates
 - [ ] Mention that should a user have queries regarding their subscription to contact the appropriate given email address
+- [ ] Note that reviews may not be deleted by freelancers in an effort to foster transparency but should a review be untrue or particularly malicious, the freelancer is to contact the appropriate given email address

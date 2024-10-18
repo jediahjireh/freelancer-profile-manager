@@ -10,6 +10,7 @@ import { ReviewsComponent } from '../reviews/reviews.component';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { ProfileHeaderComponent } from '../profile-header/profile-header.component';
+import { SubscriptionComponent } from '../subscription/subscription.component';
 
 @Component({
   selector: 'app-profile-elements',
@@ -26,6 +27,7 @@ import { ProfileHeaderComponent } from '../profile-header/profile-header.compone
     ProfileHeaderComponent,
     MatCardModule,
     SkillsComponent,
+    SubscriptionComponent,
   ],
   templateUrl: './profile-elements.component.html',
   styleUrl: './profile-elements.component.css',

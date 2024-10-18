@@ -107,7 +107,7 @@
       "firstName": "Dayna",
       "lastName": "Wilson",
       "email": "dayna.wilson@example.com",
-      "username": "davidwilson_dev",
+      "username": "daynawilson_dev",
       "role": "freelancer",
       "isActive": true,
       "profile": {
@@ -135,6 +135,14 @@
             "startDate": "2017-01-01",
             "endDate": "2023-10-01",
             "description": "Managed cloud infrastructure and CI/CD pipelines."
+          },
+          {
+            "id": 2,
+            "company": "Sky Solutions",
+            "position": "DevOps Engineer",
+            "startDate": "2023-11-01",
+            "endDate": "",
+            "description": "Managed cloud infrastructure and CI/CD pipelines."
           }
         ],
         "education": [
@@ -145,6 +153,14 @@
             "fieldOfStudy": "Computer Science",
             "startDate": "2015-09-01",
             "endDate": "2017-05-15"
+          },
+          {
+            "id": 2,
+            "institution": "New York University",
+            "degree": "Master of Literature",
+            "fieldOfStudy": "English",
+            "startDate": "2020-09-19",
+            "endDate": "2024-11-28"
           }
         ],
         "certifications": [
@@ -152,8 +168,15 @@
             "id": 1,
             "name": "AWS Certified Solutions Architect",
             "issuingOrganization": "Amazon Web Services",
-            "issueDate": "2022-05-20",
-            "expirationDate": "2025-05-20"
+            "issueDate": "2021-05-20",
+            "expirationDate": "2023-05-20"
+          },
+          {
+            "id": 1,
+            "name": "AWS Certified Solutions Architect",
+            "issuingOrganization": "Amazon Web Services",
+            "issueDate": "2023-09-16",
+            "expirationDate": "2025-09-16"
           }
         ],
         "portfolioItems": [
@@ -172,7 +195,7 @@
           {
             "id": 3,
             "title": "Tic Tac Toe",
-            "description": "Developed a fully functional tic tac toe game using React",
+            "description": "Developed a tic tac toe game using React",
             "url": "https://github.com/tictactoe"
           }
         ],

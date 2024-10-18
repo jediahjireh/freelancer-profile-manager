@@ -1,0 +1,29 @@
+/* visibility and positioning of the vertical carousel */
+.carousel-container {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* make ul long enough to handle continuous scrolling */
+.carousel-items {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: vertical-scroll 10s linear infinite;
+}
+
+/* continuous vertical scrolling */
+@keyframes vertical-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* hide scrollbar if any */
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}

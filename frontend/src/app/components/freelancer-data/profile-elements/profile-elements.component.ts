@@ -8,6 +8,8 @@ import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { ProfileHeaderComponent } from '../profile-header/profile-header.component';
 
 @Component({
   selector: 'app-profile-elements',
@@ -21,6 +23,9 @@ import { CommonModule } from '@angular/common';
     ReviewsComponent,
     SocialLinksComponent,
     CommonModule,
+    ProfileHeaderComponent,
+    MatCardModule,
+    SkillsComponent,
   ],
   templateUrl: './profile-elements.component.html',
   styleUrl: './profile-elements.component.css',

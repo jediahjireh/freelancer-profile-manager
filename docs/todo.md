@@ -1,6 +1,6 @@
 # Frontend
 
-## Checklist form of process followed
+## Thought Process (checklist-form)
 
 ### Task 1
 
@@ -33,7 +33,7 @@
 - [x] Keep personal profile page card uniform so that freelancer is able to see what others see when coming across their profile
 - [x] Use semantic HTML and maintain accessibility standards.
 
-#### Design choices
+#### Design Choices (Task 1)
 
 - My design choice for a clean but visually appealing interface reflects a focus on usability and aesthetics.
 - A simple, uncluttered design ensures users can navigate the platform easily, while still enjoying a polished visual experience.
@@ -43,7 +43,7 @@
 ### Task 2
 
 - [x] Adapt the UI to display the selected freelancer on its own page using freelancer-profile
-- [ ] Separate the different parts of the profile into its own components (display the different parts as cards) - rendering and styling of elements still in progress
+- [x] Separate the different parts of the profile into its own components (display the different parts as cards) - rendering and styling of elements now complete
 - [x] Update the backend and UI to use the attributes found in the [freelancerProfile.json](/docs/freelancerProfile.json) file
 - [x] Add a carousel animation for the portfolio
 - [x] Create a component for skill and display the skill with stars or some other indicator you choose to show the skill level (1 = beginner, 2 = intermediate, 3 = expert) - use p-rating
@@ -51,7 +51,14 @@
 - [ ] Allow the user to edit the data
 - [ ] Check to make sure username does not exist before allowing user to add or edit username for their profile
 - [ ] Remove white spaces from inputted data - .trim()
+- [ ] Note that leaving the end date blank indicates that the time period is ongoing
 - [ ] Update README.md screenshots
+- [ ] Display similar profiles to the right of the freelancer personal profile cards
+- [x] Portfolio vertical carousel on freelancer personal profile page
+
+#### Design Choices (Task 2)
+
+In conjunction to prior reasoning, LinkedIn's display for showcasing user profiles inspired the freelancer personal profile page display, in an effort to best adhere to industry standards, consistency and uniformity. A pop of colour was added for visual enhancement, while still harmonising with the neutral primary colours.
 
 ### Components to Separate
 
@@ -64,10 +71,10 @@
   - [x] username
   - [x] role - freelancer-listings checks role before display
   - [x] isActive - freelancer profile only displayed if account is active
-  - [ ] profile
+  - [x] profile
   - [ ] subscription
 
-- [ ] Profile
+- [x] Profile
 
   - [ ] id
   - [ ] userId
@@ -75,10 +82,10 @@
   - [x] jobTitle
   - [x] description
   - [x] hourlyRate
-  - [ ] bio
+  - [x] bio
   - [x] availability
-  - [ ] city
-  - [ ] state
+  - [x] city
+  - [x] state
   - [x] country - South African freelancing platform
   - [x] skills
   - [x] experiences
@@ -117,10 +124,10 @@
 - [x] Certification
 
   - [ ] id
-  - [ ] name
-  - [ ] issuingOrganization
-  - [ ] issueDate
-  - [ ] expirationDate
+  - [x] name
+  - [x] issuingOrganization
+  - [x] issueDate
+  - [x] expirationDate
 
 - [x] PortfolioItem
 
@@ -150,3 +157,13 @@
   - [ ] startDate
   - [ ] endDate
   - [ ] isActive
+
+Reminders for add, edit and delete freelancer data implementation:
+
+- [ ] Set a default profile to be displayed and selected in the header tab for user data editing
+- [ ] Allow the user to edit the data
+- [ ] Check to make sure username does not exist before allowing user to add or edit username for their profile
+- [ ] Remove white spaces from inputted data - .trim()
+- [ ] Note that leaving the end date blank indicates that the time period is ongoing
+- [ ] Display subscription details - plan, active status, start-and-end dates
+- [ ] Mention that should a user have queries regarding their subscription to contact the appropriate given email address

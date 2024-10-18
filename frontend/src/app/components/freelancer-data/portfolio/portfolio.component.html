@@ -1,20 +1,63 @@
-<!-- display portfolio links -->
-<div class="portfolio">
-  <p class="font-bold mb-4 text-lg">Portfolio</p>
-  <ul class="space-y-3">
-    <li
-      *ngFor="let project of freelancer.profile.portfolioItems"
-      class="flex flex-col md:flex-row items-start md:items-center bg-custom-purple bg-opacity-10 rounded-lg p-4"
-    >
-      <a
-        [href]="project.url"
-        target="_blank"
-        class="text-custom-purple font-semibold hover:text-custom-green"
-        >{{ project.title }}</a
+<!-- display portfolio item links -->
+<mat-card class="portfolio p-4 mt-6" appearance="outlined">
+  <p class="font-bold mb-4 text-xl">Portfolio</p>
+  <hr />
+  <div class="carousel-container">
+    <ul class="carousel-items space-y-3.5">
+      <li
+        *ngFor="
+          let project of freelancer.profile.portfolioItems;
+          let i = index;
+          let lastListItem = last
+        "
       >
-      <span class="ml-2 mt-1 md:mt-0 text-gray-700">{{
-        project.description
-      }}</span>
-    </li>
-  </ul>
-</div>
+        <div
+          class="bg-gray-400 bg-opacity-10 border p-1 border-neutral-100 rounded-lg"
+        >
+          <div class="flex flex-col md:flex-row md:items-center w-full">
+            <a
+              [href]="project.url"
+              target="_blank"
+              class="text-gray-600 font-semibold hover:text-custom-purple"
+            >
+              {{ project.title }}
+              <ng-icon name="hugeLinkSquare02" size="17" class="ml-0.5" />
+            </a>
+          </div>
+
+          <div class="my-2 text-gray-700">
+            {{ project.description }}
+          </div>
+        </div>
+      </li>
+
+      <!-- duplicate list items to create an infinite scroll effect -->
+      <li
+        *ngFor="
+          let project of freelancer.profile.portfolioItems;
+          let i = index;
+          let lastListItem = last
+        "
+      >
+        <div
+          class="bg-gray-400 bg-opacity-10 border p-1 border-neutral-100 rounded-lg"
+        >
+          <div class="flex flex-col md:flex-row md:items-center w-full">
+            <a
+              [href]="project.url"
+              target="_blank"
+              class="text-gray-600 font-semibold hover:text-custom-purple"
+            >
+              {{ project.title }}
+              <ng-icon name="hugeLinkSquare02" size="17" class="ml-0.5" />
+            </a>
+          </div>
+
+          <div class="my-2 text-gray-700">
+            {{ project.description }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</mat-card>

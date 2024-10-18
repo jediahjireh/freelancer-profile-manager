@@ -1,0 +1,67 @@
+<mat-card appearance="outlined" class="flex mt-6 justify-center p-6">
+  <div class="-mt-4 -mr-4">
+    <!-- actions component -->
+    <app-profile-information [freelancer]="freelancer" />
+  </div>
+
+  <!-- header component -->
+  <mat-card-header class="-mt-6">
+    <div class="image-container w-1/4 rounded-full">
+      <img
+        [src]="freelancer.profile.picture"
+        alt="Freelancer Thumbnail"
+        class="aspect-square object-contain rounded-full flex-grow-1"
+      />
+    </div>
+    <div class="place-content-center ml-4 lg:ml-5 font-bold">
+      <h3 class="-mt-2">
+        <strong>
+          {{ freelancer.firstName }}
+          {{ freelancer.lastName | truncateName : 20 : "..." }}</strong
+        >
+      </h3>
+      <div class="text-sm text-neutral-500 -mt-5">
+        &commat;{{ freelancer.username }}
+      </div>
+    </div>
+  </mat-card-header>
+
+  <!-- content component -->
+  <mat-card-content>
+    <!-- freelancer details -->
+    <div class="py-2 -mt-2">
+      <div class="text-sm location text-gray-500 font-thin mt-2 -ml-0.5">
+        <ng-icon name="hugePinLocation02" />
+        {{ freelancer.profile.city }}, {{ freelancer.profile.state }}
+      </div>
+      <div class="flex mt-1">
+        <div
+          class="mb-1 rounded-sm text-gray-500 hourly-rate text-sm w-[1.5/3] font-semibold"
+        >
+          {{ freelancer.profile.jobTitle }} |
+          {{ freelancer.profile.availability }}
+        </div>
+      </div>
+
+      <div class="flex">
+        <div
+          class="mb-1 rounded-sm text-gray-500 hourly-rate text-sm w-[1.5/3] font-semibold"
+        >
+          <div>
+            <ng-icon name="hugeCoins01" class="jiggling-icon" />
+            {{ freelancer.profile.hourlyRate | price }}
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 -mb-1">
+        <p class="bio">{{ freelancer.profile.bio }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <div class="-mb-6">
+    <!-- footer component -->
+    <app-freelancer-footer [freelancer]="freelancer" />
+  </div>
+</mat-card>

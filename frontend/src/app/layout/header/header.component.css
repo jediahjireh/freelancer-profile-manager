@@ -8,3 +8,8 @@ a {
 a.active {
   font-weight: 600;
 }
+
+/* show tab in header when route is active */
+.selected-freelancer:not(.active) {
+  display: none;
+}

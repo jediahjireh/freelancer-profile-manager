@@ -8,18 +8,17 @@ export const routes: Routes = [
     component: FreelancerListingsComponent,
   },
   // load module when accessing a specific route - lazy loading
-  /*
+
   {
-    path: 'freelancer-profile',
+    path: 'freelancer-personal-profile',
     loadChildren: () =>
-      import('./modules/freelancer-profile/freelancer-profile.module').then(
-        (m) => m.FreelancerProfileModule
-      ),
+      import(
+        './modules/freelancer-personal-profile/freelancer-personal-profile.module'
+      ).then((m) => m.FreelancerPersonalProfileModule),
   },
-  */
+
   // dynamic id endpoint to navigate to specific freelancer
   {
-    // :username/
     path: 'freelancer-profile/:id',
     loadChildren: () =>
       import('./modules/freelancer-profile/freelancer-profile.module').then(

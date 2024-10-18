@@ -1,0 +1,24 @@
+<!-- progress spinner -->
+<div
+  *ngIf="isLoading"
+  class="flex justify-center -mt-28 items-center h-screen place-content-center"
+>
+  <mat-progress-spinner mode="indeterminate" [diameter]="50" />
+</div>
+
+<div *ngIf="!isLoading">
+  <!-- notifications -->
+  <p-messages
+    [value]="notificationService.getMessages()"
+    [showTransitionOptions]="'500ms'"
+    [hideTransitionOptions]="'500ms'"
+    class="fixed top-5 left-1/2 transform -translate-x-1/2 z-20 w-11/12 md:w-8/12 bg-opacity-100 lg:w-6/12"
+    [closable]="false"
+    [enableService]="true"
+  />
+
+  <div>
+    <!-- display nested data -->
+    <app-profile-elements [freelancer]="freelancer" />
+  </div>
+</div>

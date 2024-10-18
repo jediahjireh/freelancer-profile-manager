@@ -18,19 +18,27 @@
       </a>
     </div>
     <div class="-ml-20 text-start hidden sm:block">
-      <a routerLink="/">Freelancer Profiles</a>
+      <a routerLink="/">Negishi Freelancing</a>
     </div>
   </div>
 
   <div class="flex space-x-4">
+    <a
+      routerLink="/freelancer-profile"
+      routerLinkActive="active"
+      class="selected-freelancer"
+      >Freelancer</a
+    >
     <!-- '/' can be found in both links, hence the need for exact active options -->
     <a
       routerLink="/"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Manager</a
+      >Listings</a
     >
 
-    <a routerLink="/freelancer-profile" routerLinkActive="active">Page</a>
+    <a routerLink="/freelancer-personal-profile" routerLinkActive="active"
+      >Profile</a
+    >
   </div>
 </header>

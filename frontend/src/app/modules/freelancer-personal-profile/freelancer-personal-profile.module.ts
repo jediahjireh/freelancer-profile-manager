@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FreelancerProfileRoutingModule } from './freelancer-profile-routing.module';
+import { FreelancerPersonalProfileRoutingModule } from './freelancer-personal-profile-routing.module';
+import { FreelancerPersonalProfileComponent } from './freelancer-personal-profile/freelancer-personal-profile.component';
 import { MessagesModule } from 'primeng/messages';
 import { EditPopupComponent } from '../../components/edit-popup/edit-popup.component';
-import { FreelancerProfileComponent } from './freelancer-profile/freelancer-profile.component';
 import { FreelancerComponent } from '../../components/freelancer-listing-card/freelancer/freelancer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProfileElementsComponent } from '../../components/freelancer-data/profile-elements/profile-elements.component';
 
-// declare routes
 @NgModule({
   // register created components (residing within module) for them to have access to the imported modules below
-  declarations: [FreelancerProfileComponent],
+  declarations: [FreelancerPersonalProfileComponent],
   imports: [
     CommonModule,
-    FreelancerProfileRoutingModule,
+    FreelancerPersonalProfileRoutingModule,
     MessagesModule,
     EditPopupComponent,
     MatProgressSpinnerModule,
     ProfileElementsComponent,
   ],
-  exports: [FreelancerProfileComponent],
+  exports: [FreelancerPersonalProfileComponent],
 })
-export class FreelancerProfileModule {}
+export class FreelancerPersonalProfileModule {}

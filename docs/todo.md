@@ -47,7 +47,7 @@
 - [x] Update the backend and UI to use the attributes found in the [freelancerProfile.json](/docs/freelancerProfile.json) file
 - [x] Add a carousel animation for the portfolio
 - [x] Create a component for skill and display the skill with stars or some other indicator you choose to show the skill level (1 = beginner, 2 = intermediate, 3 = expert) - use p-rating
-- [ ] Set a default profile to be displayed and selected in the header tab for user data editing
+- [x] Set a default profile to be displayed and selected in the header tab for user data editing
 - [ ] Allow the user to edit the data
 - [ ] Check to make sure username does not exist before allowing user to add or edit username for their profile
 - [ ] Remove white spaces from inputted data - .trim()

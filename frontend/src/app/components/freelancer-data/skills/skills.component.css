@@ -8,4 +8,5 @@
 
 :host ::ng-deep .skills-rating .p-rating-icon {
   margin-top: -5px;
+  cursor: default;
 }

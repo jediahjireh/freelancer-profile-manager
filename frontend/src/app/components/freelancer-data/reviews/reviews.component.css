@@ -1,0 +1,47 @@
+/*
+ override the PrimeNG theme styles
+.p-rating-cancel {
+  display: none;
+}
+
+.p-rating-icon .p-rating-cancel .ng-star-inserted {
+  display: none;
+}
+
+.p-rating {
+  padding: 0;
+  margin: 0;
+}
+
+.p-rating-cancel-item {
+  display: none;
+  margin: 0;
+}
+mark invalid fields with red borders
+input.ng-invalid {
+  border: 1px solid red;
+}
+
+*/
+
+:host ::ng-deep .p-rating-icon {
+  @apply text-gray-500 !important;
+  width: 15px;
+  height: 15px;
+  /* remove text size to only show the icon */
+  font-size: 0;
+}
+
+:host ::ng-deep .review-rating .p-rating-icon {
+  margin-top: -15px;
+  margin-left: -6px;
+  cursor: default;
+}
+
+:host ::ng-deep .rating-container {
+  margin-left: -2px;
+}
+
+.review {
+  cursor: grab;
+}

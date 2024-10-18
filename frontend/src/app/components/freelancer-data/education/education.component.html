@@ -1,35 +1,37 @@
-<!-- display education links -->
-<mat-card class="education p-4" appearance="outlined">
-  <p class="font-bold mb-4 text-xl">Education</p>
-  <hr />
-  <ul class="space-y-3 pt-5">
-    <li
-      *ngFor="
-        let education of freelancer.profile.education;
-        let i = index;
-        let lastListItem = last
-      "
-    >
-      <div class="-mt-3 flex flex-col md:flex-row md:items-center w-full">
-        <mat-card-subtitle class="font-semibold">
-          {{ education.institution }}
-        </mat-card-subtitle>
-      </div>
-      <p class="text-sm -mt-1">
-        {{ education.fieldOfStudy }}, {{ education.degree }}
-      </p>
-      <div class="-mt-2 text-gray-500 text-xs font-semibold">
-        <!-- built-in date pipe -->
-        {{ education.startDate | date : "MMM y" }} -
-        {{
-          education.endDate ? (education.endDate | date : "MMM y") : "Present"
-        }}
-      </div>
+<!-- display education items -->
+<div *ngIf="freelancer.profile.education.length > 0">
+  <mat-card class="education p-4" appearance="outlined">
+    <p class="font-bold mb-4 text-xl">Education</p>
+    <hr />
+    <ul class="space-y-3 pt-5">
+      <li
+        *ngFor="
+          let education of freelancer.profile.education;
+          let i = index;
+          let lastListItem = last
+        "
+      >
+        <div class="-mt-3 flex flex-col md:flex-row md:items-center w-full">
+          <mat-card-subtitle class="font-semibold">
+            {{ education.institution }}
+          </mat-card-subtitle>
+        </div>
+        <p class="text-sm -mt-1">
+          {{ education.fieldOfStudy }}, {{ education.degree }}
+        </p>
+        <div class="-mt-2 text-gray-500 text-xs font-semibold">
+          <!-- built-in date pipe -->
+          {{ education.startDate | date : "MMM y" }} -
+          {{
+            education.endDate ? (education.endDate | date : "MMM y") : "Present"
+          }}
+        </div>
 
-      <!-- show horizontal rule if it is not the last item -->
-      <div *ngIf="!lastListItem" class="py-2">
-        <hr />
-      </div>
-    </li>
-  </ul>
-</mat-card>
+        <!-- show horizontal rule if it is not the last item -->
+        <div *ngIf="!lastListItem" class="py-2">
+          <hr />
+        </div>
+      </li>
+    </ul>
+  </mat-card>
+</div>

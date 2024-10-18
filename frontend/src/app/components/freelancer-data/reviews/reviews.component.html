@@ -1,21 +1,39 @@
-<!-- display review links -->
-<div class="review">
-  <p class="font-bold mb-4 text-lg">Reviews</p>
-  <ul class="space-y-3">
-    <li
-      *ngFor="let review of freelancer.profile.reviews"
-      class="flex flex-col md:flex-row items-start md:items-center bg-custom-purple bg-opacity-10 rounded-lg p-4"
-    >
-      <div class="flex flex-col md:flex-row md:items-center w-full">
-        <h4 class="font-semibold">{{ review.clientId }}</h4>
-        <span class="ml-2 mt-1 md:mt-0 text-gray-500 text-xs">
-          {{ review.createdAt }}
-        </span>
-        <span class="ml-2 text-gray-600">({{ review.rating }})</span>
-      </div>
-      <span class="ml-2 mt-1 md:mt-0 text-gray-700">
-        {{ review.comment }}
-      </span>
-    </li>
-  </ul>
+<!-- display freelancer reviews -->
+<div *ngIf="freelancer.profile.reviews.length > 0">
+  <mat-card class="review p-4" appearance="outlined">
+    <p class="font-bold mb-4 text-xl">Reviews</p>
+    <hr />
+    <div class="-mb-5 p-5 -mt-2">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let review of freelancer.profile.reviews">
+          <ng-template carouselSlide>
+            <div class="justify-center">
+              <mat-card-title>
+                <div class="rating-container">
+                  <p-rating
+                    [ngModel]="review.rating"
+                    [readonly]="true"
+                    iconCancelClass="hidden"
+                    class="review-rating"
+                    stars="5"
+                  />
+                </div>
+              </mat-card-title>
+              <mat-card-subtitle class="font-semibold">
+                Client #{{ review.clientId }}
+              </mat-card-subtitle>
+            </div>
+            <div class="mt-0 text-gray-500 text-xs font-semibold">
+              <!-- built-in date pipe -->
+              {{ review.createdAt | date : "MMM y" }} ∙
+              {{ review.createdAt | calendarPeriod : "" }} ago
+            </div>
+            <div class="my-2 text-gray-700">
+              {{ review.comment }}
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </mat-card>
 </div>

@@ -27,7 +27,10 @@
             <app-skills [freelancer]="freelancer" />
           </div>
         </mat-card>
-        <app-portfolio [freelancer]="freelancer" />
+        <div class="gap-4 flex flex-col">
+          <app-portfolio [freelancer]="freelancer" />
+          <app-reviews [freelancer]="freelancer" />
+        </div>
       </div>
     </div>
   </div>

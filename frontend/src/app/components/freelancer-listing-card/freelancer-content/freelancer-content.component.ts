@@ -37,6 +37,7 @@ import { Freelancer } from '../../../types/types';
 export class FreelancerContentComponent {
   @Input() freelancer!: Freelancer;
 
+  // configuration for portfolio horizontal carousel animation
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,

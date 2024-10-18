@@ -1,35 +1,39 @@
-<!-- display experience links -->
-<mat-card class="experience p-4" appearance="outlined">
-  <p class="font-bold mb-4 text-xl">Experience</p>
-  <hr />
-  <ul class="space-y-3 pt-2">
-    <li
-      *ngFor="
-        let experience of freelancer.profile.experiences;
-        let i = index;
-        let lastListItem = last
-      "
-    >
-      <div class="flex flex-col md:flex-row md:items-center w-full">
-        <mat-card-subtitle class="font-semibold">
-          {{ experience.position }}</mat-card-subtitle
-        >
-        <span class="mx-1 font-medium">| {{ experience.company }}</span>
-      </div>
-      <div class="mt-0 text-gray-500 text-xs font-semibold">
-        <!-- built-in date pipe -->
-        {{ experience.startDate | date : "MMM y" }} -
-        {{
-          experience.endDate ? (experience.endDate | date : "MMM y") : "Present"
-        }}
-        ∙
-        {{ experience.startDate | calendarPeriod : experience.endDate }}
-      </div>
-      <div class="my-2 text-gray-700">
-        {{ experience.description }}
-      </div>
-      <!-- show horizontal rule if it is not the last item -->
-      <hr *ngIf="!lastListItem" />
-    </li>
-  </ul>
-</mat-card>
+<!-- display experience items -->
+<div *ngIf="freelancer.profile.experiences.length > 0">
+  <mat-card class="experience p-4" appearance="outlined">
+    <p class="font-bold mb-4 text-xl">Experience</p>
+    <hr />
+    <ul class="space-y-3 pt-2">
+      <li
+        *ngFor="
+          let experience of freelancer.profile.experiences;
+          let i = index;
+          let lastListItem = last
+        "
+      >
+        <div class="flex flex-col md:flex-row md:items-center w-full">
+          <mat-card-subtitle class="font-semibold">
+            {{ experience.position }}</mat-card-subtitle
+          >
+          <span class="mx-1 font-medium">| {{ experience.company }}</span>
+        </div>
+        <div class="mt-0 text-gray-500 text-xs font-semibold">
+          <!-- built-in date pipe -->
+          {{ experience.startDate | date : "MMM y" }} -
+          {{
+            experience.endDate
+              ? (experience.endDate | date : "MMM y")
+              : "Present"
+          }}
+          ∙
+          {{ experience.startDate | calendarPeriod : experience.endDate }}
+        </div>
+        <div class="my-2 text-gray-700">
+          {{ experience.description }}
+        </div>
+        <!-- show horizontal rule if it is not the last item -->
+        <hr *ngIf="!lastListItem" />
+      </li>
+    </ul>
+  </mat-card>
+</div>

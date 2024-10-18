@@ -6,20 +6,20 @@
 
   <!-- header component -->
   <mat-card-header class="-mt-6">
-    <div class="image-container w-1/4 rounded-full">
+    <div class="image-container w-1/4 rounded-full lg:p-5 lg:-ml-5 lg:-mr-3">
       <img
         [src]="freelancer.profile.picture"
-        alt="Freelancer Thumbnail"
+        alt="Freelancer Profile Image"
         class="aspect-square object-contain rounded-full flex-grow-1"
       />
     </div>
     <div class="place-content-center ml-4 lg:ml-5 font-bold">
-      <h3 class="-mt-2">
+      <h4 class="-mt-2">
         <strong>
           {{ freelancer.firstName }}
-          {{ freelancer.lastName | truncateName : 20 : "..." }}</strong
-        >
-      </h3>
+          {{ freelancer.lastName | truncateName : 20 : "..." }}
+        </strong>
+      </h4>
       <div class="text-sm text-neutral-500 -mt-5">
         &commat;{{ freelancer.username }}
       </div>

@@ -1,38 +1,48 @@
-<div class="flex flex-col items-center gap-4 p-4">
-  <div class="flex flex-col gap-4 w-full md:flex-row">
-    <div class="w-full md:w-3/5">
-      <app-profile-header
-        *ngIf="freelancer"
-        class="flex-grow-0.5"
-        [freelancer]="freelancer"
-      />
+<div *ngIf="freelancer; else notFound">
+  <div class="flex flex-col items-center gap-4 p-4">
+    <div class="flex flex-col gap-4 w-full md:flex-row">
+      <div class="w-full md:w-3/5">
+        <app-profile-header
+          *ngIf="freelancer"
+          class="flex-grow-0.5"
+          [freelancer]="freelancer"
+        />
 
-      <div class="gap-4 mt-4 flex flex-col">
-        <app-experiences [freelancer]="freelancer" />
-        <app-education [freelancer]="freelancer" />
-        <app-certifications [freelancer]="freelancer" />
+        <div class="gap-4 mt-4 flex flex-col">
+          <app-experiences [freelancer]="freelancer" />
+          <app-education [freelancer]="freelancer" />
+          <app-certifications [freelancer]="freelancer" />
+        </div>
       </div>
-    </div>
 
-    <div class="w-full md:w-2/5">
-      <div class="flex flex-col -space-y-2">
-        <!-- skills with corresponding level of proficiency -->
-        <mat-card
-          class="education p-4 lg:mt-6 md:mt-6 mt-0"
-          appearance="outlined"
+      <div class="w-full md:w-2/5">
+        <div
+          class="flex flex-col -space-y-2"
+          *ngIf="freelancer.profile.skills.length > 0"
         >
-          <p class="font-bold mb-4 text-xl">Skills</p>
-          <hr />
-          <div class="text-gray-500">
-            <app-skills [freelancer]="freelancer" />
+          <!-- skills with corresponding level of proficiency -->
+          <mat-card
+            class="education p-4 lg:mt-6 md:mt-6 mt-0"
+            appearance="outlined"
+          >
+            <p class="font-bold mb-4 text-xl">Skills</p>
+            <hr />
+            <div class="text-gray-500">
+              <app-skills [freelancer]="freelancer" />
+            </div>
+          </mat-card>
+          <div class="gap-4 flex flex-col">
+            <app-portfolio [freelancer]="freelancer" />
+            <app-subscription [freelancer]="freelancer" />
+            <app-reviews [freelancer]="freelancer" />
           </div>
-        </mat-card>
-        <div class="gap-4 flex flex-col">
-          <app-portfolio [freelancer]="freelancer" />
-          <app-subscription [freelancer]="freelancer" />
-          <app-reviews [freelancer]="freelancer" />
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- render conditionally -->
+<ng-template #notFound>
+  <p class="text-gray-500 text-center">Freelancer data can not be found.</p>
+</ng-template>

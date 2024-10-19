@@ -26,298 +26,440 @@
       <p-header class="text-start p-6 text-2xl w-full font-extrabold -mb-8">
         {{ header }}
       </p-header>
+
+      <div class="flex justify-end mt-4 gap-2.5">
+        <!-- freelancer active or inactive profile -->
+        <span [formGroup]="freelancerForm" *ngIf="freelancer">
+          <button
+            title="Active or inactive profile"
+            type="button"
+            pButton
+            [icon]="
+              freelancerForm.get('isActive')?.value
+                ? 'pi pi-user'
+                : 'pi pi-user-minus'
+            "
+            iconPos="left"
+            [label]="
+              freelancerForm.get('isActive')?.value ? 'Active' : 'Inactive'
+            "
+            class="hover:bg-gray-400 rounded-lg py-2 px-4 text-white"
+            [ngClass]="
+              freelancerForm.get('isActive')?.value
+                ? 'bg-custom-green'
+                : 'bg-red-700'
+            "
+            (click)="toggleActive()"
+          ></button>
+        </span>
+        <!-- action buttons -->
+        <button
+          title="Confirm Edits"
+          type="button"
+          pButton
+          icon="pi pi-check"
+          (click)="onConfirm()"
+          label="Confirm"
+          class="bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded-lg disabled:opacity-70"
+          [class.disabled]="!freelancerForm.valid"
+        ></button>
+        <button
+          title="Discard Edits"
+          type="button"
+          pButton
+          icon="pi pi-times"
+          (click)="onCancel()"
+          label="Cancel"
+          class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 rounded-lg"
+        ></button>
+      </div>
     </ng-template>
 
     <div *ngIf="freelancer">
       <div class="flex flex-col gap-4 p-6" [formGroup]="freelancerForm">
-        <!-- freelancer name -->
-        <div class="flex items-center gap-2">
-          <label for="firstName" class="text-gray-700 font-medium w-1/5"
-            >First Name:</label
-          >
-          <input
-            class="border border-gray-300 rounded-lg p-2 w-full"
-            title="Freelancer First Name Input"
-            type="text"
-            id="firstName"
-            formControlName="firstName"
-          />
-        </div>
-        <!-- error message -->
-        <div
-          *ngIf="freelancerForm.get('firstName')?.invalid"
-          class="text-red-600 text-xs text-end -mt-3"
-        >
-          {{ getErrorMessage("firstName") }}
-        </div>
-
-        <!-- freelancer last name -->
-        <div class="flex items-center gap-2">
-          <label for="lastName" class="text-gray-700 font-medium w-1/5"
-            >Last Name:</label
-          >
-          <input
-            class="border border-gray-300 rounded-lg p-2 w-full"
-            title="Freelancer Last Name Input"
-            type="text"
-            id="lastName"
-            formControlName="lastName"
-          />
-        </div>
-        <!-- error message -->
-        <div
-          *ngIf="
-            freelancerForm.get('lastName')?.invalid &&
-            freelancerForm.get('lastName')?.touched
-          "
-          class="text-red-600 text-xs text-end -mt-3"
-        >
-          {{ getErrorMessage("lastName") }}
-        </div>
-
-        <!-- freelancer email -->
-        <div class="flex items-center gap-2">
-          <label for="email" class="text-gray-700 font-medium w-1/5"
-            >Email:</label
-          >
-          <input
-            class="border border-gray-300 rounded-lg p-2 w-full"
-            title="Freelancer Email Input"
-            type="email"
-            id="email"
-            formControlName="email"
-          />
-        </div>
-        <!-- error message -->
-        <div
-          *ngIf="
-            freelancerForm.get('email')?.invalid &&
-            freelancerForm.get('email')?.touched
-          "
-          class="text-red-600 text-xs text-end -mt-3"
-        >
-          {{ getErrorMessage("email") }}
-        </div>
-
-        <!-- freelancer username -->
-        <div class="flex items-center gap-2">
-          <label for="username" class="text-gray-700 font-medium w-1/5"
-            >Username:</label
-          >
-          <input
-            class="border border-gray-300 rounded-lg p-2 w-full"
-            title="Freelancer Username Input"
-            type="text"
-            id="username"
-            formControlName="username"
-          />
-        </div>
-        <!-- error message -->
-        <div
-          *ngIf="
-            freelancerForm.get('username')?.invalid &&
-            freelancerForm.get('username')?.touched
-          "
-          class="text-red-600 text-xs text-end -mt-3"
-        >
-          {{ getErrorMessage("username") }}
-        </div>
-
-        <!-- freelancer role -->
-        <div class="flex items-center gap-2">
-          <label for="role" class="text-gray-700 font-medium w-1/5"
-            >Role:</label
-          >
-          <input
-            class="border border-gray-300 rounded-lg p-2 w-full"
-            title="Freelancer Role Input"
-            type="text"
-            id="role"
-            formControlName="role"
-          />
-        </div>
-        <!-- error message -->
-        <div
-          *ngIf="
-            freelancerForm.get('role')?.invalid &&
-            freelancerForm.get('role')?.touched
-          "
-          class="text-red-600 text-xs text-end -mt-3"
-        >
-          {{ getErrorMessage("role") }}
-        </div>
-
-        <!-- freelancer is active -->
-        <div class="flex items-center gap-2">
-          <label for="isActive" class="text-gray-700 font-medium w-1/5"
-            >Active:</label
-          >
-          <span class="justify-items-start justify-start items-start -ml-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- freelancer first name -->
+          <div class="flex flex-col">
+            <label for="firstName" class="text-gray-700 font-semibold"
+              >First Name:</label
+            >
             <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
-              title="Freelancer Is Active Input"
-              type="checkbox"
-              id="isActive"
-              formControlName="isActive"
+              class="border border-gray-300 rounded-lg p-2"
+              title="Freelancer First Name Input"
+              type="text"
+              id="firstName"
+              formControlName="firstName"
             />
-          </span>
-        </div>
+            <!-- error message -->
+            <div
+              *ngIf="isSubmitted && freelancerForm.get('firstName')?.invalid"
+              class="text-red-600 text-xs -mt-1"
+            >
+              {{ getErrorMessage("firstName") }}
+            </div>
+          </div>
 
-        <div
-          *ngIf="freelancer?.profile"
-          formGroupName="profile"
-          class="gap-2 space-x-2"
-        >
+          <!-- freelancer last name -->
+          <div class="flex flex-col">
+            <label for="lastName" class="text-gray-700 font-semibold"
+              >Last Name:</label
+            >
+            <input
+              class="border border-gray-300 rounded-lg p-2"
+              title="Freelancer Last Name Input"
+              type="text"
+              id="lastName"
+              formControlName="lastName"
+            />
+            <!-- error message -->
+            <div
+              *ngIf="isSubmitted && freelancerForm.get('lastName')?.invalid"
+              class="text-red-600 text-xs -mt-1"
+            >
+              {{ getErrorMessage("lastName") }}
+            </div>
+          </div>
+
+          <!-- freelancer email -->
+          <div class="flex flex-col">
+            <label for="email" class="text-gray-700 font-semibold"
+              >Email:</label
+            >
+            <input
+              class="border border-gray-300 rounded-lg p-2"
+              title="Freelancer Email Input"
+              type="email"
+              id="email"
+              formControlName="email"
+            />
+            <!-- error message -->
+            <div
+              *ngIf="isSubmitted && freelancerForm.get('email')?.invalid"
+              class="text-red-600 text-xs -mt-1"
+            >
+              {{ getErrorMessage("email") }}
+            </div>
+          </div>
+
+          <!-- freelancer username -->
+          <div class="flex flex-col">
+            <label for="username" class="text-gray-700 font-semibold"
+              >Username:</label
+            >
+            <input
+              class="border border-gray-300 rounded-lg p-2"
+              title="Freelancer Username Input"
+              type="text"
+              id="username"
+              formControlName="username"
+            />
+            <!-- error message -->
+            <div
+              *ngIf="isSubmitted && freelancerForm.get('username')?.invalid"
+              class="text-red-600 text-xs -mt-1"
+            >
+              {{ getErrorMessage("username") }}
+            </div>
+          </div>
+
+          <!-- freelancer role -->
+          <div class="flex flex-col">
+            <label for="role" class="text-gray-700 font-semibold">Role:</label>
+            <select
+              class="border border-gray-300 rounded-lg py-2.5 pl-1"
+              title="Freelancer Role Input"
+              id="role"
+              formControlName="role"
+            >
+              <option value="" disabled selected>Select Role</option>
+              <option value="freelancer">Freelancer</option>
+              <option value="client">Client</option>
+            </select>
+            <!-- error message -->
+            <div
+              *ngIf="isSubmitted && freelancerForm.get('role')?.invalid"
+              class="text-red-600 text-xs -mt-1"
+            >
+              {{ getErrorMessage("role") }}
+            </div>
+          </div>
+
           <!-- profile picture -->
-          <div class="flex items-center gap-2">
-            <label for="picture" class="text-gray-700 font-medium w-1/5"
+          <div
+            class="flex flex-col"
+            *ngIf="freelancer?.profile"
+            formGroupName="profile"
+          >
+            <label for="picture" class="text-gray-700 font-semibold"
               >Profile Picture:</label
             >
             <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
+              class="border border-gray-300 rounded-lg p-2"
               title="Freelancer Profile Picture Input"
               type="text"
               id="picture"
               formControlName="picture"
             />
-          </div>
-
-          <!-- job title -->
-          <div class="flex items-center gap-2">
-            <label for="jobTitle" class="text-gray-700 font-medium w-1/5"
-              >Job Title:</label
+            <!-- error message -->
+            <div
+              *ngIf="
+                isSubmitted && freelancerForm.get('profile.picture')?.invalid
+              "
+              class="text-red-600 text-xs -mt-1"
             >
-            <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
-              title="Freelancer Job Title Input"
-              type="text"
-              id="jobTitle"
-              formControlName="jobTitle"
-            />
+              {{ getErrorMessage("picture") }}
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="freelancer?.profile"
+          formGroupName="profile"
+          class="space-y-4"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- job title -->
+            <div class="flex flex-col">
+              <label for="jobTitle" class="text-gray-700 font-semibold"
+                >Job Title:</label
+              >
+              <input
+                class="border border-gray-300 rounded-lg p-2"
+                title="Freelancer Job Title Input"
+                type="text"
+                id="jobTitle"
+                formControlName="jobTitle"
+              />
+              <!-- error message -->
+              <div
+                *ngIf="
+                  isSubmitted && freelancerForm.get('profile.jobTitle')?.invalid
+                "
+                class="text-red-600 text-xs -mt-1"
+              >
+                {{ getErrorMessage("jobTitle") }}
+              </div>
+            </div>
+
+            <!-- hourly rate -->
+            <div class="flex flex-col">
+              <label for="hourlyRate" class="text-gray-700 font-semibold"
+                >Hourly Rate:</label
+              >
+              <input
+                class="border border-gray-300 rounded-lg p-2"
+                title="Freelancer Hourly Rate Input"
+                type="number"
+                id="hourlyRate"
+                step="any"
+                formControlName="hourlyRate"
+              />
+              <!-- error message -->
+              <div
+                *ngIf="
+                  isSubmitted &&
+                  freelancerForm.get('profile.hourlyRate')?.invalid
+                "
+                class="text-red-600 text-xs -mt-1"
+              >
+                {{ getErrorMessage("hourlyRate") }}
+              </div>
+            </div>
+
+            <!-- availability -->
+            <div class="flex flex-col">
+              <label for="availability" class="text-gray-700 font-semibold"
+                >Availability:</label
+              >
+              <select
+                class="border border-gray-300 rounded-lg py-2.5 pl-1 mt-0.5"
+                title="Freelancer Availability Input"
+                id="availability"
+                formControlName="availability"
+              >
+                <option value="" disabled selected>Specify Availability</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Contract">Contract</option>
+                <option value="Weekends">Weekends</option>
+                <option value="Weekdays">Weekdays</option>
+              </select>
+              <!-- error message -->
+              <div
+                *ngIf="
+                  isSubmitted &&
+                  freelancerForm.get('profile.availability')?.invalid
+                "
+                class="text-red-600 text-xs -mt-1"
+              >
+                {{ getErrorMessage("availability") }}
+              </div>
+            </div>
+
+            <!-- city -->
+            <div class="flex flex-col">
+              <label for="city" class="text-gray-700 font-semibold"
+                >City:</label
+              >
+              <input
+                class="border border-gray-300 rounded-lg p-2"
+                title="Freelancer City Input"
+                type="text"
+                id="city"
+                formControlName="city"
+              />
+              <!-- error message -->
+              <div
+                *ngIf="
+                  isSubmitted && freelancerForm.get('profile.city')?.invalid
+                "
+                class="text-red-600 text-xs -mt-1"
+              >
+                {{ getErrorMessage("city") }}
+              </div>
+            </div>
+
+            <!-- state -->
+            <div class="flex flex-col">
+              <label for="state" class="text-gray-700 font-semibold"
+                >State:</label
+              >
+              <input
+                class="border border-gray-300 rounded-lg p-2"
+                title="Freelancer State Input"
+                type="text"
+                id="state"
+                formControlName="state"
+              />
+              <!-- error message -->
+              <div
+                *ngIf="
+                  isSubmitted && freelancerForm.get('profile.state')?.invalid
+                "
+                class="text-red-600 text-xs -mt-1"
+              >
+                {{ getErrorMessage("state") }}
+              </div>
+            </div>
+
+            <!-- country -->
+            <div class="flex flex-col">
+              <label for="country" class="text-gray-700 font-semibold"
+                >Country:</label
+              >
+              <input
+                class="border border-gray-300 rounded-lg p-2"
+                title="Freelancer Country Input"
+                type="text"
+                id="country"
+                formControlName="country"
+              />
+              <!-- error message -->
+              <div
+                *ngIf="
+                  isSubmitted && freelancerForm.get('profile.country')?.invalid
+                "
+                class="text-red-600 text-xs -mt-1"
+              >
+                {{ getErrorMessage("country") }}
+              </div>
+            </div>
           </div>
 
           <!-- description -->
-          <div class="flex items-center gap-2">
-            <label for="description" class="text-gray-700 font-medium w-1/5"
+          <div class="flex flex-col">
+            <label for="description" class="text-gray-700 font-semibold"
               >Description:</label
             >
             <textarea
-              class="border border-gray-300 rounded-lg p-2 w-full"
+              class="border border-gray-300 rounded-lg p-2"
               title="Freelancer Description Input"
               rows="3"
               id="description"
               formControlName="description"
             ></textarea>
-          </div>
-
-          <!-- hourly rate -->
-          <div class="flex items-center gap-2">
-            <label for="hourlyRate" class="text-gray-700 font-medium w-1/5"
-              >Hourly Rate:</label
+            <!-- error message -->
+            <div
+              *ngIf="
+                isSubmitted &&
+                freelancerForm.get('profile.description')?.invalid
+              "
+              class="text-red-600 text-xs -mt-1"
             >
-            <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
-              title="Freelancer Hourly Rate Input"
-              type="number"
-              id="hourlyRate"
-              formControlName="hourlyRate"
-            />
+              {{ getErrorMessage("description") }}
+            </div>
           </div>
 
           <!-- bio -->
-          <div class="flex items-center gap-2">
-            <label for="bio" class="text-gray-700 font-medium w-1/5"
-              >Bio:</label
-            >
+          <div class="flex flex-col">
+            <label for="bio" class="text-gray-700 font-semibold">Bio:</label>
             <textarea
-              class="border border-gray-300 rounded-lg p-2 w-full"
+              class="border border-gray-300 rounded-lg p-2"
               title="Freelancer Bio Input"
               rows="3"
               id="bio"
               formControlName="bio"
             ></textarea>
+            <!-- error message -->
+            <div
+              *ngIf="isSubmitted && freelancerForm.get('profile.bio')?.invalid"
+              class="text-red-600 text-xs -mt-1"
+            >
+              {{ getErrorMessage("bio") }}
+            </div>
           </div>
 
-          <!-- availability -->
-          <div class="flex items-center gap-2">
-            <label for="availability" class="text-gray-700 font-medium w-1/5"
-              >Availability:</label
-            >
-            <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
-              title="Freelancer Availability Input"
-              type="text"
-              id="availability"
-              formControlName="availability"
-            />
-          </div>
+          <div class="profile-arrays">
+            <!-- skills -->
 
-          <!-- city -->
-          <div class="flex items-center gap-2">
-            <label for="city" class="text-gray-700 font-medium w-1/5"
-              >City:</label
+            <div
+              *ngIf="freelancerForm.get('profile.skills')"
+              formArrayName="skills"
             >
-            <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
-              title="Freelancer City Input"
-              type="text"
-              id="city"
-              formControlName="city"
-            />
-          </div>
+              <div
+                class="flex justify-start place-content-center place-items-center mb-2 mt-2 pt-2"
+              >
+                <span class="font-semibold mt-1 text-lg">Skills</span>
+                <button
+                  title="Add New Skill"
+                  type="button"
+                  pButton
+                  icon="pi pi-plus-circle"
+                  (click)="addSkill()"
+                  class="bg-transparent -mb-1 -ml-2"
+                ></button>
+              </div>
 
-          <!-- state -->
-          <div class="flex items-center gap-2">
-            <label for="state" class="text-gray-700 font-medium w-1/5"
-              >State:</label
-            >
-            <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
-              title="Freelancer State Input"
-              type="text"
-              id="state"
-              formControlName="state"
-            />
-          </div>
-
-          <!-- country -->
-          <div class="flex items-center gap-2">
-            <label for="country" class="text-gray-700 font-medium w-1/5"
-              >Country:</label
-            >
-            <input
-              class="border border-gray-300 rounded-lg p-2 w-full"
-              title="Freelancer Country Input"
-              type="text"
-              id="country"
-              formControlName="country"
-            />
-          </div>
-
-          <!-- skills -->
-          <div class="flex items-center gap-2">
-            <label for="skills" class="text-gray-700 font-medium w-1/5"
-              >Skills:</label
-            >
-            <div formArrayName="skills">
               <div
                 *ngFor="let skill of skillsArray.controls; let i = index"
                 [formGroupName]="i"
+                class="flex py-1"
               >
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Skill Input"
-                  type="text"
-                  formControlName="name"
-                  placeholder="Skill Name"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Skill Level Input"
-                  type="text"
-                  formControlName="level"
-                  placeholder="Skill Level"
-                />
+                <button
+                  disabled
+                  class="bg-gray-200 text-gray-700 font-medium w-1/12 mr-4 rounded p-1 text-center"
+                  title="Item {{ i + 1 }}"
+                >
+                  {{ i + 1 }}
+                </button>
+                <span class="gap-1 w-full flex justify-between">
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/2"
+                    title="Freelancer Skill Input"
+                    type="text"
+                    formControlName="name"
+                    placeholder="Name"
+                  />
+                  <select
+                    class="border border-gray-300 rounded-lg py-1 pl-1 -mt-0.5 w-1/2"
+                    title="Freelancer Skill Level Input"
+                    formControlName="level"
+                  >
+                    <option selected value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                  </select>
+                </span>
                 <button
                   type="button"
                   pButton
@@ -328,64 +470,70 @@
                 ></button>
               </div>
             </div>
-            <button
-              type="button"
-              pButton
-              icon="pi pi-plus"
-              (click)="addSkill()"
-              class="hover:bg-gray-200 rounded p-2"
-              title="Add Skill"
-            ></button>
-          </div>
 
-          <!-- experiences -->
-          <div class="flex items-center gap-2">
-            <label for="experiences" class="text-gray-700 font-medium w-1/5"
-              >Experiences:</label
+            <!-- experiences -->
+            <div
+              *ngIf="freelancerForm.get('profile.experiences')"
+              formArrayName="experiences"
             >
-            <div formArrayName="experiences">
+              <div
+                class="flex justify-start mb-2 mt-2 pt-2 place-content-center place-items-center"
+              >
+                <span class="font-semibold mt-1 text-lg">Experiences</span>
+                <button
+                  title="Add New Experience"
+                  type="button"
+                  pButton
+                  icon=" pi pi-plus-circle"
+                  (click)="addExperience()"
+                  class="bg-transparent -mb-1 -ml-2"
+                ></button>
+              </div>
+
               <div
                 *ngFor="
                   let experience of experiencesArray.controls;
                   let i = index
                 "
                 [formGroupName]="i"
+                class="flex py-1"
               >
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Experience Company Input"
-                  type="text"
-                  formControlName="company"
-                  placeholder="Company"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Experience Position Input"
-                  type="text"
-                  formControlName="position"
-                  placeholder="Position"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Experience Start Date Input"
-                  type="date"
-                  formControlName="startDate"
-                  placeholder="Start Date"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Experience End Date Input"
-                  type="date"
-                  formControlName="endDate"
-                  placeholder="End Date"
-                />
-                <textarea
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Experience Description Input"
-                  rows="3"
-                  formControlName="description"
-                  placeholder="Description"
-                ></textarea>
+                <button
+                  disabled
+                  class="bg-gray-200 text-gray-700 font-medium mr-4 w-1/12 rounded p-1 text-center"
+                  title="Item {{ i + 1 }}"
+                >
+                  {{ i + 1 }}
+                </button>
+                <span class="gap-1 w-full flex justify-between">
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-2/4"
+                    title="Freelancer Experience Company Input"
+                    type="text"
+                    formControlName="company"
+                    placeholder="Company"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-2/4"
+                    title="Freelancer Experience Position Input"
+                    type="text"
+                    formControlName="position"
+                    placeholder="Position"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/6"
+                    title="Freelancer Experience Start Date Input"
+                    type="date"
+                    formControlName="startDate"
+                  />
+                  <span class="place-items-center place-content-center">-</span>
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/6"
+                    title="Freelancer Experience End Date Input"
+                    type="date"
+                    formControlName="endDate"
+                  />
+                </span>
                 <button
                   type="button"
                   pButton
@@ -396,122 +544,70 @@
                 ></button>
               </div>
             </div>
-            <button
-              type="button"
-              pButton
-              icon="pi pi-plus"
-              (click)="addExperience()"
-              class="hover:bg-gray-200 rounded p-2"
-              title="Add Experience"
-            ></button>
-          </div>
 
-          <!-- education -->
-          <div class="flex items-center gap-2">
-            <label for="education" class="text-gray-700 font-medium w-1/5"
-              >Education:</label
+            <!-- certifications -->
+            <div
+              *ngIf="freelancerForm.get('profile.certifications')"
+              formArrayName="certifications"
             >
-            <div formArrayName="education">
               <div
-                *ngFor="let education of educationArray.controls; let i = index"
-                [formGroupName]="i"
+                class="flex justify-start place-content-center place-items-center mb-2 mt-2 pt-2"
               >
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Education Institution Input"
-                  type="text"
-                  formControlName="institution"
-                  placeholder="Institution"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Education Degree Input"
-                  type="text"
-                  formControlName="degree"
-                  placeholder="Degree"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Education Field of Study Input"
-                  type="text"
-                  formControlName="fieldOfStudy"
-                  placeholder="Field of Study"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Education Start Date Input"
-                  type="date"
-                  formControlName="startDate"
-                  placeholder="Start Date"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Education End Date Input"
-                  type="date"
-                  formControlName="endDate"
-                  placeholder="End Date"
-                />
+                <span class="font-semibold mt-1 text-lg">Certifications</span>
                 <button
+                  title="Add New Certification"
                   type="button"
                   pButton
-                  icon="pi pi-times"
-                  (click)="removeEducation(i)"
-                  class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
-                  title="Remove Education"
+                  icon=" pi pi-plus-circle"
+                  (click)="addCertification()"
+                  class="bg-transparent -mb-1 -ml-2"
                 ></button>
               </div>
-            </div>
-            <button
-              type="button"
-              pButton
-              icon="pi pi-plus"
-              (click)="addEducation()"
-              class="hover:bg-gray-200 rounded p-2"
-              title="Add Education"
-            ></button>
-          </div>
 
-          <!-- certifications -->
-          <div class="flex items-center gap-2">
-            <label for="certifications" class="text-gray-700 font-medium w-1/5"
-              >Certifications:</label
-            >
-            <div formArrayName="certifications">
               <div
                 *ngFor="
                   let certification of certificationsArray.controls;
                   let i = index
                 "
                 [formGroupName]="i"
+                class="flex py-1"
               >
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Certification Name Input"
-                  type="text"
-                  formControlName="name"
-                  placeholder="Name"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Certification Issuing Organization Input"
-                  type="text"
-                  formControlName="issuingOrganization"
-                  placeholder="Issuing Organization"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Certification Issue Date Input"
-                  type="date"
-                  formControlName="issueDate"
-                  placeholder="Issue Date"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Certification Expiration Date Input"
-                  type="date"
-                  formControlName="expirationDate"
-                  placeholder="Expiration Date"
-                />
+                <button
+                  disabled
+                  class="bg-gray-200 text-gray-700 font-medium w-1/12 mr-4 rounded p-1 text-center"
+                  title="Item {{ i + 1 }}"
+                >
+                  {{ i + 1 }}
+                </button>
+                <span class="gap-1 w-full flex justify-between">
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-2/4"
+                    title="Freelancer Certification Name Input"
+                    type="text"
+                    formControlName="name"
+                    placeholder="Name"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-2/4"
+                    title="Freelancer Certification Issuing Organization Input"
+                    type="text"
+                    formControlName="issuingOrganization"
+                    placeholder="Issuer"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/6"
+                    title="Freelancer Certification Issue Date Input"
+                    type="date"
+                    formControlName="issueDate"
+                  />
+                  <span class="place-items-center place-content-center">-</span>
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/6"
+                    title="Freelancer Certification Expiration Date Input"
+                    type="date"
+                    formControlName="expirationDate"
+                  />
+                </span>
                 <button
                   type="button"
                   pButton
@@ -522,50 +618,142 @@
                 ></button>
               </div>
             </div>
-            <button
-              type="button"
-              pButton
-              icon="pi pi-plus"
-              (click)="addCertification()"
-              class="hover:bg-gray-200 rounded p-2"
-              title="Add Certification"
-            ></button>
-          </div>
 
-          <!-- portfolio items -->
-          <div class="flex items-center gap-2">
-            <label for="portfolioItems" class="text-gray-700 font-medium w-1/5"
-              >Portfolio Items:</label
+            <!-- education -->
+            <div
+              *ngIf="freelancerForm.get('profile.education')"
+              formArrayName="education"
             >
-            <div formArrayName="portfolioItems">
+              <!-- add new education item -->
+              <div
+                class="flex justify-start place-content-center place-items-center mb-2 mt-2 pt-2"
+              >
+                <span class="font-semibold mt-1 text-lg">Education</span>
+                <button
+                  title="Add New Education"
+                  type="button"
+                  pButton
+                  icon=" pi pi-plus-circle"
+                  (click)="addEducation()"
+                  class="bg-transparent -mb-1 -ml-2"
+                ></button>
+              </div>
+              <div
+                *ngFor="let education of educationArray.controls; let i = index"
+                [formGroupName]="i"
+                class="flex py-1"
+              >
+                <button
+                  disabled
+                  class="bg-gray-200 text-gray-700 font-medium w-1/12 mr-4 rounded p-1 text-center"
+                  title="Item {{ i + 1 }}"
+                >
+                  {{ i + 1 }}
+                </button>
+                <span class="gap-1 w-full flex justify-between">
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-2/5"
+                    title="Freelancer Education Institution Input"
+                    type="text"
+                    formControlName="institution"
+                    placeholder="Institution"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-2/5"
+                    title="Freelancer Education Degree Input"
+                    type="text"
+                    formControlName="degree"
+                    placeholder="Degree"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-2/5"
+                    title="Freelancer Education Field of Study Input"
+                    type="text"
+                    formControlName="fieldOfStudy"
+                    placeholder="Field"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/6"
+                    title="Freelancer Education Start Date Input"
+                    type="date"
+                    formControlName="startDate"
+                  />
+                  <span class="place-items-center place-content-center">-</span>
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/6"
+                    title="Freelancer Education End Date Input"
+                    type="date"
+                    formControlName="endDate"
+                  />
+                </span>
+                <button
+                  type="button"
+                  pButton
+                  icon="pi pi-times"
+                  (click)="removeEducation(i)"
+                  class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
+                  title="Remove Education"
+                ></button>
+              </div>
+            </div>
+
+            <!-- portfolio items -->
+            <div
+              *ngIf="freelancerForm.get('profile.portfolioItems')"
+              formArrayName="portfolioItems"
+            >
+              <div
+                class="flex justify-start place-content-center place-items-center mb-2 mt-2 pt-2"
+              >
+                <span class="font-semibold mt-1 text-lg">Portfolio</span>
+                <button
+                  title="Add New Portfolio Item"
+                  type="button"
+                  pButton
+                  icon=" pi pi-plus-circle"
+                  (click)="addPortfolioItem()"
+                  class="bg-transparent -mb-1 -ml-2"
+                ></button>
+              </div>
+
               <div
                 *ngFor="
                   let portfolioItem of portfolioItemsArray.controls;
                   let i = index
                 "
                 [formGroupName]="i"
+                class="flex py-1"
               >
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Portfolio Item Title Input"
-                  type="text"
-                  formControlName="title"
-                  placeholder="Title"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Portfolio Item Description Input"
-                  type="text"
-                  formControlName="description"
-                  placeholder="Description"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Portfolio Item URL Input"
-                  type="text"
-                  formControlName="url"
-                  placeholder="URL"
-                />
+                <button
+                  disabled
+                  class="bg-gray-200 text-gray-700 font-medium w-1/12 mr-4 rounded p-1 text-center"
+                  title="Item {{ i + 1 }}"
+                >
+                  {{ i + 1 }}
+                </button>
+                <span class="gap-1 w-full flex justify-between">
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/3"
+                    title="Freelancer Portfolio Item Title Input"
+                    type="text"
+                    formControlName="title"
+                    placeholder="Title"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/3"
+                    title="Freelancer Portfolio Item Link Input"
+                    type="url"
+                    formControlName="url"
+                    placeholder="Link"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/3"
+                    title="Freelancer Portfolio Item Description Input"
+                    type="text"
+                    formControlName="description"
+                    placeholder="Description"
+                  />
+                </span>
                 <button
                   type="button"
                   pButton
@@ -576,90 +764,8 @@
                 ></button>
               </div>
             </div>
-            <button
-              type="button"
-              pButton
-              icon="pi pi-plus"
-              (click)="addPortfolioItem()"
-              class="hover:bg-gray-200 rounded p-2"
-              title="Add Portfolio Item"
-            ></button>
-          </div>
-
-          <!-- social links -->
-          <div class="flex items-center gap-2">
-            <label for="socialLinks" class="text-gray-700 font-medium w-1/5"
-              >Social Links:</label
-            >
-            <div formArrayName="socialLinks">
-              <div
-                *ngFor="
-                  let socialLink of socialLinksArray.controls;
-                  let i = index
-                "
-                [formGroupName]="i"
-              >
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Social Link Platform Input"
-                  type="text"
-                  formControlName="platform"
-                  placeholder="Platform"
-                />
-                <input
-                  class="border border-gray-300 rounded-lg p-2 w-full"
-                  title="Freelancer Social Link URL Input"
-                  type="text"
-                  formControlName="url"
-                  placeholder="URL"
-                />
-                <button
-                  type="button"
-                  pButton
-                  icon="pi pi-times"
-                  (click)="removeSocialLink(i)"
-                  class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
-                  title="Remove Social Link"
-                ></button>
-              </div>
-            </div>
-            <button
-              type="button"
-              pButton
-              icon="pi pi-plus"
-              (click)="addSocialLink()"
-              class="hover:bg-gray-200 rounded p-2"
-              title="Add Social Link"
-            ></button>
           </div>
         </div>
-
-        <!-- footer with action buttons -->
-        <p-footer>
-          <div class="flex justify-end">
-            <div class="pt-6">
-              <button
-                title="Confirm Edits"
-                type="button"
-                pButton
-                icon="pi pi-check"
-                (click)="onConfirm()"
-                label="Confirm"
-                class="bg-green-500 mr-1 hover:bg-green-600 text-white py-2 px-4 rounded-lg disabled:opacity-50"
-                [class.disabled]="!freelancerForm.valid"
-              ></button>
-              <button
-                title="Discard Edits"
-                type="button"
-                pButton
-                icon="pi pi-times"
-                (click)="onCancel()"
-                label="Cancel"
-                class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
-              ></button>
-            </div>
-          </div>
-        </p-footer>
       </div>
     </div>
   </p-dialog>

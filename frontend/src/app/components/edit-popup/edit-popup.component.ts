@@ -59,7 +59,6 @@ interface FreelancerFormValues {
     isActive?: boolean;
   };
 }
-
 @Component({
   selector: 'app-edit-popup',
   standalone: true,
@@ -188,6 +187,14 @@ export class EditPopupComponent {
       this.freelancerForm.patchValue(this.freelancer);
       this.loadProfileArray();
       this.isLoading = false;
+    }
+  }
+
+  // button rather than checkbox to toggle between active or inactive profile state
+  toggleActive(): void {
+    const isActiveControl = this.freelancerForm.get('isActive');
+    if (isActiveControl) {
+      isActiveControl.setValue(!isActiveControl.value);
     }
   }
 

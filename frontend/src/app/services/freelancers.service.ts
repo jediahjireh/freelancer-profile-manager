@@ -10,7 +10,8 @@ import { ApiService } from './api.service';
 // encapsulate business logic
 export class FreelancersService {
   // base URL for the API (http://localhost:3000/freelancers) | https://freelancer-profile-server.vercel.app/freelancers
-  private baseUrl: string = 'http://localhost:3000/freelancers';
+  private baseUrl: string =
+    'https://freelancer-profile-server.vercel.app/freelancers';
 
   constructor(private apiService: ApiService) {}
 

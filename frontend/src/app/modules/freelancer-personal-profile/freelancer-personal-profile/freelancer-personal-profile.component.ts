@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Freelancer } from '../../../types/types';
 import { FreelancersService } from '../../../services/freelancers.service';
 import { NotificationService } from '../../../services/notification.service';
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class FreelancerPersonalProfileComponent implements OnInit {
   freelancer!: Freelancer;
   selectedFreelancer!: Freelancer;
-  // display popups
+  // display popup
   displayEditPopup: boolean = false;
   // track loading state
   isLoading: boolean = false;
@@ -21,7 +21,8 @@ export class FreelancerPersonalProfileComponent implements OnInit {
   constructor(
     private freelancersService: FreelancersService,
     public notificationService: NotificationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {}
 
   // fetch specific freelancer profile data by id from server
@@ -47,16 +48,19 @@ export class FreelancerPersonalProfileComponent implements OnInit {
 
   // toggle displays
   toggleEditPopup(freelancer: Freelancer) {
-    this.selectedFreelancer = freelancer;
-    this.displayEditPopup = true;
-  }
-
-  toggleDeletePopup(freelancer: Freelancer) {
-    if (!freelancer.id) {
-      return;
+    // ensure freelancer profile exists
+    if (freelancer.id !== undefined) {
+      this.selectedFreelancer = freelancer;
+      this.displayEditPopup = true;
+      this.cdr.detectChanges();
+    } else {
+      // if id is undefined
+      this.notificationService.addMessage(
+        'error',
+        'Error',
+        'Freelancer profile not found.'
+      );
     }
-
-    this.deleteFreelancer(freelancer.id);
   }
 
   // confirmation logic
@@ -70,7 +74,7 @@ export class FreelancerPersonalProfileComponent implements OnInit {
     this.displayEditPopup = false;
   }
 
-  // edit and delete profile data functionality
+  // edit profile data functionality
   editFreelancer(freelancer: Freelancer, id: number) {
     this.isLoading = true;
 
@@ -95,6 +99,21 @@ export class FreelancerPersonalProfileComponent implements OnInit {
         this.isLoading = false;
       },
     });
+  }
+
+  /*
+   toggleDeletePopup(freelancer: Freelancer) {
+    if (freelancer.id !== undefined) {
+      this.deleteFreelancer(freelancer.id);
+      this.cdr.detectChanges();
+    } else {
+      // if id is undefined
+      this.notificationService.addMessage(
+        'error',
+        'Error',
+        'Freelancer profile not found.'
+      );
+    }
   }
 
   deleteFreelancer(id: number) {
@@ -123,8 +142,24 @@ export class FreelancerPersonalProfileComponent implements OnInit {
     });
   }
 
+  // locate button
+  @ViewChild('deleteButton') deleteButton: any;
+
+  // prompt user to confirm or reject freelancer removal -  private confirmationService: ConfirmationService
+  confirmDelete() {
+    this.confirmationService.confirm({
+      target: this.deleteButton.nativeElement,
+      message: 'Are you sure that you want to remove this freelancer?',
+      accept: () => {
+        this.deleteFreelancer(this.freelancer.id);
+      },
+    });
+  }
+    */
+
   ngOnInit(): void {
     // fetch freelancer data when component loads
     this.fetchFreelancer(1);
+    this.isLoading = false;
   }
 }

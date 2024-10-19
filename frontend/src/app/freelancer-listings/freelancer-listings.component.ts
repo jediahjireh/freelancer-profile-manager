@@ -13,6 +13,7 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { FreelancerActionsComponent } from '../components/freelancer-actions/freelancer-actions.component';
+
 @Component({
   selector: 'app-freelancer-listings',
   standalone: true,
@@ -55,44 +56,12 @@ export class FreelancerListingsComponent {
   // loading state
   isLoading: boolean = false;
 
-  // display popups
-  displayEditPopup: boolean = false;
+  // display popup
   displayAddPopup: boolean = false;
-
-  // toggle displays
-  toggleEditPopup(freelancer: Freelancer) {
-    // ensure freelancer profile exists
-    if (freelancer.id !== undefined) {
-      this.selectedFreelancer = freelancer;
-      this.displayEditPopup = true;
-      this.cdr.detectChanges();
-    } else {
-      // if id is undefined
-      this.notificationService.addMessage(
-        'error',
-        'Error',
-        'Freelancer profile not found.'
-      );
-    }
-  }
 
   toggleAddPopup() {
     this.displayAddPopup = true;
     this.cdr.detectChanges();
-  }
-
-  toggleDeletePopup(freelancer: Freelancer) {
-    if (freelancer.id !== undefined) {
-      this.deleteFreelancer(freelancer.id);
-      this.cdr.detectChanges();
-    } else {
-      // if id is undefined
-      this.notificationService.addMessage(
-        'error',
-        'Error',
-        'Freelancer profile not found.'
-      );
-    }
   }
 
   selectedFreelancer: Freelancer = {
@@ -133,17 +102,6 @@ export class FreelancerListingsComponent {
       isActive: false,
     },
   };
-
-  // confirmation logic
-  onConfirmEdit(freelancer: Freelancer) {
-    // do not invoke method if freelancer cannot be found
-    if (!this.selectedFreelancer.id) {
-      return;
-    }
-
-    this.editFreelancer(freelancer, this.selectedFreelancer.id);
-    this.displayEditPopup = false;
-  }
 
   onConfirmAdd(freelancer: Freelancer) {
     this.addFreelancer(freelancer);
@@ -226,62 +184,7 @@ export class FreelancerListingsComponent {
     }
   }
 
-  // CRUD functions
-  editFreelancer(freelancer: Freelancer, id: number) {
-    this.isLoading = true;
-
-    this.freelancersService.editFreelancer(id, freelancer).subscribe({
-      next: (data) => {
-        this.notificationService.addMessage(
-          'success',
-          'Success',
-          'Freelancer profile successfully updated!'
-        );
-        // refresh current page of freelancer display list
-        this.fetchFreelancers(this.currentPage, this.rows);
-        this.isLoading = false;
-      },
-      error: (error) => {
-        // console.error(error);
-        this.notificationService.addMessage(
-          'error',
-          'Unsuccessful',
-          'Freelancer profile could not be updated! Please retry.'
-        );
-        this.isLoading = false;
-      },
-    });
-  }
-
-  deleteFreelancer(id: number) {
-    this.isLoading = true;
-
-    this.freelancersService.deleteFreelancer(id).subscribe({
-      next: (data) => {
-        this.notificationService.addMessage(
-          'success',
-          'Success',
-          'Freelancer profile successfully removed!'
-        );
-        // refresh data
-        this.fetchFreelancers(this.currentPage, this.rows);
-        // reset paginator
-        this.resetPaginator();
-        // change loading state
-        this.isLoading = false;
-      },
-      error: (error) => {
-        // console.error(error);
-        this.notificationService.addMessage(
-          'error',
-          'Unsuccessful',
-          'Freelancer profile could not be deleted! Please retry.'
-        );
-        this.isLoading = false;
-      },
-    });
-  }
-
+  // add new freelancer
   addFreelancer(freelancer: Freelancer) {
     this.isLoading = true;
 

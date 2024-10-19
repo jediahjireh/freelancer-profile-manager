@@ -47,6 +47,7 @@
 - [x] Update the backend and UI to use the attributes found in the [freelancerProfile.json](/docs/freelancerProfile.json) file
 - [x] Add a carousel animation for the portfolio
 - [x] Create a component for skill and display the skill with stars or some other indicator you choose to show the skill level (1 = beginner, 2 = intermediate, 3 = expert) - use p-rating
+- [x] Portfolio vertical carousel on freelancer personal profile page
 - [x] Set a default profile to be displayed and selected in the header tab for user data editing
 - [ ] Allow the user to edit the data
 - [ ] Check to make sure username does not exist before allowing user to add or edit username for their profile
@@ -54,7 +55,7 @@
 - [ ] Note that leaving the end date blank indicates that the time period is ongoing
 - [ ] Update README.md screenshots
 - [ ] Display similar profiles to the right of the freelancer personal profile cards
-- [x] Portfolio vertical carousel on freelancer personal profile page
+- [x] Emit updated at value
 
 #### Design Choices (Task 2)
 
@@ -158,7 +159,7 @@ In conjunction to prior reasoning, LinkedIn's display for showcasing user profil
   - [x] endDate
   - [x] isActive
 
-### Reminders for add, edit and delete freelancer data implementation:
+### Reminders for add, edit and delete freelancer data implementation
 
 - [x] Set a default profile to be displayed and selected in the header tab for user data editing
 - [ ] Allow the user to edit the data

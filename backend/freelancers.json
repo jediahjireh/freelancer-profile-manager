@@ -14,7 +14,7 @@
         "picture": "images/freelancers/image1.png",
         "jobTitle": "Full Stack Developer",
         "description": "Experienced full stack developer specializing in React and Django",
-        "hourlyRate": 75.0,
+        "hourlyRate": 75,
         "bio": "I'm a passionate developer with 5 years of experience in building scalable web applications.",
         "availability": "Part-time",
         "city": "San Francisco",
@@ -867,7 +867,6 @@
         "isActive": true
       }
     },
-
     {
       "id": 9,
       "firstName": "Jane",
@@ -882,7 +881,7 @@
         "picture": "images/freelancers/image9.png",
         "jobTitle": "Full Stack Developer",
         "description": "Experienced full stack developer specializing in React and Django",
-        "hourlyRate": 75.0,
+        "hourlyRate": 75,
         "bio": "I'm a passionate developer with 5 years of experience in building scalable web applications.",
         "availability": "Part-time",
         "city": "San Francisco",

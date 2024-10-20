@@ -24,6 +24,7 @@ export class FreelancersService {
 
   // add freelancer via the API
   addFreelancer = (body: Freelancer): Observable<Freelancer> => {
+    // console.log('body:', body);
     return this.apiService.post<Freelancer>(this.baseUrl, body, {});
   };
 

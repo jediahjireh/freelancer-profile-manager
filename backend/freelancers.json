@@ -1738,6 +1738,39 @@
         "endDate": "2024-04-01",
         "isActive": true
       }
+    },
+    {
+      "id": 15,
+      "firstName": "Miranda",
+      "lastName": "Santana",
+      "email": "nyhawusem@mailinator.com",
+      "username": "firefikiv",
+      "role": "client",
+      "isActive": true,
+      "profile": {
+        "picture": "Quisquam magni disti",
+        "jobTitle": "In tempore quidem m",
+        "description": "Voluptatibus dolor l",
+        "hourlyRate": 2,
+        "bio": "Ipsa consequatur u",
+        "availability": "Weekdays",
+        "city": "Esse amet accusanti",
+        "state": "Ex est numquam volup",
+        "country": "Irure culpa quo cor",
+        "skills": [],
+        "experiences": [],
+        "education": [],
+        "certifications": [],
+        "portfolioItems": [],
+        "reviews": [],
+        "socialLinks": []
+      },
+      "subscription": {
+        "plan": "",
+        "startDate": "",
+        "endDate": "",
+        "isActive": true
+      }
     }
   ]
 }

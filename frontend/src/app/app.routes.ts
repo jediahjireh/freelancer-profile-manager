@@ -10,7 +10,7 @@ export const routes: Routes = [
   // load module when accessing a specific route - lazy loading
 
   {
-    path: 'freelancer-personal-profile',
+    path: 'freelancer-personal-profile/1',
     loadChildren: () =>
       import(
         './modules/freelancer-personal-profile/freelancer-personal-profile.module'

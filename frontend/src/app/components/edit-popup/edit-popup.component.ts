@@ -101,7 +101,7 @@ export class EditPopupComponent {
     email: '',
     username: '',
     role: '',
-    isActive: false,
+    isActive: true,
     profile: {
       id: 0,
       userId: 0,
@@ -129,7 +129,7 @@ export class EditPopupComponent {
       plan: '',
       startDate: '',
       endDate: '',
-      isActive: false,
+      isActive: true,
     },
   };
   // confirm edits
@@ -140,8 +140,8 @@ export class EditPopupComponent {
     this.loadFreelancerData();
     this.createFreelancerForm();
     this.loadProfileArray();
-    console.log(this.freelancerForm.get('profile.socialLinks'));
-    console.log(this.freelancerForm.get('profile.education.degree'));
+    // console.log(this.freelancerForm.get('profile.socialLinks'));
+    // console.log(this.freelancerForm.get('profile.education.degree'));
   }
 
   // sync form with input data
@@ -599,8 +599,16 @@ export class EditPopupComponent {
 
   // emit freelancer form values on confirm (form submission)
   onConfirm(): void {
-    // mark all form fields as touched to trigger validation this.freelancerForm.markAllAsTouched();
+    /*
+    console.log('onConfirm called');
+    console.log('freelancerForm.value:', this.freelancerForm.value);
+    console.log(
+      'freelancerForm.getRawValue():',
+      this.freelancerForm.getRawValue()
+    );
+    */
 
+    // trigger invalid data input messages
     this.isSubmitted = true;
 
     if (this.freelancerForm.invalid) {
@@ -612,80 +620,51 @@ export class EditPopupComponent {
       return;
     }
 
-    const {
-      firstName,
-      lastName,
-      email,
-      username,
-      role,
-      isActive,
-      profilePicture,
-      jobTitle,
-      description,
-      hourlyRate,
-      bio,
-      availability,
-      city,
-      state,
-      country,
-      skills,
-      experiences,
-      education,
-      certifications,
-      portfolioItems,
-      reviews,
-      socialLinks,
-      subscription,
-    } = this.freelancerForm.value;
+    // get raw form values without any validation as they are nested
+    const freelancerFormValues = this.freelancerForm.getRawValue();
+    const profileValues = freelancerFormValues.profile;
+    const subscriptionValues = freelancerFormValues.subscription;
 
-    // emit the updated freelancer data
-    this.confirm.emit({
-      // keep existing id
+    const freelancer: Freelancer = {
       id: this.freelancer.id,
-      firstName: firstName || '',
-      lastName: lastName || '',
-      email: email || '',
-      username: username || '',
-      role: role || '',
-      isActive: isActive || false,
+      firstName: freelancerFormValues.firstName,
+      lastName: freelancerFormValues.lastName,
+      email: freelancerFormValues.email,
+      username: freelancerFormValues.username,
+      role: freelancerFormValues.role,
+      isActive: freelancerFormValues.isActive,
       profile: {
         id: this.freelancer.profile.id,
-        // link to the freelancer id
         userId: this.freelancer.id,
-        picture:
-          profilePicture || '/images/freelancers/default-profile-picture.png',
-        jobTitle: jobTitle || '',
-        description: description || '',
-        hourlyRate: hourlyRate || 0,
-        bio: bio || '',
-        availability: availability || '',
-        city: city || '',
-        state: state || '',
-        country: country || '',
-
-        skills: skills || [],
-        experiences: experiences || [],
-        education: education || [],
-        certifications: certifications || [],
-        portfolioItems: portfolioItems || [],
-        // cannot be added by freelancer directly
+        picture: profileValues.picture,
+        jobTitle: profileValues.jobTitle,
+        description: profileValues.description,
+        hourlyRate: profileValues.hourlyRate,
+        bio: profileValues.bio,
+        availability: profileValues.availability,
+        city: profileValues.city,
+        state: profileValues.state,
+        country: profileValues.country,
+        skills: this.skillsArray.value,
+        experiences: this.experiencesArray.value,
+        education: this.educationArray.value,
+        certifications: this.certificationsArray.value,
+        portfolioItems: this.portfolioItemsArray.value,
         reviews: this.freelancer.profile.reviews,
-        socialLinks: socialLinks || [],
-        // retain existing date
+        socialLinks: this.socialLinksArray.value,
         createdAt: this.freelancer.profile.createdAt,
-        // set current date for update
         updatedAt: new Date().toISOString(),
       },
-      // not being updated, set defaults and freelancer can reach out should they wish to upgrade
       subscription: {
         id: this.freelancer.subscription.id,
-        plan: subscription.plan || 'Basic',
-        startDate: subscription.startDate || '',
-        endDate: subscription.endDate || '',
-        isActive:
-          subscription.isActive !== undefined ? subscription.isActive : true,
+        plan: subscriptionValues.plan,
+        startDate: subscriptionValues.startDate,
+        endDate: subscriptionValues.endDate,
+        isActive: subscriptionValues.isActive,
       },
-    });
+    };
+
+    this.confirm.emit({ ...freelancer });
 
     // close dialog
     this.display = false;

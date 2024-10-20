@@ -104,6 +104,8 @@ export class FreelancerListingsComponent {
   };
 
   onConfirmAdd(freelancer: Freelancer) {
+    // console.log('onConfirmAdd called');
+    // console.log('freelancer:', freelancer);
     this.addFreelancer(freelancer);
     this.displayAddPopup = false;
   }
@@ -126,7 +128,7 @@ export class FreelancerListingsComponent {
 
     this.freelancersService.getFreelancers({ page, perPage }).subscribe({
       next: (freelancers: Freelancers) => {
-        console.log(freelancers);
+        // console.log(freelancers);
         this.freelancers = freelancers.freelancers;
         this.totalRecords = freelancers.total;
         // apply filter after fetching data
@@ -134,7 +136,7 @@ export class FreelancerListingsComponent {
         this.isLoading = false;
       },
       error: (error) => {
-        console.log(error);
+        // console.log(error);
         this.notificationService.addMessage(
           'error',
           'Unsuccessful',
@@ -193,6 +195,7 @@ export class FreelancerListingsComponent {
       .addFreelancer(freelancer)
       .subscribe({
         next: (data) => {
+          // console.log('response:', data);
           this.notificationService.addMessage(
             'success',
             'Success',

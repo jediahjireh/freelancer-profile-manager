@@ -59,15 +59,14 @@ app.get("/freelancers", (req, res) => {
 app.post("/freelancers", (req, res) => {
   // destructure freelancer details
   const {
-    profilePicture,
-    name,
-    location,
-    hourlyRate,
-    bio,
-    skills,
-    portfolio,
-    socialLinks,
-    contact,
+    firstName,
+    lastName,
+    email,
+    username,
+    role,
+    isActive,
+    profile,
+    subscription,
   } = req.body;
 
   fs.readFile("freelancers.json", "utf8", (err, data) => {
@@ -78,7 +77,7 @@ app.post("/freelancers", (req, res) => {
     }
     const jsonData = JSON.parse(data);
 
-    // find max id from existing data and assign unique ID to new freelancer
+    // find max id from existing data and assign unique id to new freelancer
     const maxId = jsonData.freelancers.reduce(
       (max, freelancer) => Math.max(max, freelancer.id),
       0
@@ -87,15 +86,36 @@ app.post("/freelancers", (req, res) => {
     // create new freelancer object
     const newFreelancer = {
       id: maxId + 1,
-      profilePicture,
-      name,
-      location,
-      hourlyRate,
-      bio,
-      skills,
-      portfolio,
-      socialLinks,
-      contact,
+      firstName,
+      lastName,
+      email,
+      username,
+      role,
+      isActive,
+      profile: {
+        picture: profile.picture,
+        jobTitle: profile.jobTitle,
+        description: profile.description,
+        hourlyRate: profile.hourlyRate,
+        bio: profile.bio,
+        availability: profile.availability,
+        city: profile.city,
+        state: profile.state,
+        country: profile.country,
+        skills: profile.skills || [],
+        experiences: profile.experiences || [],
+        education: profile.education || [],
+        certifications: profile.certifications || [],
+        portfolioItems: profile.portfolioItems || [],
+        reviews: profile.reviews || [],
+        socialLinks: profile.socialLinks || [],
+      },
+      subscription: {
+        plan: subscription.plan,
+        startDate: subscription.startDate,
+        endDate: subscription.endDate,
+        isActive: subscription.isActive,
+      },
     };
 
     jsonData.freelancers.push(newFreelancer);
@@ -116,15 +136,14 @@ app.post("/freelancers", (req, res) => {
 app.put("/freelancers/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const {
-    profilePicture,
-    name,
-    location,
-    hourlyRate,
-    bio,
-    skills,
-    portfolio,
-    socialLinks,
-    contact,
+    firstName,
+    lastName,
+    email,
+    username,
+    role,
+    isActive,
+    profile,
+    subscription,
   } = req.body;
 
   fs.readFile("freelancers.json", "utf8", (err, data) => {
@@ -149,15 +168,36 @@ app.put("/freelancers/:id", (req, res) => {
     // update the freelancer's data
     jsonData.freelancers[index] = {
       id,
-      profilePicture,
-      name,
-      location,
-      hourlyRate,
-      bio,
-      skills,
-      portfolio,
-      socialLinks,
-      contact,
+      firstName,
+      lastName,
+      email,
+      username,
+      role,
+      isActive,
+      profile: {
+        picture: profile.picture,
+        jobTitle: profile.jobTitle,
+        description: profile.description,
+        hourlyRate: profile.hourlyRate,
+        bio: profile.bio,
+        availability: profile.availability,
+        city: profile.city,
+        state: profile.state,
+        country: profile.country,
+        skills: profile.skills || [],
+        experiences: profile.experiences || [],
+        education: profile.education || [],
+        certifications: profile.certifications || [],
+        portfolioItems: profile.portfolioItems || [],
+        reviews: profile.reviews || [],
+        socialLinks: profile.socialLinks || [],
+      },
+      subscription: {
+        plan: subscription.plan,
+        startDate: subscription.startDate,
+        endDate: subscription.endDate,
+        isActive: subscription.isActive,
+      },
     };
 
     fs.writeFile("freelancers.json", JSON.stringify(jsonData), (err) => {

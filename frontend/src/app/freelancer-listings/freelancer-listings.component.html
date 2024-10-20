@@ -79,7 +79,7 @@
     <!-- add freelancer popup: initialise component to add freelancer -->
     <app-edit-popup
       [(display)]="displayAddPopup"
-      (confirm)="onConfirmAdd(freelancer)"
+      (confirm)="onConfirmAdd($event)"
       header="Add Freelancer Profile"
     />
   </div>

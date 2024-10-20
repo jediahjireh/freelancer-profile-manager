@@ -18,6 +18,7 @@
       class="edit-freelancer-button text-2xl rounded-full p-2 fixed bottom-2.5 right-2.5 z-10 text-white bg-black shadow-md transition-shadow hover:shadow-md shadow-neutral-800"
     ></button>
   </div>
+
   <!-- notifications -->
   <p-messages
     [value]="notificationService.getMessages()"
@@ -37,7 +38,7 @@
   <app-edit-popup
     [freelancer]="selectedFreelancer"
     [(display)]="displayEditPopup"
-    (confirm)="onConfirmEdit(freelancer)"
+    (confirm)="onConfirmEdit($event)"
     header="Edit Freelancer Profile"
   />
 </div>

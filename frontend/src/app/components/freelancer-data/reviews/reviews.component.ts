@@ -6,6 +6,8 @@ import { CalendarPeriodPipe } from '../../../pipes/calendar-period.pipe';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-reviews',
@@ -17,6 +19,8 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
     RatingModule,
     FormsModule,
     CarouselModule,
+    MatTooltipModule,
+    TooltipModule,
   ],
   templateUrl: './reviews.component.html',
   styleUrl: './reviews.component.css',

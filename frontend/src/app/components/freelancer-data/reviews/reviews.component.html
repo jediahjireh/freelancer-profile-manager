@@ -1,9 +1,19 @@
 <!-- display freelancer reviews -->
 <div *ngIf="freelancer.profile.reviews.length > 0">
   <mat-card class="review p-4" appearance="outlined">
-    <p class="font-bold mb-4 text-xl">Reviews</p>
+    <div class="flex items-center">
+      <p class="font-bold text-xl">Reviews</p>
+      <span
+        matTooltip="Reviews may not be deleted by freelancers in an effort to foster transparency. Please contact us should a review be potentially slanderous."
+        matTooltipPosition="after"
+        class="text-xs text-gray-600 cursor-help ml-1.5 -mt-5"
+        aria-label="Reviews may not be deleted by freelancers in an effort to foster transparency. Please contact us should a review be potentially slanderous."
+      >
+        <i class="pi pi-exclamation-circle text-xs"></i>
+      </span>
+    </div>
     <hr />
-    <div class="justify-center -mb-3 mt-1">
+    <div class="justify-center -mb-3 mt-1 review-carousel">
       <owl-carousel-o [options]="customOptions">
         <ng-container *ngFor="let review of freelancer.profile.reviews">
           <ng-template carouselSlide>

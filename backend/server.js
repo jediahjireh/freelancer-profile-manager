@@ -93,6 +93,8 @@ app.post("/freelancers", (req, res) => {
       role,
       isActive,
       profile: {
+        id: maxId + 1,
+        userId: maxId + 1,
         picture: profile.picture,
         jobTitle: profile.jobTitle,
         description: profile.description,
@@ -109,8 +111,12 @@ app.post("/freelancers", (req, res) => {
         portfolioItems: profile.portfolioItems || [],
         reviews: profile.reviews || [],
         socialLinks: profile.socialLinks || [],
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
+
       subscription: {
+        id: maxId + 1,
         plan: subscription.plan,
         startDate: subscription.startDate,
         endDate: subscription.endDate,
@@ -175,6 +181,8 @@ app.put("/freelancers/:id", (req, res) => {
       role,
       isActive,
       profile: {
+        id: profile.id,
+        userId: profile.userId,
         picture: profile.picture,
         jobTitle: profile.jobTitle,
         description: profile.description,
@@ -191,8 +199,12 @@ app.put("/freelancers/:id", (req, res) => {
         portfolioItems: profile.portfolioItems || [],
         reviews: profile.reviews || [],
         socialLinks: profile.socialLinks || [],
+        createdAt: profile.createdAt,
+        updatedAt: new Date(),
       },
+
       subscription: {
+        id,
         plan: subscription.plan,
         startDate: subscription.startDate,
         endDate: subscription.endDate,

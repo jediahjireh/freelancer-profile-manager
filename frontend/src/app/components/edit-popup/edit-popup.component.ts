@@ -28,13 +28,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // values that may not be required must still be validated because so long as there is input, it should be valid data
 interface FreelancerFormValues {
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
   username: string;
   role: string;
   isActive: boolean;
+
   profile: {
+    id: number;
+    userId: number;
     picture?: string;
     jobTitle?: string;
     description?: string;
@@ -51,8 +55,11 @@ interface FreelancerFormValues {
     portfolioItems?: PortfolioItem[];
     reviews?: Review[];
     socialLinks?: SocialLink[];
+    createdAt: Date;
+    updatedAt: Date;
   };
   subscription: {
+    id: number;
     plan?: string;
     startDate?: Date;
     endDate?: Date;
@@ -102,6 +109,7 @@ export class EditPopupComponent {
     username: '',
     role: '',
     isActive: true,
+
     profile: {
       id: 0,
       userId: 0,
@@ -140,8 +148,11 @@ export class EditPopupComponent {
     this.loadFreelancerData();
     this.createFreelancerForm();
     this.loadProfileArray();
-    // console.log(this.freelancerForm.get('profile.socialLinks'));
-    // console.log(this.freelancerForm.get('profile.education.degree'));
+
+    /*
+    console.log(this.freelancerForm.get('profile.socialLinks'));
+    console.log(this.freelancerForm.get('profile.education.degree'));
+    */
   }
 
   // sync form with input data
@@ -150,6 +161,7 @@ export class EditPopupComponent {
 
     if (this.freelancerForm) {
       this.freelancerForm.patchValue({
+        id: this.freelancer.id,
         firstName: this.freelancer.firstName,
         lastName: this.freelancer.lastName,
         email: this.freelancer.email,
@@ -157,6 +169,8 @@ export class EditPopupComponent {
         role: this.freelancer.role,
         isActive: this.freelancer.isActive,
         profile: {
+          id: this.freelancer.profile.id,
+          userId: this.freelancer.profile.userId,
           picture: this.freelancer.profile.picture,
           jobTitle: this.freelancer.profile.jobTitle,
           description: this.freelancer.profile.description,
@@ -168,6 +182,7 @@ export class EditPopupComponent {
           country: this.freelancer.profile.country,
         },
         subscription: {
+          id: this.freelancer.subscription.id,
           plan: this.freelancer.subscription.plan,
           startDate: this.freelancer.subscription.startDate,
           endDate: this.freelancer.subscription.endDate,
@@ -253,6 +268,7 @@ export class EditPopupComponent {
   // create form group
   createFreelancerForm(): void {
     this.freelancerForm = this.formBuilder.group({
+      id: [this.freelancer.id],
       firstName: [this.freelancer.firstName, Validators.required],
       lastName: [this.freelancer.lastName, Validators.required],
       email: [this.freelancer.email, [Validators.required, Validators.email]],
@@ -260,6 +276,8 @@ export class EditPopupComponent {
       role: [this.freelancer.role],
       isActive: [this.freelancer.isActive],
       profile: this.formBuilder.group({
+        id: [this.freelancer.profile.id],
+        userId: [this.freelancer.profile.userId],
         picture: [this.freelancer.profile.picture],
         jobTitle: [this.freelancer.profile.jobTitle],
         description: [this.freelancer.profile.description],
@@ -278,6 +296,7 @@ export class EditPopupComponent {
         socialLinks: this.formBuilder.array([]),
       }),
       subscription: this.formBuilder.group({
+        id: [this.freelancer.subscription.id],
         plan: [this.freelancer.subscription.plan],
         startDate: [this.freelancer.subscription.startDate],
         endDate: [this.freelancer.subscription.endDate],
@@ -599,13 +618,14 @@ export class EditPopupComponent {
 
   // emit freelancer form values on confirm (form submission)
   onConfirm(): void {
-    /*
+    /* debugging
     console.log('onConfirm called');
     console.log('freelancerForm.value:', this.freelancerForm.value);
     console.log(
       'freelancerForm.getRawValue():',
       this.freelancerForm.getRawValue()
     );
+    console.log('freelancer:', this.freelancer);
     */
 
     // trigger invalid data input messages
@@ -664,6 +684,15 @@ export class EditPopupComponent {
       },
     };
 
+    // update the freelancer property
+    this.freelancer = freelancer;
+
+    /*
+    console.log(this.freelancer);
+    console.log({ ...freelancer });
+    */
+
+    // emit new or updated values
     this.confirm.emit({ ...freelancer });
 
     // close dialog
@@ -672,7 +701,7 @@ export class EditPopupComponent {
     this.isSubmitted = false;
   }
 
-  // cancel edits
+  // cancel changes
   onCancel() {
     this.display = false;
     this.displayChange.emit(this.display);

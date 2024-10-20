@@ -1,0 +1,108 @@
+freelancers [icon: users, color: green] {
+  id string pk
+  firstName string
+  lastName string
+  email string
+  username string
+  role string
+  isActive boolean
+  profileId string
+  subscriptionId string
+}
+
+profiles [icon: user, color: blue] {
+  id string pk
+  userId string
+  picture string
+  jobTitle string
+  description string
+  hourlyRate number
+  bio string
+  availability string
+  city string
+  state string
+  country string
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+skills [icon: trophy] {
+  id string pk
+  name string
+  level string
+  profileId string
+}
+
+experiences [icon: briefcase] {
+  id string pk
+  company string
+  position string
+  startDate timestamp
+  endDate timestamp
+  description string
+  profileId string
+}
+
+education [icon: book-open] {
+  id string pk
+  institution string
+  degree string
+  fieldOfStudy string
+  startDate timestamp
+  endDate timestamp
+  profileId string
+}
+
+certifications [icon: certificate] {
+  id string pk
+  name string
+  issuingOrganization string
+  issueDate timestamp
+  expirationDate timestamp
+  profileId string
+}
+
+portfolioItems [icon: image] {
+  id string pk
+  title string
+  description string
+  url string
+  profileId string
+}
+
+reviews [icon: star] {
+  id string pk
+  clientId string
+  rating number
+  comment string
+  createdAt timestamp
+  profileId string
+}
+
+socialLinks [icon: link] {
+  id string pk
+  platform string
+  url string
+  profileId string
+}
+
+subscriptions [icon: credit-card, color: purple] {
+  id string pk
+  plan string
+  startDate timestamp
+  endDate timestamp
+  isActive boolean
+  freelancerId string
+}
+
+// relationships
+freelancers.profileId > profiles.id
+freelancers.subscriptionId > subscriptions.id
+profiles.userId > freelancers.id
+skills.profileId > profiles.id
+experiences.profileId > profiles.id
+education.profileId > profiles.id
+certifications.profileId > profiles.id
+portfolioItems.profileId > profiles.id
+reviews.profileId > profiles.id
+socialLinks.profileId > profiles.id

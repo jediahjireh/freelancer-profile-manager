@@ -76,7 +76,21 @@ export class FreelancerPersonalProfileComponent implements OnInit {
 
   // edit profile data functionality
   editFreelancer(freelancer: Freelancer, id: number) {
+    if (!freelancer) {
+      console.error('Freelancer object is null or undefined');
+      return;
+    }
+
     this.isLoading = true;
+
+    /*
+    console.log('editFreelancer called');
+    console.log('freelancer:', freelancer);
+    console.log('id:', id);
+    */
+
+    // merge new freelancer object with existing one - preserve existing properties, update new values
+    this.freelancer = { ...this.freelancer, ...freelancer };
 
     this.freelancersService.editFreelancer(id, freelancer).subscribe({
       next: (data) => {
@@ -86,7 +100,7 @@ export class FreelancerPersonalProfileComponent implements OnInit {
           'Freelancer profile successfully updated!'
         );
         // refresh page
-        window.location.reload();
+        // window.location.reload();
         this.isLoading = false;
       },
       error: (error) => {

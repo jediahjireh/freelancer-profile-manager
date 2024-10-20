@@ -28,8 +28,7 @@
         {{ header }}
       </p-header>
 
-      <!-- header buttons only for md and above -->
-      <div class="hidden md:flex justify-end mt-7 gap-2.5">
+      <div class="justify-end mt-7 gap-2.5">
         <!-- freelancer active or inactive profile -->
         <span [formGroup]="freelancerForm" *ngIf="freelancer">
           <button
@@ -54,26 +53,6 @@
             (click)="toggleActive()"
           ></button>
         </span>
-        <!-- action buttons -->
-        <button
-          title="Confirm"
-          type="button"
-          pButton
-          icon="pi pi-check"
-          (click)="onConfirm()"
-          label="Confirm"
-          class="bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded-lg disabled:opacity-70"
-          [class.disabled]="!freelancerForm.valid"
-        ></button>
-        <button
-          title="Discard"
-          type="button"
-          pButton
-          icon="pi pi-times"
-          (click)="onCancel()"
-          label="Cancel"
-          class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 rounded-lg"
-        ></button>
       </div>
     </ng-template>
 
@@ -773,33 +752,8 @@
     </div>
 
     <p-footer>
-      <!-- footer buttons only for sm and smaller -->
-      <div class="flex md:hidden justify-end mt-4 gap-2.5">
-        <!-- freelancer active or inactive profile -->
-        <span [formGroup]="freelancerForm" *ngIf="freelancer">
-          <button
-            title="Active or inactive profile"
-            type="button"
-            pButton
-            [icon]="
-              freelancerForm.get('isActive')?.value
-                ? 'pi pi-user'
-                : 'pi pi-user-minus'
-            "
-            iconPos="left"
-            [label]="
-              freelancerForm.get('isActive')?.value ? 'Active' : 'Inactive'
-            "
-            class="hover:bg-gray-400 rounded-lg py-2 px-4 text-white"
-            [ngClass]="
-              freelancerForm.get('isActive')?.value
-                ? 'bg-custom-green'
-                : 'bg-red-700'
-            "
-            (click)="toggleActive()"
-          ></button>
-        </span>
-        <!-- action buttons -->
+      <!-- action buttons -->
+      <div class="justify-end mt-6 gap-2.5 flex -mb-1">
         <button
           title="Confirm"
           type="button"
@@ -808,7 +762,6 @@
           (click)="onConfirm()"
           label="Confirm"
           class="bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded-lg disabled:opacity-70"
-          [class.disabled]="!freelancerForm.valid"
         ></button>
         <button
           title="Discard"
@@ -817,7 +770,7 @@
           icon="pi pi-times"
           (click)="onCancel()"
           label="Cancel"
-          class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 rounded-lg"
+          class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-lg"
         ></button>
       </div>
     </p-footer>

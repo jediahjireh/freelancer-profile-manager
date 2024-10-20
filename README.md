@@ -4,7 +4,7 @@ The **Freelancer Profile Manager** application features a **frontend** built wit
 
 ## Note
 
-To access the application's CRUD functionalities on your local machine, follow the instructions from [here](#frontend) below. Note that the Vercel deployment offers a read-only file system for serverless functions.
+To access the application's freelancer edit and addition functionalities on your local machine, follow the instructions from [here](#frontend) below. Note that the Vercel deployment offers a read-only file system for serverless functions.
 
 ## Table of Contents
 
@@ -12,6 +12,7 @@ To access the application's CRUD functionalities on your local machine, follow t
   - [Note](#note)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
+  - [Entity Relationship Diagram](#entity-relationship-diagram)
   - [Features](#features)
   - [Screenshots](#screenshots)
   - [Frontend](#frontend)
@@ -28,6 +29,10 @@ To access the application's CRUD functionalities on your local machine, follow t
 ## Overview
 
 The application allows users to browse, add, update and delete freelancer profiles, ensuring smooth management through seamless interaction between the frontend and backend.
+
+## Entity Relationship Diagram
+
+![Freelancer Manager Entity Relationship Diagram](/docs/freelancer-manager-entity-relationship-diagram.png)
 
 ## Features
 
@@ -46,34 +51,34 @@ The application allows users to browse, add, update and delete freelancer profil
 Here are some screenshots of the project in action:
 
 - **Freelancer Listings:**
-  ![Freelancer Listings](./docs/screenshots/freelancer-listings.png)
+  ![Freelancer Listings](./docs/screenshots/updated-freelancer-listings.png)
 
-- **Search Talent Search Bar:**
-  ![Search Bar](./docs/screenshots/freelancer-search.png)
+- **Freelancer Selected Viewing Profile:**
+  ![Freelancer Profile](./docs/screenshots/updated-freelancer-profile.png)
 
-- **Pagination:**
-  ![Pagination](./docs/screenshots/pagination.png)
+- **Profile Information & Accessibility:**
+  ![Profile Information & Accessibility](./docs/screenshots/profile-information.png)
 
-- **Freelancer Profile Page:**
-  ![Freelancer Profile](./docs/screenshots/freelancer-profile.png)
+- **Freelancer Personal Profile Page:**
+  ![Freelancer Personal Profile](./docs/screenshots/default-freelancer-personal-profile.png)
 
-- **Add Freelancer:**
-  ![Add Freelancer](./docs/screenshots/add-freelancer.png)
+- **Add Profile Popup:**
+  ![Add Profile Popup](./docs/screenshots/add-profile-popup.png)
 
-- **Update Freelancer:**
-  ![Edit Freelancer](./docs/screenshots/edit-freelancer.png)
+- **Update Profile Popup:**
+  ![Edit Profile Popup](./docs/screenshots/edit-profile-popup.png)
 
-- **Deleted Freelancer:**
-  ![Deleted Freelancer](./docs/screenshots/deleted-freelancer.png)
+- **Add Profile Success:**
+  ![Add Profile Success](./docs/screenshots/add-profile-success.png)
 
-- **Card Actions & Accessibility:**
-  ![Pagination](./docs/screenshots/card-actions.png)
+- **Update Profile Success:**
+  ![Edit Profile Success](./docs/screenshots/update-profile-success.png)
 
 - **Popup Validation:**
   ![Popup Validation](./docs/screenshots/form-validation.png)
 
 - **Mock Backend Service:**
-  ![Mock Backend Service](./docs/screenshots/server.png)
+  ![Mock Backend Service](./docs/screenshots/restructured-server.png)
 
 ## Frontend
 
@@ -154,32 +159,117 @@ Here are some screenshots of the project in action:
 
 ## Backend: JSON Structure
 
-Freelancer data is managed using the following JSON structure in [`freelancers.json`](/backend/freelancers.json):
+Freelancer data is managed using the JSON structure in [`freelancers.json`](/backend/freelancers.json):
 
 ```json
 {
-  "freelancers": [
-    {
-      "id": 1,
-      "profilePicture": "url_to_profile_picture",
-      "name": "John Doe",
-      "location": "Durban, Umhlanga",
-      "hourlyRate": 150,
-      "bio": "Experienced web developer specialising in Angular.",
-      "skills": ["Angular", "TypeScript", "CSS"],
-      "portfolio": [
-        { "title": "Project 1", "link": "url_to_project_1" },
-        { "title": "Project 2", "link": "url_to_project_2" }
-      ],
-      "socialLinks": {
-        "linkedin": "url_to_linkedin",
-        "github": "url_to_github"
+  "id": 1,
+  "first_name": "Jane",
+  "last_name": "Doe",
+  "email": "jane.doe@example.com",
+  "username": "janedoe_dev",
+  "role": "freelancer",
+  "is_active": true,
+  "profile": {
+    "id": 1,
+    "user_id": 1,
+    "job_title": "Full Stack Developer",
+    "description": "Experienced full stack developer specializing in React and Django",
+    "hourly_rate": 75.0,
+    "bio": "I'm a passionate developer with 5 years of experience in building scalable web applications.",
+    "availability": "Part-time",
+    "city": "San Francisco",
+    "state": "California",
+    "country": "United States",
+    "skills": [
+      {
+        "id": 1,
+        "name": "React",
+        "level": "Expert"
       },
-      "contact": { "email": "john.doe@example.com", "phone": "123-456-7890" }
-    }
-  ]
+      {
+        "id": 2,
+        "name": "Django",
+        "level": "Expert"
+      },
+      {
+        "id": 3,
+        "name": "PostgreSQL",
+        "level": "Intermediate"
+      }
+    ],
+    "experiences": [
+      {
+        "id": 1,
+        "company": "Tech Innovators Inc.",
+        "position": "Senior Developer",
+        "start_date": "2018-03-01",
+        "end_date": "2023-05-31",
+        "description": "Led a team of developers in creating a cloud-based project management tool."
+      }
+    ],
+    "education": [
+      {
+        "id": 1,
+        "institution": "University of California, Berkeley",
+        "degree": "Bachelor of Science",
+        "field_of_study": "Computer Science",
+        "start_date": "2010-09-01",
+        "end_date": "2014-05-31"
+      }
+    ],
+    "certifications": [
+      {
+        "id": 1,
+        "name": "AWS Certified Developer - Associate",
+        "issuing_organization": "Amazon Web Services",
+        "issue_date": "2022-01-15",
+        "expiration_date": "2025-01-15"
+      }
+    ],
+    "portfolio_items": [
+      {
+        "id": 1,
+        "title": "E-commerce Platform",
+        "description": "Developed a fully functional e-commerce platform using React and Django",
+        "url": "https://github.com/janedoe/ecommerce-platform"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "client_id": 5,
+        "rating": 5,
+        "comment": "Jane is an excellent developer. She delivered the project on time and exceeded our expectations.",
+        "created_at": "2023-04-15T14:30:00Z"
+      }
+    ],
+    "social_links": [
+      {
+        "id": 1,
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/janedoe"
+      },
+      {
+        "id": 2,
+        "platform": "GitHub",
+        "url": "https://github.com/janedoe"
+      }
+    ],
+    "created_at": "2023-01-01T00:00:00Z",
+    "updated_at": "2023-06-15T12:30:00Z"
+  },
+  "subscription": {
+    "id": 1,
+    "plan": "Professional",
+    "start_date": "2023-01-01",
+    "end_date": "2024-01-01",
+    "is_active": true
+  }
 }
 ```
+
+Based on template given in [freelancerProfile.json](/docs/freelancerProfile.json)
 
 ## Configuration
 

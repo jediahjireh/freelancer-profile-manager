@@ -1,10 +1,10 @@
 # Freelancer Profile Manager - Full Stack Application
 
-The **Freelancer Profile Manager** application features a **frontend** built with **Angular** and a **backend** powered by **Node.js** with **Express.js** layered on top. Users can perform full CRUD (Create, Read, Update, Delete) operations on freelancer profiles, showcasing various professionals and their talent and skills.
+The **Freelancer Profile Manager** application features a **frontend** built with **Angular** and a **backend** powered by **Node.js** with **Express.js** layered on top.
 
 ## Note
 
-To access the application's freelancer edit and addition functionalities on your local machine, follow the instructions from [here](#frontend) below. Note that the Vercel deployment offers a read-only file system for serverless functions.
+To access the application's freelancer profile edit and addition functionalities on your local machine, follow the instructions from [here](#frontend) below. Note that the Vercel deployment offers a read-only file system for serverless functions.
 
 ## Table of Contents
 
@@ -74,8 +74,11 @@ Here are some screenshots of the project in action:
 - **Update Profile Success:**
   ![Edit Profile Success](./docs/screenshots/update-profile-success.png)
 
-- **Popup Validation:**
-  ![Popup Validation](./docs/screenshots/form-validation.png)
+- **Add Profile Form Validation:**
+  ![Add Profile Popup Validation](./docs/screenshots/add-profile-form-validation.png)
+
+- **Update Profile Form Validation:**
+  ![Edit Profile Popup Validation](./docs/screenshots/edit-profile-form-validation.png)
 
 - **Mock Backend Service:**
   ![Mock Backend Service](./docs/screenshots/restructured-server.png)

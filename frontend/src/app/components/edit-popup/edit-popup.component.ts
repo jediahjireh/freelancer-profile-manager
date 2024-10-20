@@ -213,20 +213,6 @@ export class EditPopupComponent {
     }
   }
 
-  // custom validator functions
-  private portfolioItemsValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      const portfolioItems = control.value;
-
-      // each portfolio item must have a title and link
-      const allItemsValid = portfolioItems.every(
-        (item: PortfolioItem) => item.title && item.url
-      );
-
-      return allItemsValid ? null : { portfolioItemsInvalid: true };
-    };
-  }
-
   private urlValidator(
     control: AbstractControl
   ): { [key: string]: boolean } | null {
@@ -236,33 +222,109 @@ export class EditPopupComponent {
     return urlPattern.test(control.value) ? null : { invalidUrl: true };
   }
 
-  // check for errors
+  private atLeastOneFieldRequired(fields: string[]): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+      const arrayControl = control as FormArray;
+      let allItemsValid = true;
+
+      // iterate through each item in array
+      for (let i = 0; i < arrayControl.length; i++) {
+        const item = arrayControl.at(i);
+        const isAnyFieldFilled = fields.some((field) => item.get(field)?.value);
+
+        if (!isAnyFieldFilled) {
+          allItemsValid = false;
+          // no need to check further if an empty item is found
+          break;
+        }
+      }
+
+      return allItemsValid ? null : { atLeastOneFieldRequired: true };
+    };
+  }
+
+  allFieldsRequired(fields: string[]): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+      const arrayControl = control as FormArray;
+
+      // iterate through each item in array
+      for (let i = 0; i < arrayControl.length; i++) {
+        const item = arrayControl.at(i);
+        const allFieldsFilled = fields.every((field) => item.get(field)?.value);
+
+        if (!allFieldsFilled) {
+          // not all fields are filled
+          return { allFieldsRequired: true };
+        }
+      }
+      // all validations passed
+      return null;
+    };
+  }
+
   public getErrorMessage(controlName: string): string | null {
     const control = this.freelancerForm.get(controlName);
 
-    // validation status
-    if (control?.hasError('required')) {
-      const formattedName = controlName
-        // add space before each uppercase letter in variable
-        .replace(/([A-Z])/g, ' $1')
-        .trim()
-        .toLowerCase()
-        // capitalise first letter
-        .replace(/^./, (match) => match.toUpperCase());
+    // check for nested control if the control is not found
+    if (!control) {
+      const controlPath = controlName.split('.');
+      const parentControl = this.freelancerForm.get(
+        controlPath.slice(0, -1).join('.')
+      );
+      const nestedControl = parentControl?.get(controlPath.pop()!);
+      if (nestedControl) {
+        return this.getControlErrorMessage(nestedControl, controlPath.pop()!);
+      }
+      return null;
+    }
 
+    // handle standard controls directly
+    return this.getControlErrorMessage(control, controlName);
+  }
+
+  private getControlErrorMessage(
+    control: AbstractControl | null,
+    controlName: string
+  ): string | null {
+    if (!control) return null;
+
+    // format control name
+    const formattedName = this.formatControlName(controlName);
+
+    // check for required errors
+    if (control.hasError('required')) {
       return `${formattedName} is required.`;
     }
-    if (controlName === 'email' && control?.hasError('email')) {
+
+    if (controlName === 'email' && control.hasError('email')) {
       return 'Please enter a valid email address.';
     }
-    if (controlName === 'portfolioItems' && this.portfolioItemsArray.invalid) {
-      return 'Each portfolio item must have a title and valid link.';
+
+    // all fields in array
+    if (control.hasError('allFieldsRequired')) {
+      return `All fields are required for each item in this section.`;
     }
-    if (controlName === 'url' && control?.hasError('invalidUrl')) {
+
+    // at least one field in array
+    if (control.hasError('atLeastOneFieldRequired')) {
+      return `At least one field must be filled in for each item in this section.`;
+    }
+
+    // URL validation
+    if (controlName === 'url' && control.hasError('invalidUrl')) {
       return 'Please enter a valid URL.';
     }
 
+    // no errors
     return null;
+  }
+
+  private formatControlName(controlName: string): string {
+    return controlName
+      .replace(/([A-Z])/g, ' $1')
+      .trim()
+      .toLowerCase()
+      .replace(/^./, (match) => match.toUpperCase());
   }
 
   // create form group
@@ -272,8 +334,8 @@ export class EditPopupComponent {
       firstName: [this.freelancer.firstName, Validators.required],
       lastName: [this.freelancer.lastName, Validators.required],
       email: [this.freelancer.email, [Validators.required, Validators.email]],
-      username: [this.freelancer.username],
-      role: [this.freelancer.role],
+      username: [this.freelancer.username, Validators.required],
+      role: [this.freelancer.role, Validators.required],
       isActive: [this.freelancer.isActive],
       profile: this.formBuilder.group({
         id: [this.freelancer.profile.id],
@@ -281,19 +343,41 @@ export class EditPopupComponent {
         picture: [this.freelancer.profile.picture],
         jobTitle: [this.freelancer.profile.jobTitle],
         description: [this.freelancer.profile.description],
-        hourlyRate: [this.freelancer.profile.hourlyRate, Validators.required],
+        hourlyRate: [this.freelancer.profile.hourlyRate],
         bio: [this.freelancer.profile.bio],
         availability: [this.freelancer.profile.availability],
         city: [this.freelancer.profile.city],
         state: [this.freelancer.profile.state],
         country: [this.freelancer.profile.country],
-        skills: this.formBuilder.array([]),
-        experiences: this.formBuilder.array([]),
-        education: this.formBuilder.array([]),
-        certifications: this.formBuilder.array([]),
-        portfolioItems: this.formBuilder.array([]),
+        skills: this.formBuilder.array(
+          [],
+          this.allFieldsRequired(['name', 'level'])
+        ),
+        experiences: this.formBuilder.array(
+          [],
+          this.atLeastOneFieldRequired(['company', 'position'])
+        ),
+        education: this.formBuilder.array(
+          [],
+          this.atLeastOneFieldRequired([
+            'institution',
+            'degree',
+            'fieldOfStudy',
+          ])
+        ),
+        certifications: this.formBuilder.array(
+          [],
+          this.atLeastOneFieldRequired(['name', 'issuingOrganization'])
+        ),
+        portfolioItems: this.formBuilder.array(
+          [],
+          this.atLeastOneFieldRequired(['title', 'url'])
+        ),
         reviews: this.formBuilder.array([]),
-        socialLinks: this.formBuilder.array([]),
+        socialLinks: this.formBuilder.array(
+          [],
+          this.allFieldsRequired(['platform', 'url'])
+        ),
       }),
       subscription: this.formBuilder.group({
         id: [this.freelancer.subscription.id],
@@ -656,7 +740,9 @@ export class EditPopupComponent {
       profile: {
         id: this.freelancer.profile.id,
         userId: this.freelancer.id,
-        picture: profileValues.picture,
+        picture:
+          profileValues.picture ||
+          '/images/freelancers/default-profile-picture.png',
         jobTitle: profileValues.jobTitle,
         description: profileValues.description,
         hourlyRate: profileValues.hourlyRate,
@@ -672,15 +758,16 @@ export class EditPopupComponent {
         portfolioItems: this.portfolioItemsArray.value,
         reviews: this.freelancer.profile.reviews,
         socialLinks: this.socialLinksArray.value,
-        createdAt: this.freelancer.profile.createdAt,
+        createdAt:
+          this.freelancer.profile.createdAt || new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       },
       subscription: {
         id: this.freelancer.subscription.id,
-        plan: subscriptionValues.plan,
-        startDate: subscriptionValues.startDate,
+        plan: subscriptionValues.plan || 'Basic',
+        startDate: subscriptionValues.startDate || new Date().toISOString(),
         endDate: subscriptionValues.endDate,
-        isActive: subscriptionValues.isActive,
+        isActive: subscriptionValues.isActive || true,
       },
     };
 

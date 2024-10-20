@@ -74,7 +74,7 @@
             <!-- error message -->
             <div
               *ngIf="isSubmitted && freelancerForm.get('firstName')?.invalid"
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
               {{ getErrorMessage("firstName") }}
             </div>
@@ -95,7 +95,7 @@
             <!-- error message -->
             <div
               *ngIf="isSubmitted && freelancerForm.get('lastName')?.invalid"
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
               {{ getErrorMessage("lastName") }}
             </div>
@@ -116,7 +116,7 @@
             <!-- error message -->
             <div
               *ngIf="isSubmitted && freelancerForm.get('email')?.invalid"
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
               {{ getErrorMessage("email") }}
             </div>
@@ -137,7 +137,7 @@
             <!-- error message -->
             <div
               *ngIf="isSubmitted && freelancerForm.get('username')?.invalid"
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
               {{ getErrorMessage("username") }}
             </div>
@@ -154,12 +154,11 @@
             >
               <option value="" disabled selected>Select Role</option>
               <option value="freelancer">Freelancer</option>
-              <option value="client">Client</option>
             </select>
             <!-- error message -->
             <div
               *ngIf="isSubmitted && freelancerForm.get('role')?.invalid"
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
               {{ getErrorMessage("role") }}
             </div>
@@ -186,9 +185,9 @@
               *ngIf="
                 isSubmitted && freelancerForm.get('profile.picture')?.invalid
               "
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
-              {{ getErrorMessage("picture") }}
+              {{ getErrorMessage("profile.picture") }}
             </div>
           </div>
         </div>
@@ -216,7 +215,7 @@
                 *ngIf="
                   isSubmitted && freelancerForm.get('profile.jobTitle')?.invalid
                 "
-                class="text-red-600 text-xs -mt-1"
+                class="text-red-600 text-xs"
               >
                 {{ getErrorMessage("jobTitle") }}
               </div>
@@ -241,7 +240,7 @@
                   isSubmitted &&
                   freelancerForm.get('profile.hourlyRate')?.invalid
                 "
-                class="text-red-600 text-xs -mt-1"
+                class="text-red-600 text-xs"
               >
                 {{ getErrorMessage("hourlyRate") }}
               </div>
@@ -271,7 +270,7 @@
                   isSubmitted &&
                   freelancerForm.get('profile.availability')?.invalid
                 "
-                class="text-red-600 text-xs -mt-1"
+                class="text-red-600 text-xs"
               >
                 {{ getErrorMessage("availability") }}
               </div>
@@ -294,7 +293,7 @@
                 *ngIf="
                   isSubmitted && freelancerForm.get('profile.city')?.invalid
                 "
-                class="text-red-600 text-xs -mt-1"
+                class="text-red-600 text-xs"
               >
                 {{ getErrorMessage("city") }}
               </div>
@@ -317,7 +316,7 @@
                 *ngIf="
                   isSubmitted && freelancerForm.get('profile.state')?.invalid
                 "
-                class="text-red-600 text-xs -mt-1"
+                class="text-red-600 text-xs"
               >
                 {{ getErrorMessage("state") }}
               </div>
@@ -340,7 +339,7 @@
                 *ngIf="
                   isSubmitted && freelancerForm.get('profile.country')?.invalid
                 "
-                class="text-red-600 text-xs -mt-1"
+                class="text-red-600 text-xs"
               >
                 {{ getErrorMessage("country") }}
               </div>
@@ -365,7 +364,7 @@
                 isSubmitted &&
                 freelancerForm.get('profile.description')?.invalid
               "
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
               {{ getErrorMessage("description") }}
             </div>
@@ -384,7 +383,7 @@
             <!-- error message -->
             <div
               *ngIf="isSubmitted && freelancerForm.get('profile.bio')?.invalid"
-              class="text-red-600 text-xs -mt-1"
+              class="text-red-600 text-xs"
             >
               {{ getErrorMessage("bio") }}
             </div>
@@ -392,7 +391,6 @@
 
           <div class="profile-arrays">
             <!-- skills -->
-
             <div
               *ngIf="freelancerForm.get('profile.skills')"
               formArrayName="skills"
@@ -450,6 +448,81 @@
                   class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
                   title="Remove Skill"
                 ></button>
+              </div>
+
+              <div
+                *ngIf="isSubmitted && skillsArray.errors?.['allFieldsRequired']"
+                class="text-red-600 text-xs"
+              >
+                {{ getErrorMessage("profile.skills") }}
+              </div>
+            </div>
+
+            <!-- social links -->
+            <div
+              *ngIf="freelancerForm.get('profile.socialLinks')"
+              formArrayName="socialLinks"
+            >
+              <div
+                class="flex justify-start place-content-center place-items-center mb-2 mt-2 pt-2"
+              >
+                <span class="font-semibold mt-1 text-lg">Social Links</span>
+                <button
+                  title="Add New Social Link"
+                  type="button"
+                  pButton
+                  icon="pi pi-plus-circle"
+                  (click)="addSocialLink()"
+                  class="bg-transparent -mb-1 -ml-2"
+                ></button>
+              </div>
+
+              <div
+                *ngFor="
+                  let socialLink of socialLinksArray.controls;
+                  let i = index
+                "
+                [formGroupName]="i"
+                class="flex py-1"
+              >
+                <button
+                  disabled
+                  class="bg-gray-200 text-gray-700 font-medium w-1/12 mr-4 rounded p-1 text-center"
+                  title="Item {{ i + 1 }}"
+                >
+                  {{ i + 1 }}
+                </button>
+                <span class="gap-1 w-full flex justify-between">
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/2"
+                    title="Freelancer Social Link Platform Input"
+                    type="text"
+                    formControlName="platform"
+                    placeholder="Platform"
+                  />
+                  <input
+                    class="border border-gray-300 rounded-lg p-2 w-1/2"
+                    title="Freelancer Social Link URL Platform Input"
+                    type="text"
+                    formControlName="url"
+                    placeholder="Link"
+                  />
+                </span>
+                <button
+                  type="button"
+                  pButton
+                  icon="pi pi-times"
+                  (click)="removeSocialLink(i)"
+                  class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
+                  title="Remove Social Link"
+                ></button>
+              </div>
+
+              <div
+                *ngIf="isSubmitted && socialLinksArray.errors?.['allFieldsRequired']"
+                class="text-red-600 text-xs"
+              >
+                {{ getErrorMessage("profile.socialLinks") }}
               </div>
             </div>
 
@@ -519,6 +592,13 @@
                   title="Remove Portfolio Item"
                 ></button>
               </div>
+
+              <div
+                *ngIf="isSubmitted && portfolioItemsArray.errors?.['atLeastOneFieldRequired']"
+                class="text-red-600 text-xs"
+              >
+                {{ getErrorMessage("profile.portfolioItems") }}
+              </div>
             </div>
 
             <!-- experiences -->
@@ -555,43 +635,64 @@
                 >
                   {{ i + 1 }}
                 </button>
-                <span class="gap-1 w-full flex justify-between">
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-2/4"
-                    title="Freelancer Experience Company Input"
-                    type="text"
-                    formControlName="company"
-                    placeholder="Company"
-                  />
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-2/4"
-                    title="Freelancer Experience Position Input"
-                    type="text"
-                    formControlName="position"
-                    placeholder="Position"
-                  />
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-1/6"
-                    title="Freelancer Experience Start Date Input"
-                    type="date"
-                    formControlName="startDate"
-                  />
-                  <span class="place-items-center place-content-center">-</span>
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-1/6"
-                    title="Freelancer Experience End Date Input"
-                    type="date"
-                    formControlName="endDate"
-                  />
+                <span class="gap-1 w-full flex flex-col">
+                  <span class="flex justify-between gap-1">
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/3"
+                      title="Company"
+                      type="text"
+                      formControlName="company"
+                      placeholder="Company"
+                    />
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/3"
+                      title="Position"
+                      type="text"
+                      formControlName="position"
+                      placeholder="Position"
+                    />
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/3"
+                      title="Position"
+                      type="text"
+                      formControlName="description"
+                      placeholder="Description"
+                    />
+                  </span>
+
+                  <span class="flex justify-between mt-1 gap-1">
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/2 flex-grow min-w-0"
+                      title="Start Date"
+                      type="date"
+                      formControlName="startDate"
+                    />
+                    <span class="place-items-center place-content-center"
+                      >-</span
+                    >
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/2 flex-grow min-w-0"
+                      title="End Date"
+                      type="date"
+                      formControlName="endDate"
+                    />
+                    <button
+                      type="button"
+                      pButton
+                      icon="pi pi-times"
+                      (click)="removeExperience(i)"
+                      class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
+                      title="Remove Experience"
+                    ></button>
+                  </span>
                 </span>
-                <button
-                  type="button"
-                  pButton
-                  icon="pi pi-times"
-                  (click)="removeExperience(i)"
-                  class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
-                  title="Remove Experience"
-                ></button>
+              </div>
+
+              <div
+                *ngIf="isSubmitted && experiencesArray.errors?.['atLeastOneFieldRequired']"
+                class="text-red-600 text-xs"
+              >
+                {{ getErrorMessage("profile.experiences") }}
               </div>
             </div>
 
@@ -629,43 +730,56 @@
                 >
                   {{ i + 1 }}
                 </button>
-                <span class="gap-1 w-full flex justify-between">
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-2/4"
-                    title="Freelancer Certification Name Input"
-                    type="text"
-                    formControlName="name"
-                    placeholder="Name"
-                  />
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-2/4"
-                    title="Freelancer Certification Issuing Organization Input"
-                    type="text"
-                    formControlName="issuingOrganization"
-                    placeholder="Issuer"
-                  />
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-1/6"
-                    title="Freelancer Certification Issue Date Input"
-                    type="date"
-                    formControlName="issueDate"
-                  />
-                  <span class="place-items-center place-content-center">-</span>
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-1/6"
-                    title="Freelancer Certification Expiration Date Input"
-                    type="date"
-                    formControlName="expirationDate"
-                  />
+                <span class="gap-1 w-full flex flex-col">
+                  <span class="flex justify-between gap-1">
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-2/4"
+                      title="Certification Name"
+                      type="text"
+                      formControlName="name"
+                      placeholder="Name"
+                    />
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-2/4"
+                      title="Issuer"
+                      type="text"
+                      formControlName="issuingOrganization"
+                      placeholder="Issuer"
+                    />
+                  </span>
+                  <span class="flex justify-between mt-1 gap-1">
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/2 flex-grow min-w-0"
+                      title="Issue Date"
+                      type="date"
+                      formControlName="issueDate"
+                    />
+                    <span class="place-items-center place-content-center"
+                      >-</span
+                    >
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/2 flex-grow min-w-0"
+                      title="Expiration Date"
+                      type="date"
+                      formControlName="expirationDate"
+                    />
+                    <button
+                      type="button"
+                      pButton
+                      icon="pi pi-times"
+                      (click)="removeCertification(i)"
+                      class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
+                      title="Remove Certification"
+                    ></button>
+                  </span>
                 </span>
-                <button
-                  type="button"
-                  pButton
-                  icon="pi pi-times"
-                  (click)="removeCertification(i)"
-                  class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
-                  title="Remove Certification"
-                ></button>
+              </div>
+
+              <div
+                *ngIf="isSubmitted && certificationsArray.errors?.['atLeastOneFieldRequired']"
+                class="text-red-600 text-xs"
+              >
+                {{ getErrorMessage("profile.certifications") }}
               </div>
             </div>
 
@@ -674,7 +788,6 @@
               *ngIf="freelancerForm.get('profile.education')"
               formArrayName="education"
             >
-              <!-- add new education item -->
               <div
                 class="flex justify-start place-content-center place-items-center mb-2 mt-2 pt-2"
               >
@@ -700,50 +813,63 @@
                 >
                   {{ i + 1 }}
                 </button>
-                <span class="gap-1 w-full flex justify-between">
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-2/5"
-                    title="Freelancer Education Institution Input"
-                    type="text"
-                    formControlName="institution"
-                    placeholder="Institution"
-                  />
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-2/5"
-                    title="Freelancer Education Degree Input"
-                    type="text"
-                    formControlName="degree"
-                    placeholder="Degree"
-                  />
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-2/5"
-                    title="Freelancer Education Field of Study Input"
-                    type="text"
-                    formControlName="fieldOfStudy"
-                    placeholder="Field"
-                  />
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-1/6"
-                    title="Freelancer Education Start Date Input"
-                    type="date"
-                    formControlName="startDate"
-                  />
-                  <span class="place-items-center place-content-center">-</span>
-                  <input
-                    class="border border-gray-300 rounded-lg p-2 w-1/6"
-                    title="Freelancer Education End Date Input"
-                    type="date"
-                    formControlName="endDate"
-                  />
+                <span class="gap-1 w-full flex flex-col">
+                  <span class="flex justify-between gap-1">
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/3"
+                      title="Institution"
+                      type="text"
+                      formControlName="institution"
+                      placeholder="Institution"
+                    />
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/3"
+                      title="Degree"
+                      type="text"
+                      formControlName="degree"
+                      placeholder="Degree"
+                    />
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/3"
+                      title="Field"
+                      type="text"
+                      formControlName="fieldOfStudy"
+                      placeholder="Field"
+                    />
+                  </span>
+                  <span class="flex justify-between mt-1 gap-1">
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/2 flex-grow min-w-0"
+                      title="Start Date"
+                      type="date"
+                      formControlName="startDate"
+                    />
+                    <span class="place-items-center place-content-center"
+                      >-</span
+                    >
+                    <input
+                      class="border border-gray-300 rounded-lg p-2 w-1/2 flex-grow min-w-0"
+                      title="End Date"
+                      type="date"
+                      formControlName="endDate"
+                    />
+                    <button
+                      type="button"
+                      pButton
+                      icon="pi pi-times"
+                      (click)="removeEducation(i)"
+                      class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
+                      title="Remove Education"
+                    ></button>
+                  </span>
                 </span>
-                <button
-                  type="button"
-                  pButton
-                  icon="pi pi-times"
-                  (click)="removeEducation(i)"
-                  class="hover:bg-gray-200 rounded w-10 h-10 ml-2"
-                  title="Remove Education"
-                ></button>
+              </div>
+
+              <div
+                *ngIf="isSubmitted && educationArray.errors?.['atLeastOneFieldRequired']"
+                class="text-red-600 text-xs"
+              >
+                {{ getErrorMessage("profile.education") }}
               </div>
             </div>
           </div>

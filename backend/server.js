@@ -10,7 +10,7 @@ const port = 3000;
 
 // cors configuration - allow requests from frontend (http://localhost:4200) | https://freelancer-profile-manager.vercel.app
 const corsOptions = {
-  origin: "http://localhost:4200",
+  origin: " https://freelancer-profile-manager.vercel.app",
   optionsSuccessStatus: 204,
   methods: "GET, POST, PUT, DELETE",
 };
@@ -118,7 +118,7 @@ app.post("/freelancers", (req, res) => {
       subscription: {
         id: maxId + 1,
         plan: subscription.plan,
-        startDate: subscription.startDate,
+        startDate: new Date(),
         endDate: subscription.endDate,
         isActive: subscription.isActive,
       },

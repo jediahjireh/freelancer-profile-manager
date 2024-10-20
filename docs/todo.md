@@ -65,8 +65,8 @@
 - [x] Update README.md screenshots
 - [x] Emit updated at value
 - [x] Include Entity Relationship Diagram that aided with model visualisation (generated on [eraser.io](eraser.io))
-- [ ] Form validation
-- [ ] Restructure array items in popup display for smaller screens
+- [x] Form validation
+- [x] Restructure array items in popup display for smaller screens
 
 ### Components to Separate
 

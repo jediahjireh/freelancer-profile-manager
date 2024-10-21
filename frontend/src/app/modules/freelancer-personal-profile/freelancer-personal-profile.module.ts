@@ -6,7 +6,6 @@ import { MessagesModule } from 'primeng/messages';
 import { EditPopupComponent } from '../../components/edit-popup/edit-popup.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProfileElementsComponent } from '../../components/freelancer-data/profile-elements/profile-elements.component';
-import { FreelancerActionsComponent } from '../../components/freelancer-actions/freelancer-actions.component';
 import { ButtonModule } from 'primeng/button';
 
 @NgModule({

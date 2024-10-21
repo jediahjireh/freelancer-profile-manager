@@ -12,7 +12,6 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
-import { FreelancerActionsComponent } from '../components/freelancer-actions/freelancer-actions.component';
 
 @Component({
   selector: 'app-freelancer-listings',
@@ -27,7 +26,6 @@ import { FreelancerActionsComponent } from '../components/freelancer-actions/fre
     InputGroupModule,
     InputGroupAddonModule,
     MatProgressSpinnerModule,
-    FreelancerActionsComponent,
   ],
   templateUrl: './freelancer-listings.component.html',
   styleUrl: './freelancer-listings.component.css',

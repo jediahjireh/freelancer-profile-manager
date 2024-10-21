@@ -179,10 +179,11 @@
 
 ### Potential improvement ideas
 
-- [ ] Display similar profiles to the right of the freelancer personal profile cards
-- [ ] When a user’s profile picture is clicked while within the user's profile, show the image in its own popup display
+- [ ] Display similar profiles to the right of the freelancer personal profile cards.
+- [ ] When a user’s profile picture is clicked while within the user's profile, show the image in its own popup display.
 - [ ] Allow for more specific field editing by adding an “edit mode” toggle. When edit mode is toggled on, then only will the edit pencils become visible on each card, rather than a singular edit popup.
+- [ ] Implement an array service providing utility methods for profile arrays.
 
 ### Design Choices (Task 2)
 
-In conjunction to prior reasoning, LinkedIn's display for showcasing user profiles inspired the freelancer personal profile page display, in an effort to best adhere to industry standards, consistency and uniformity. A pop of colour was added for visual enhancement, while still harmonising with the neutral primary colours. Rather than rendering an edit pencil on each card and allowing relevant fields to directly be accessed for specific editing, I kept with the theme of allowing a user to see EXACTLY what potential clients see. An alternative option to allow for more specific field editing (but still keep this concept in mind) would be to add an “edit mode” in an overlay panel (and there, allow the option for deletion as well) and when the edit mode is selected and accessed then only will the edit pencils become visible on each card.
+In conjunction with the prior reasoning, LinkedIn's display for showcasing user profiles inspired the freelancer personal profile page display, in an effort to best adhere to industry standards, consistency and uniformity. A pop of colour was added for visual enhancement, while still harmonising with the neutral primary colours. Rather than rendering an edit pencil on each card and allowing relevant fields to directly be accessed for specific editing, I kept with the theme of allowing a user to see EXACTLY what potential clients see. An alternative option to allow for more specific field editing (but still keep this concept in mind) would be to add an “edit mode” in an overlay panel (and there, allow the option for deletion as well) and when the edit mode is selected and accessed then only will the edit pencils become visible on each card.

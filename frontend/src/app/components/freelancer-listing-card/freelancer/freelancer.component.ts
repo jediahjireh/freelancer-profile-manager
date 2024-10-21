@@ -13,7 +13,6 @@ import { Freelancer } from '../../../types/types';
 import { MatCardModule } from '@angular/material/card';
 import { FreelancerHeaderComponent } from '../freelancer-header/freelancer-header.component';
 import { FreelancerFooterComponent } from '../freelancer-footer/freelancer-footer.component';
-import { FreelancerActionsComponent } from '../../freelancer-actions/freelancer-actions.component';
 import { FreelancerContentComponent } from '../freelancer-content/freelancer-content.component';
 import { ProfileInformationComponent } from '../profile-information/profile-information.component';
 
@@ -27,7 +26,6 @@ import { ProfileInformationComponent } from '../profile-information/profile-info
     ToastModule,
     FreelancerHeaderComponent,
     FreelancerFooterComponent,
-    FreelancerActionsComponent,
     FreelancerContentComponent,
     MatCardModule,
     ProfileInformationComponent,
